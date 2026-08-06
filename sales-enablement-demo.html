@@ -1408,8 +1408,24 @@
     min-width: 0; position: relative;
   }
   .wb-main-header {
-    height: 50px; display: flex; align-items: center; justify-content: center;
-    border-bottom: 1px solid #f0f0f0; font-size: 15px; font-weight: 600; color: var(--text);
+    height: 50px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0; padding: 0 16px;
+  }
+  .wb-header-title {
+    flex: 1; text-align: center; font-size: 15px; font-weight: 600; color: var(--text);
+  }
+  .wb-header-lang-btn {
+    display: flex; align-items: center; gap: 4px;
+    padding: 5px 10px; border: 1px solid #e5e7eb; border-radius: 8px;
+    background: var(--surface); font-size: 13px; color: var(--text-secondary);
+    cursor: pointer; transition: all .15s;
+  }
+  .wb-header-lang-btn:hover { border-color: var(--primary); color: var(--primary); }
+  .lang-dropdown-header {
+    position: absolute; top: 38px; right: 0;
+    background: var(--surface); border: 1px solid #e5e7eb;
+    border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    z-index: 100; min-width: 150px; overflow: hidden;
   }
   .wb-messages {
     flex: 1; overflow-y: auto; padding: 24px 16px;
@@ -1684,7 +1700,9 @@
     .wb-sidebar { position: absolute; left: 0; top: 0; bottom: 0; z-index: 20; transform: translateX(-100%); transition: transform .25s; }
     .wb-sidebar.open { transform: translateX(0); }
     .wb-sidebar-toggle { display: flex; }
-    .wb-main-header { justify-content: center; padding-left: 44px; }
+    .wb-main-header { padding: 0 10px 0 50px; }
+    .wb-header-lang-btn { font-size: 12px; padding: 4px 8px; }
+    .wb-header-title { font-size: 14px; }
     .workbench-page { position: relative; }
   }
 
@@ -1804,7 +1822,22 @@
         <div class="wb-sidebar-toggle" onclick="toggleWbSidebar()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </div>
-        <div class="wb-main-header" id="wbMainHeader">Sales Copilot销售AI赋能助手</div>
+        <div class="wb-main-header" id="wbMainHeader">
+          <span class="wb-header-title">Sales Copilot销售AI赋能助手</span>
+          <div class="lang-selector-wrapper" style="position:relative;flex-shrink:0;">
+            <button class="wb-header-lang-btn" onclick="toggleLanguageMenu()">
+              <span class="lang-current-label">🇨🇳 中文</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown-header" style="display:none;">
+              <div class="lang-dropdown-item" data-lang="zh" style="padding:6px 14px;font-size:13px;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('zh')">🇨🇳 中文</div>
+              <div class="lang-dropdown-item" data-lang="en" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('en')">🇬🇧 English</div>
+              <div class="lang-dropdown-item" data-lang="fr" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('fr')">🇫🇷 Français</div>
+              <div class="lang-dropdown-item" data-lang="es" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('es')">🇪🇸 Español</div>
+              <div class="lang-dropdown-item" data-lang="ha" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('ha')">🇳🇬 Hausa</div>
+            </div>
+          </div>
+        </div>
 
         <div class="wb-messages" id="wbMessages">
           <div class="wb-messages-inner" id="wbMessagesInner">
@@ -2116,18 +2149,6 @@
 
             <!-- 输入框 -->
             <div class="wb-input-area">
-              <div class="lang-selector-wrapper" style="position:relative;flex-shrink:0;">
-                <button class="wb-input-btn" title="切换语言" onclick="toggleLanguageMenu()" style="font-size:16px;">
-                  <span class="lang-current-label">🇨🇳 中文</span>
-                </button>
-                <div id="langDropdown" style="display:none;position:absolute;bottom:44px;left:0;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:100;min-width:150px;overflow:hidden;">
-                  <div class="lang-dropdown-item" data-lang="zh" style="padding:6px 14px;font-size:13px;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('zh')">🇨🇳 中文</div>
-                  <div class="lang-dropdown-item" data-lang="en" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('en')">🇬🇧 English</div>
-                  <div class="lang-dropdown-item" data-lang="fr" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('fr')">🇫🇷 Français</div>
-                  <div class="lang-dropdown-item" data-lang="es" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('es')">🇪🇸 Español</div>
-                  <div class="lang-dropdown-item" data-lang="ha" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('ha')">🇳🇬 Hausa</div>
-                </div>
-              </div>
               <textarea id="wbInput" placeholder="有问题，随便问" data-i18n-placeholder="input_placeholder" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendWbMessage();}"></textarea>
               <button class="wb-input-btn" title="语音输入" data-i18n-title="voice_input" onclick="startVoiceInput()" id="wbVoiceBtn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
@@ -2850,7 +2871,8 @@
     // Update title
     document.title = t('workbench_title');
     // Update header
-    document.getElementById('wbMainHeader').textContent = t('workbench_title');
+    var headerTitle = document.querySelector('.wb-header-title');
+    if (headerTitle) headerTitle.textContent = t('workbench_title');
     // Update greeting if visible
     if (workMode === 'qa') updateGreetingForLang();
   }
