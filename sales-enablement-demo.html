@@ -3920,20 +3920,20 @@
         scrollWbMessages();
       });
     } else if (workMode === 'training') {
-      var p = document.getElementById('wbProduct').value;
-      var a = document.getElementById('wbAvatar').value;
-      var l = document.getElementById('wbLang').value;
-      if (!p || !a || !l) {
-        var reply = t('click_generate');
-        setTimeout(function(){ addWbAiMsg(renderMarkdown(reply)); saveMessageToChat(currentChatId, 'ai', reply); }, 500);
-      } else {
-        setTimeout(function(){
-          var prodName = document.getElementById('wbProduct').selectedOptions[0].text.split(' —')[0];
-          var reply = t('ready_training', { product: prodName, avatar: wbAvatarNames[a], lang: wbLangNames[l] });
-          addWbAiMsg(renderMarkdown(reply));
-          saveMessageToChat(currentChatId, 'ai', reply);
-        }, 500);
-      }
+      // Training mode chat works the same as QA: free-form AI Q&A
+      addWbAiMsg(t('llm_loading'));
+      askAI(text).then(function(reply) {
+        var bubbles = document.querySelectorAll('#wbMessagesInner .wb-msg.ai .wb-msg-bubble');
+        var last = bubbles[bubbles.length - 1];
+        var rendered = renderMarkdown(reply);
+        if (last && last.textContent === t('llm_loading')) {
+          last.innerHTML = rendered;
+        } else {
+          addWbAiMsg(rendered);
+        }
+        saveMessageToChat(currentChatId, 'ai', reply);
+        scrollWbMessages();
+      });
     } else if (workMode === 'practice') {
       if (practiceState.inProgress) {
         // Route to practice conversation handler
