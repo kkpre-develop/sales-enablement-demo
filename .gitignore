@@ -13,8 +13,6 @@ certs/
 # Backup files
 *.backup-*.json
 
-# Large static assets (not needed for Render deployment)
-avatar-video.mp4
-videos/
+# Raw source files (not needed for deployment)
 原始视频/
 原始答疑知识库/
