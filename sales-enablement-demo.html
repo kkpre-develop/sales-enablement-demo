@@ -3036,9 +3036,8 @@
       document.getElementById('wbPracticeRole').textContent = info.role;
       document.getElementById('wbPracticeStatus').textContent = t('practice_ended');
       document.querySelector('.wb-practice-dot').style.background = '#ef4444';
-      // Initialize Duix avatar for history view
-      initDuixAvatar();
-
+      // DO NOT auto-start Duix when loading history — digital human only starts
+      // when user explicitly clicks "开始实战演练"
       // Show practice session (read-only mode - showing past conversation)
       document.getElementById('wbPracticeInput').style.display = 'none';
       document.getElementById('wbPracticeSession').style.display = 'block';
@@ -3574,12 +3573,18 @@
   };
 
   // ===== AI 工作台 — ChatGPT 聊天 =====
-  var workMode = 'training'; // training | qa | practice
+  var workMode = 'qa'; // training | qa | practice — default to QA assistant
   var speechVoices = []; // Cached speech synthesis voices
   var wbAvatarNames = { emma:'Emma', caleb:'Caleb', kai:'Kai', sofia:'Sofia' };
   var wbLangNames = { zh:'中文', en:'English', fr:'French', ha:'Hausa', hi:'Hindi' };
 
   function switchWorkMode(mode, silent) {
+    // Persist current mode
+    localStorage.setItem('salesAI_workMode', mode);
+    // Stop Duix when leaving practice mode
+    if (workMode === 'practice' && mode !== 'practice') {
+      cleanupDuix();
+    }
     workMode = mode;
     // Update sidebar menu active states
     document.querySelectorAll('.wb-menu-item[data-mode]').forEach(function(b){ b.classList.remove('active'); });
@@ -4529,14 +4534,14 @@
         }
         loadChatMessages(currentChatId);
       } else {
-        var chat = createNewChat('training');
+        var chat = createNewChat('qa');
         currentChatId = chat.id;
         resetWorkbenchChatUI();
-        // Show training selectors since we default to training mode
-        document.getElementById('wbTrainingSelectors').style.display = 'flex';
+        // Default to QA assistant on first visit
         document.getElementById('wbMessages').style.display = '';
         document.getElementById('wbBottomArea').style.display = '';
         document.getElementById('wbMainHeader').style.display = '';
+        addWbGreetingInner();
       }
 
       // Always refresh the recent list - this ensures history chats are visible immediately
@@ -4544,6 +4549,10 @@
 
       // Clean up Duix on page unload / tab close
       function handlePageUnload() {
+        // Save practice state if in progress before cleaning up
+        if (workMode === 'practice' && practiceState.inProgress) {
+          try { savePracticeStateToChat(); } catch(e) {}
+        }
         cleanupDuix();
         var container = document.getElementById('wbPracticeDuixContainer');
         if (container) container.innerHTML = '';
