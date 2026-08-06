@@ -4452,16 +4452,18 @@
     // Stop Duix digital human
     cleanupDuix();
 
-    var st = document.getElementById('wbPracticeStatus');
-    st.textContent = t('practice_ended');
-    document.querySelector('.wb-practice-dot').style.background = '#ef4444';
-    var canvasWrap = document.getElementById('wbPracticeCanvasWrap');
-    if (canvasWrap) canvasWrap.classList.remove('speaking');
-    document.getElementById('wbPracticeSpeaking').style.display = 'none';
-    document.getElementById('wbPracticeSubtitle').textContent = t('practice_ended');
-    document.getElementById('wbPracticeReplayBtn').style.display = 'none';
+    // Immediately switch back to the setup panel (hide session, show input)
+    document.getElementById('wbPracticeInput').style.display = 'flex';
+    document.getElementById('wbPracticeSession').style.display = 'none';
 
-    // Get score from LLM
+    // Clear the digital human video container
+    var duixContainer = document.getElementById('wbPracticeDuixContainer');
+    if (duixContainer) duixContainer.innerHTML = '';
+
+    // Reset practice state for next round
+    practiceState.history = [];
+
+    // Get score from LLM (async, shown in chat below)
     addWbAiMsg(t('practice_scoring') || '正在生成演练评分...');
     saveMessageToChat(currentChatId, 'ai', t('practice_scoring') || '正在生成演练评分...');
     try {
@@ -4484,17 +4486,6 @@
       addWbAiMsg(t('practice_score', { score: total }));
       saveMessageToChat(currentChatId, 'ai', t('practice_score', { score: total }));
     }
-
-    // Reset after a delay
-    setTimeout(function() {
-      if (confirm(t('practice_return'))) {
-        document.getElementById('wbPracticeInput').style.display = 'flex';
-        document.getElementById('wbPracticeSession').style.display = 'none';
-        st.textContent = t('practice_live');
-        document.querySelector('.wb-practice-dot').style.background = '';
-        practiceState.history = [];
-      }
-    }, 2000);
   }
 
   function buildScoreDisplay(data) {
