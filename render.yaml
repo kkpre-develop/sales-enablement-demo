@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: sales-enablement-demo
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    envVars:
+      - key: DUIX_APP_ID
+        sync: false
+      - key: DUIX_APP_KEY
+        sync: false
+      - key: HIMODELS_API_KEY
+        sync: false
+      - key: HIMODELS_MODEL
+        value: gpt-5.5
+      - key: HIMODELS_BASE_URL
+        value: https://api.himodels.ai/v1
+    autoDeploy: true
