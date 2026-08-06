@@ -1,0 +1,13 @@
+{
+  "name": "sales-enablement-demo",
+  "version": "1.0.0",
+  "description": "Sales AI 销售赋能平台",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

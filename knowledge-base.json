@@ -1,0 +1,2242 @@
+{
+  "version": 3,
+  "name": "Sales AI 本地知识库（LLM深度抽取版）",
+  "description": "AI 答疑助手本地知识库。由 gpt-5.5 从原始文档全文深度抽取生成，覆盖业务流程、对接人、邮箱模板、时间节点、政策要求等详细信息。修改后刷新页面即可生效。",
+  "updatedAt": "2026-08-05T08:33:06",
+  "sourceFolder": "/Users/shmiyangkuan/Downloads/sales-enablement-demo/原始答疑知识库",
+  "items": [
+    {
+      "q": [
+        "IAA对接人",
+        "IAA的对接人是谁",
+        "iaa的对接人是谁",
+        "IAA联系人",
+        "IAA运营对接人",
+        "游戏IAA对接人",
+        "游戏IAA联系人",
+        "APK IAA对接人",
+        "APK IAA运营",
+        "IAA contact",
+        "IAA operation contact"
+      ],
+      "a": "<b>IAA 对接人</b>：<br>• APK IAA 运营：@孟奇标、@唐舒嘉<br>• H5（AHA）IAA：@郑林君<br><br><small>来源：游戏联运业务运营流程_V2.1，对接人清单/快速开启游戏联运。</small>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1 ）.md",
+      "section": "IAA 对接人精准问答"
+    },
+    {
+      "q": [
+        "IAP对接人",
+        "IAP的对接人是谁",
+        "iap的对接人是谁",
+        "IAP联系人",
+        "IAP运营对接人",
+        "游戏IAP对接人",
+        "游戏IAP联系人",
+        "APK IAP对接人",
+        "IAP及混变运营",
+        "IAP contact",
+        "IAP operation contact"
+      ],
+      "a": "<b>IAP 对接人</b>：<br>• APK IAP、IAA+IAP 混变运营：@姜泽华、@陈婷婷<br>• EE1-IAP：@程昶<br><br><small>来源：游戏联运业务运营流程_V2.1，对接人清单/快速开启游戏联运。</small>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1 ）.md",
+      "section": "IAP 对接人精准问答"
+    },
+    {
+      "q": [
+        "广告合作流程V4.0是什么",
+        "Advertisement Cooperation Process V4.0",
+        "广告业务合作流程概览",
+        "Dlightek广告流程总览",
+        "广告合作SOP",
+        "ad cooperation process",
+        "广告流程文档用途"
+      ],
+      "a": "<b>Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）</b>是Dlightek广告业务的统一执行流程文档，用于系统性梳理广告合作从客户报备、签署协议、开户/下单、应用上架、到款确认、投放计划、结算到合作终止的全链路。V4.0于<b>2026.5.25</b>发布，重点是合并原Eagllwin、分发运营订单、媒体直投等所有广告相关场景执行文件，并对流程、材料、联系人、政策要求、结算和终止事项进行归纳汇总，便于销售和业务相关角色快速推动执行。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "V4.0更新了什么",
+        "2026.5.25版本变更",
+        "广告流程V4主要变化",
+        "V4 update list",
+        "新版广告流程改动",
+        "Eagllwin分发直投合并",
+        "EW开票变化"
+      ],
+      "a": "<b>2026.5.25 V4.0</b>主要变更包括：<ul><li>1. 合并原Eagllwin、分发运营订单、媒体直投等所有广告相关场景执行文件，系统性梳理Dlightek广告业务流程，对相关信息归纳汇总呈现。</li><li>2. 原媒体直投场景，即非程序化资源合作需求，收口至<b>商业化-品牌类客户组</b>。</li><li>3. EW开票改用飞书表格处理，提升流程标准化程度；分发订单仍通过分发系统开票不变。</li><li>4. 分发订单数据的差异确认，走BPM流程。</li></ul>",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "V3.1更新内容",
+        "2025.9.23版本",
+        "V3.1和V3.0差异",
+        "version 3.1 changes",
+        "广告全业务流程拆解",
+        "流程联系人更新"
+      ],
+      "a": "<b>2025.9.23 V3.1</b>相较V3.0主要内容未发生变化，更多是呈现简化和信息修订。变更包括：新增广告全业务流程拆解，对比EW、分发、直投流程差异，加强销售理解；原流程图曾细化每个角色每一步导致冗余，更新后以环节为主导，把角色需执行事项拆解到环节中；原流程按直客、代理、后付三大场景拆得较细且重复，更新后归总并新增对比表格；同时更新最新流程联系人信息和环节相关材料链接。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "历史版本记录",
+        "V1 V2 V3版本",
+        "广告流程创建时间",
+        "version history",
+        "2023.11.30 V2.0",
+        "2024.9.25 V3.0",
+        "2022.8.19 V1.0"
+      ],
+      "a": "<b>广告业务合作流程历史版本</b>包括：<ul><li><b>2024.9.25 V3.0</b>：因职能调整，文���进行适应性优化。</li><li><b>2023.11.30 V2.0</b>：文档创建，整体性梳理Eagllwin合作流程信息，按直客/代理/后付三种场景划分，明确各职能/角色事项，并汇总各环节相关文档。</li><li><b>2022.8.19 V1.0</b>：首次流程展示广告代理商合作执行链路，链接为<a href=\"https://transsioner.feishu.cn/docs/doccnzJMxMf447ywcrlugiIiAxg\">广告代理商合作执行流程</a>。</li></ul>",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "快速执行流程",
+        "广告合作八步",
+        "quick execution guide",
+        "销售怎么快速推进广告合作",
+        "客户报备到合作终止",
+        "广告执行链路",
+        "ad cooperation steps"
+      ],
+      "a": "<b>快速执行引导</b>按八个环节推进：客户报备 → 签署协议 → 开户/下单 → 应用上架 → 到款确认 → 投放计划 → 结算 → 合作终止。销售需先通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">客户报备表单</a>报备，再发起<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">BPM-LA11签约</a>，随后根据EW或分发订单路径完成开户注册、下单、充值/到款确认、投放配置、账单确认开票以及终止时关停或停投。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "广告合作方式怎么区分",
+        "Eagllwin和分发运营区别",
+        "4个问题区分广告合作",
+        "how to choose EW or distribution",
+        "业务场景概述",
+        "广告合作模式分类",
+        "EW vs distribution"
+      ],
+      "a": "<b>广告合作方式</b>主要用4个问题区分：投放在哪些资源/媒体上、谁来买量和运营、是否有代理返货、客户接受哪种价格和结算模式。<b>Eagllwin</b>覆盖程序化媒体资源位、PAI及优选流量、其它非程序化资源、ADX（IN地区）以及EE1/IN特殊地区配置，通常由客户注册开户并自行创建计划；<b>分发运营</b>主要是KA直客的分发运营整体交付和桌面非程序化资源，由分发运营买量及配置，且固定结算单价。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "Eagllwin投放资源有哪些",
+        "EW媒体资源",
+        "PAI优选流量",
+        "ADX IN广告合作",
+        "AHA Hola资源",
+        "EE1 IN广告注意事项",
+        "Eagllwin inventory"
+      ],
+      "a": "<b>Eagllwin可合作资源</b>包括：1. 所有程序化媒体资源位；2. PAI及优选流量，需与商业化运营沟通并通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">开白名单申请</a>，操作说明为<a href=\"https://transsioner.feishu.cn/wiki/Bbp9wUzBDiNbRVkVsHQcDLoWn9f\">EW平台PAI及优选流量下单投放</a>；3. 其它非程序化资源，如AHA悬浮球、Hola Icon等，品牌整合营销对接@冯婷婷；4. ADX（IN地区）广告合作，需提前与商业化运营@姜志峰@崔子慧沟通后发起需求；5. EE1、IN地区广告投放需单独沟通配置，因为系统无法控制日预算。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发运营投放范围",
+        "distribution delivery scope",
+        "分发订单支持哪些资源",
+        "负一屏杂志锁屏",
+        "KA直客分发",
+        "代理协议支持分发吗",
+        "桌面非程序化资源"
+      ],
+      "a": "<b>分发运营</b>适用于KA直客的分发运营整体交付，签署代理协议的客户不支持分发交付。分发运营还覆盖桌面非程序化资源，包括<b>负一屏</b>和<b>杂志锁屏</b>：负一屏属于技术合作，有准入要求；杂志锁屏的准入门槛极高。分发运营模式下，客户订单进入后由<b>分发运营</b>负责运营买量和配置，而非客户自行创建计划。分发合作只支持CPM、CPC、CPD、CPI，结算价格需与分发运营沟通。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "谁来买量",
+        "客户自投还是运营代投",
+        "who operates campaigns",
+        "EW谁创建计划",
+        "分发谁买量",
+        "账户授权后谁配置",
+        "运营买量区别"
+      ],
+      "a": "<b>买量和运营主体</b>在不同模式下不同：Eagllwin通常由<b>客户</b>完成注册开户后自行创建广告计划并买量；如涉及其它非程序化资源买量，客户需要进行账户授权，授权后由运营进行配置。分发运营订单则是客户下订单后，由<b>分发运营</b>执行运营买量和配置。该差异是判断合作路径的重要依据：EW偏客户自助投放，分发偏运营整体交付。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "代理返货政策",
+        "是否有返点",
+        "rebate policy",
+        "EW代理返货",
+        "分发有返货吗",
+        "预付返货",
+        "纯现金消耗"
+      ],
+      "a": "<b>代理返货/返点规则</b>为：Eagllwin在预付且符合政策的情况下，可能存在返货返点；代理合作支持EW<a href=\"https://transsioner.feishu.cn/docx/WHQgdQohOoGfiyxO4JVciybVnBc#share-BQYJdKaOuoj8CBxZyKUcSv3Xnqf\">预付费代理返货</a>。但EW代理返货不支持抵扣分发运营订单。分发运营订单仅支持<b>纯现金消耗</b>，无代理返点返货。与JV公司或其它合作方进行广告合作，也不适用我司返货返点政策。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "价格和结算模式",
+        "EW价格模式",
+        "分发固定单价",
+        "programmatic bidding price",
+        "非程序化资源价格",
+        "实时竞价",
+        "fixed settlement price"
+      ],
+      "a": "<b>价格与结算模式</b>上，Eagllwin的程序化���源采用程序化竞价，价格非固定且为实时动态；EW非程序化资源则以审批通过时的价格为准。特别注意：如果客户调整广告计划，而新计划尚未审批通过，则新计划里填写的价格不生效，这与程序化实时动态计价存在本质差异。分发运营订单则采用<b>固定结算单价</b>，具体结算价格需与分发运营沟通确认。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "JV合作广告流程",
+        "JV下单流程",
+        "Max MovieBox合作",
+        "外部媒体合作",
+        "JV rebate policy",
+        "合资公司广告",
+        "不适用返货返点"
+      ],
+      "a": "<b>与JV公司或其它合作方进行广告合作</b>时，不适用我司返货返点政策。相关执行文件包括：<a href=\"https://transsioner.feishu.cn/docx/J4WTdTNDSocs2kxL8PScTTb5nGc\">JV下单流程（属于与外部媒体合作）</a>，以及<a href=\"https://transsioner.feishu.cn/docx/FGrndTWE3oPHJQxpGrLcNmQ6ngf\">Max & MovieBox合作</a>。如果合作对象是合资公司（JV），签约流程按常规签约流程执行，与外部客户一致。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "直客和代理区别",
+        "direct client vs agency",
+        "直客合作执行差异",
+        "代理合作流程",
+        "代理开户",
+        "直客合同模板",
+        "agency due diligence"
+      ],
+      "a": "<b>直客合作与代理合作差异</b>包括：直客政策开放后付合作申请，但无预付费代理返货政策；签约使用直客合同模板；EW开户从<a href=\"https://www.eagllwin.com/\">EW官网</a>注册登录。代理合作后付审批受限，支持EW预付费代理返货，但不支持抵扣分发运营订单；签约使用代理合同模板，签约前需完成尽调流程；代理从<a href=\"https://agent.eagllwin.com/\">代理商平台</a>注册登录，可创建多个不同的子直客账户投放广告。代理特有流程如尽调、升级、返点、证明可查<a href=\"https://transsioner.feishu.cn/docx/Cf4XdFavNouRgUxdEnqcmb0Nnoh\">代理商全流程执行一页纸</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "预付和后付区别",
+        "prepaid vs postpaid",
+        "预付合作流程",
+        "后付合作要求",
+        "后付白名单",
+        "授信额度",
+        "现金充值入账"
+      ],
+      "a": "<b>预付合作/后付合作差异</b>：预付合作无需特别说明，合同条款无需额外调整，开户成功默认是预付账户，EW充值为现金充值入账；正式开展业务时如确实无法提供归档合同，可提供合同流程编号快速执行。后付合作需<a href=\"https://transsioner.feishu.cn/docx/M3txdYD6jovHgyxDih2c1AEon1f\">提前申请</a>，合同需描述回款条款，正式合作前必须有我司法务确认且对方已盖章的合同文件；EW开户成功后需沟通设置为后付费账户，充值为授信额度入账，回款后需系统充值还款付款释放授信额度。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "预付后付结算差异",
+        "后付结束怎么办",
+        "prepay settlement",
+        "postpay settlement",
+        "EW后付回收授信",
+        "分发停投",
+        "后付开票追款"
+      ],
+      "a": "<b>结算和合作结束差异</b>为：预付合作中，EW不强制要求与客户进行数据确认；分发订单仍需每月及时与客户数据确认。预付合作结束时，分发订单需系统同步停投信息。后付合作中，EW和分发订单每月均需及时与客户进行数据确认，并开票追款；合作结束时，分发订单需系统同步停投信息，EW订单则需及时告知回收授信额度，避免坏账。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "合同条款修改怎么办",
+        "非我司合同模板",
+        "contract template changes",
+        "合同模板无修改",
+        "法务提前沟通",
+        "合同条款调整要求"
+      ],
+      "a": "<b>合同条款调整规则</b>：如果使用我司合同模板且无任何条款修改，则无额外特殊差异要求；如果合同模板有条款修改，或使用非我司合同模板，必须提前与法务沟通，之后再与客户沟通或提交系统签约流程。该要求适用于广告业务签署协议环节，目的是避免客户已确认条款后再被法务驳回，影响预计7至14个工作日的签约周期。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "客户报备怎么做",
+        "Client Registration Form",
+        "客户管理台账",
+        "client development policy",
+        "客户开发政策",
+        "报备链接",
+        "客户冲突管理"
+      ],
+      "a": "<b>客户报备</b>需填写<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">客户报备表单 Client Registration Form</a>。合作台账为<a href=\"https://transsioner.feishu.cn/base/NNudbSt5HabGrNsqV2acwQY5nIc?table=tbllPzdSYi5gqP8N&view=vewXyOxLg7\">客户管理台帐 Client Management Book</a>；客户开发和冲突管理政策为<a href=\"https://transsioner.feishu.cn/wiki/VzzYwzukcibQhrkmDn1cIeNYnsx\">客户开发及冲突管理政策/Client Development and Conflict Management Policy-V3.1</a>。销售在正式推动签约、开户、下单前应先完成报备，避免客户归属和冲突问题。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "签署协议流程",
+        "BPM-LA11",
+        "签约预计多久",
+        "contract signing process",
+        "代理尽调MI003",
+        "合同模板链接",
+        "银行账户信息"
+      ],
+      "a": "<b>签署协议</b>预估耗时为<b>7至14个工作日</b>，在无特殊情况延误的情况下执行。发起签约流程使用<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">BPM-LA11</a>。代理签约前需完成代理商尽调：<a href=\"https://hk-paas.transsion.com/front/matter/startProcess?flowKey=MI003\">BPM-MI003</a>。相关材料包括<a href=\"https://transsioner.feishu.cn/sheets/Dewis4hlZhkS4ZtYiOscwZt3nNf\">合同模板</a>、<a href=\"https://transsioner.feishu.cn/wiki/UzMhwh3jCirXkQkFQnFctMbVnqd\">主体及银行账户信息</a>、<a href=\"https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc?from=from_parent_docx\">签约引导+归档要求</a>、<a href=\"https://transsioner.feishu.cn/base/YetGbwBauaSXIAs0Bsnc5Zt3nUW?table=tblJBEwu7j84Lnke&view=vew9C8AiWN\">需归档的list</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "内部客户要签约吗",
+        "AHA是否签约",
+        "集团内部客户签约",
+        "JV签约流程",
+        "internal client contract",
+        "手机客户合同",
+        "合作对象不是外部客户"
+      ],
+      "a": "<b>合作对象不是外部客户时的签约规则</b>如下：移动互联内部客户，例如AHA，暂时无需签约；非移动互联但属于集团内部客户，例如手机业务，需签约，合同只需一方走流程，申请人勾选两方主体的印章；合资公司JV按常规签约流程走，与外部客户一致。该规则用于判断是否必须发起BPM-LA11及合同归档要求，避免内部合作误走或漏走流程。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW开户注册",
+        "直客账户注册网址",
+        "代理账户注册网址",
+        "Eagllwin signup",
+        "代理开户无合同审核吗",
+        "开户资料",
+        "EW account registration"
+      ],
+      "a": "<b>EW开户注册</b>分为直客和代理两类：直客账户从EW官网注册，网址为<a href=\"https://www.eagllwin.com/\">https://www.eagllwin.com/</a>；代理账户从代理商平台注册，网址为<a href=\"https://agent.eagllwin.com/\">https://agent.eagllwin.com/</a>。代理开户需有合同，无合同不审核，因此需及时签约。集团客户/JV客户合作也需正常提交开户资料和开户资质文件。开户完成后，需完成预付费充值或后付费申请，账户充值后即可开始下单投放广告。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "风控审核时效",
+        "开户审核多久",
+        "risk review time",
+        "素材审核时间",
+        "开户地址材料",
+        "应用上架指导",
+        "工作日9:30-18:30"
+      ],
+      "a": "<b>风控审核时效</b>为工作日<b>9:30-18:30（北京时间）</b>进行审核，通常<b>2个工作日内</b>完成审核，节假日则具体看风控排班。开户链接材料包括<a href=\"https://help-center.eagllwin.com/document?t=5264499&id=97\">开户注册要求</a>和<a href=\"https://help-center.eagllwin.com/document?t=6248164&id=324\">应用上架指导</a>。素材审核标准链接为<a href=\"https://help-center.eagllwin.com/document?t=3476930&id=105\">素材审核标准</a>，素材或资质被驳回时应进入风控沟通群询问原因。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "应用上架怎么做",
+        "PS上架步骤",
+        "开发者平台注册",
+        "dev.dlightek.com",
+        "app launch guide",
+        "应用管理创建新应用",
+        "非应用类忽略"
+      ],
+      "a": "<b>应用上架</b>仅适用于应用类客户，非应用类合作可忽略该步骤。PS上架步骤为：客户先注册<a href=\"https://dev.dlightek.com/\">开发者平台</a>账号；注册完成后登录账号，依次进入“账号管理”→“应用管理”→“创建新应用”。快速引导中也提醒，开户/下单环节可参考<a href=\"https://help-center.eagllwin.com/document?t=6248164&id=324\">应用上架指导</a>。分发订单如涉及APK测试、归因测试，也需要提前准备APK包及相关授权材料。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发订单支持模式",
+        "CPM CPC CPD CPI",
+        "分发运营订单材料",
+        "distribution order models",
+        "订单系统链接",
+        "结算价格找谁",
+        "手机重点场景白名单"
+      ],
+      "a": "<b>分发运营订单</b>仅支持<b>CPM、CPC、CPD、CPI</b>四种合作模式，结算价格需与分发��营沟通。相���材料包括<a href=\"https://help-center.eagllwin.com/document?t=6248164&id=324\">应用上架指导</a>、<a href=\"https://transsioner.feishu.cn/sheets/OY4Is3F87hF1nGtxn3ycFez1nEe?sheet=a3f778\">手机重点场景白名单（负一屏等）</a>。分发订单系统为<a href=\"https://offerorder-admin.palmplaystore.com/\">https://offerorder-admin.palmplaystore.com/</a>，由销售支持下单。常见问题可查<a href=\"https://transsioner.feishu.cn/docx/IcTidHeXjo6zh0x7KdDcajvpnlf\">KA客户--大分发服务地图</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发测试审核",
+        "APK测试内容",
+        "归因测试",
+        "Offer测试流程规范",
+        "三方平台SOP",
+        "Hitest自测",
+        "attribution requirement"
+      ],
+      "a": "<b>分发系统测试审核</b>包括两类：1. APK测试，即安全测试和兼容性测试；2. 归因测试，即埋点测试和三方平台是否授权。参考材料为<a href=\"https://transsioner.feishu.cn/docs/doccntI242HSsrmPdAhOKxuy0U2\">Offer测试流程规范V2.0</a>和<a href=\"https://transsioner.feishu.cn/drive/folder/fldcnLb0Q0nqTwKEsMvOpJytzRe?from=space_persnoal_filelist&fromShareWithMeNew=1\">三方对接平台中英文SOP</a>。提效方法是销售自行开通测试平台权限，下单前拿到客户APK包并上传TCTP平台自测，参考<a href=\"https://transsioner.feishu.cn/docx/QfLDd9x8yo7kZ5xhi43cY4pynfc\">开发者offer通过Hitest自测的流程操作手册</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发归因要求",
+        "非KA自归因",
+        "客户不授权看数据",
+        "third party attribution",
+        "数据截图要求",
+        "不接受自归因",
+        "归因关注"
+      ],
+      "a": "<b>分发归因关注点</b>：非KA订单一律不接受客户以自归因方式合作。如果使用三方平台归因，但客户不授权我方直接查看数据，则必须让客户提供三方平台数据截图，不支持仅提供数据表格。该要求属于下单和测试审核阶段的合规要求，销售在同步订单信息和Brief前应提前确认归因方式、授权情况以及可提供数据形式，避免分发运营审核时被打回。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "订单系统权限怎么申请",
+        "分发系统权限邮件模板",
+        "permission application email",
+        "吴一鸣邮箱",
+        "李志华邮箱",
+        "MI_xsglb",
+        "销售支持权限"
+      ],
+      "a": "<b>申请开通分发订单系统权限邮件审批链路及模板</b>：第1步，邮件收件人为自己上级，由上级审批；邮件内容需包含申请开通的系统权限（销售/销售支持）+ 人员工号和邮箱 + 销售上级名字 + 所属销售团队。第2步，上级审批通过后，邮件流转给分发负责人审批：吴一鸣 yiming.wu@transsion.com；同时邮件需抄送：李志华 zhihua.li@transsion.com；<a href=\"mailto:MI_xsglb@transsion.com\">MI_xsglb@transsion.com</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发下单邮件模板",
+        "销售同步销售支持订单",
+        "distribution order email template",
+        "下单邮件标题",
+        "APK Brief素材",
+        "客户邮箱后缀要求",
+        "销售支持下单"
+      ],
+      "a": "<b>分发下单邮件模板</b>用于销售将订单信息同步给销售支持，销售支持再通过下单系统正式下单，业务运营审核合规性后由分发运营审核并投放。邮件信息包含：APK包 + Brief内容 + 素材（按照我方尺寸以及要求）+ 客户下单原邮件（客户邮箱后缀需与合同主体名保持一致）。发件人：销售；收件人：销售支持（信息参考文档）；抄送：销售上级；邮件标题：<b>【下单】产品名称Product Name-产品类型Product Type-投放模式Adervertising Model</b>；邮件正文：将APK Brief文档复制至正文即可。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "到款确认注意事项",
+        "银行手续费谁承担",
+        "税费谁承担",
+        "payment confirmation",
+        "VAT国家",
+        "实收金额入账",
+        "汇率税负说明"
+      ],
+      "a": "<b>到款确认特别关注</b>：交易过程中银行手续费和税费由客户自行承担，我司仅入账实收金额；部分国家/地区存在交易增值税，例如尼日、印尼、中国。后付费申请材料为<a href=\"https://transsioner.feishu.cn/docx/M3txdYD6jovHgyxDih2c1AEon1f\">后付白名单审批流程 Post-payment whitelist approval process</a>；汇率、税负说明为<a href=\"https://transsioner.feishu.cn/docs/doccnEUjEoKc2APUkxdW85cNSJg\">移动互联业务 汇率、税负等问题汇总说明</a>；签约主体及银行账户信息为<a href=\"https://transsioner.feishu.cn/wiki/UzMhwh3jCirXkQkFQnFctMbVnqd\">移动互联主体及银行账户信息</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW充值怎么操作",
+        "运营后台资金入账",
+        "mng-src.eagllwin",
+        "EW recharge backend",
+        "财务管理创建ID号",
+        "充值权限找谁",
+        "孙骞"
+      ],
+      "a": "<b>EW相关到款/充值操作</b>：登录<a href=\"http://mng-src.eagllwin.com/manage/#/dashboard\">http://mng-src.eagllwin.com/manage/#/dashboard</a>，操作路径为“财务管理”→“资金入账”→“创建”→对应ID号。充值权限开通可沟通商业化运营@孙骞。财务操作要点参考<a href=\"https://transsioner.feishu.cn/docx/JrTMdEiRSoLwDWxTue2c3PlLn7c\">“运营后台”财务审批建议关注点</a>。预付合作为现金充值入账；后付合作为授信额度入账，回款后还需系统充值还款付款��释放授信额���。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW后付账户怎么变更",
+        "后付费账户类型调整",
+        "postpaid account change",
+        "ID号财务审批邮件合同",
+        "开户后改后付",
+        "授信额度入账"
+      ],
+      "a": "<b>EW后付费合作</b>涉及账户类型变更。客户开户注册成功后，需要同步<b>ID号 + 财务审批邮件 + 对方盖章合同</b>，沟通将账户设置调整为后付费账户。后付合作必须提前走后付白名单审批流程，正式合作开展前必须有我司法务确认且对方已盖章的合同文件。后付充值体现为授信额度入账，客户回款后还需在运营后台进行充值还款付款操作，以释放授信额度。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW投放通识材料",
+        "Eagllwin产品介绍",
+        "EW操作手册",
+        "EW操作视频",
+        "广告监测",
+        "流量数据",
+        "账户授权指南"
+      ],
+      "a": "<b>EW投放计划通识材料</b>包括：EW产品介绍<a href=\"https://help-center.eagllwin.com/document?t=1397076&id=75\">https://help-center.eagllwin.com/document?t=1397076&id=75</a>；EW产品操作手册<a href=\"https://help-center.eagllwin.com/document?t=1409042&id=74\">https://help-center.eagllwin.com/document?t=1409042&id=74</a>；EW操作视频<a href=\"https://help-center.eagllwin.com/document?t=7649064&id=325\">https://help-center.eagllwin.com/document?t=7649064&id=325</a>；代理商平台操作手册<a href=\"https://transsioner.feishu.cn/docx/HryJdudNaokRfdxPInDc31GAnUc\">EW代理商平台操作手册</a>；账户授权说明<a href=\"https://transsioner.feishu.cn/docx/AAYcdD3wTotiEPxZtowc5MzZnTc\">中文</a>和<a href=\"https://transsioner.feishu.cn/docx/BjuIdw6nRo1Kwqxs9XYcablunrc\">Authorization Operation Guidelines</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW流量和监测材料",
+        "traffic data",
+        "ad tracking",
+        "素材审核标准",
+        "material review standard",
+        "风控审核",
+        "EW data links"
+      ],
+      "a": "<b>EW流量、监测及审核材料</b>：EW流量数据链接为<a href=\"https://transsioner.feishu.cn/drive/folder/fldcnu1PXYjpCzXLG1TIOzAsH93\">https://transsioner.feishu.cn/drive/folder/fldcnu1PXYjpCzXLG1TIOzAsH93</a>；广告监测相关说明为<a href=\"https://help-center.eagllwin.com/document?t=1951535&id=379\">https://help-center.eagllwin.com/document?t=1951535&id=379</a>；素材审核标准为<a href=\"https://help-center.eagllwin.com/document?t=3476930&id=105\">https://help-center.eagllwin.com/document?t=3476930&id=105</a>。风控审核时效为工作日9:30-18:30（北京时间），2个工作日内完成审核，节假日看风控排班。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "PAI优选怎么投放",
+        "PAI Select Inventory",
+        "EW平台PAI下单",
+        "开白名单申请",
+        "PAI操作说明",
+        "优选流量步骤",
+        "Migration of PAI"
+      ],
+      "a": "<b>合作PAI及优选流量</b>分两步：第一步，销售为对应广告主ID申请开通相关权限，发起申请链接为<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">EW非标场景需求/开白名单申请</a>；第二步，客户创建广告计划和广告组，进行下单投放，操作说明为<a href=\"https://transsioner.feishu.cn/wiki/Bbp9wUzBDiNbRVkVsHQcDLoWn9f\">【操作说明】EW平台PAI及优选流量下单投放【Operation Instructions】EW Platform PAI & Select Inventory Orders Placement</a>。历史材料为<a href=\"https://transsioner.feishu.cn/wiki/TZgCwdPDViNL1wkvgmtcfXGCnJg#share-Jk4wdedWPotep0xN2u9cQ7ZQnmf\">PAI/优选流量切转至EW下单投放</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "其它非程序化资源",
+        "AHA Hola品牌整合营销",
+        "non-programmatic resources",
+        "EW非标场景需求申请单",
+        "非程序化刊例",
+        "品牌组运营",
+        "冯婷婷"
+      ],
+      "a": "<b>其它非程序化资源</b>主要包括AHA（插屏、悬浮球）、Hola（导航栏名站icon位）以及品牌整合营销（CPM/CPC品牌订单）。刊例为<a href=\"https://transsioner.feishu.cn/sheets/PfhqsdWOthveVtttsR7cmNR6nlb\">Dlightek 非程序化资源刊例 Non-programmatic Resource Rate Card V1.3</a>。广告客户中新增广告主客户，需提交<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">EW非标场景需求申请单</a>下单。品牌组运营对接人为@冯婷婷。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "JV生态客户非程序化例外",
+        "JV生态已合作客户",
+        "非标资源原路径",
+        "JV ecosystem exception",
+        "邮件同频订单信息",
+        "已合作客户清单"
+      ],
+      "a": "<b>其它非程序化资源的例外路径</b>：JV和生态合作部已合作的客户，维持原执行路径，即通过邮件同频订单信息，不要求改为新增广告主客户的EW非标场景需求申请单路径。具体相关账户清单见<a href=\"https://transsioner.feishu.cn/wiki/A57cwzLgIiSoPRkwWG4c6VUonRd\">JV&生态已合作客户清单</a>。对于非例外客户，如属于新增广告主客户，应通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">EW非标场景需求申请单</a>提交，品牌组运营为@冯婷婷。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "客户账户授权邮件模板",
+        "EW账户授权订单需求",
+        "authorization email template",
+        "非程序化资源授权",
+        "代投放委托",
+        "媒体plan brief",
+        "账户ID授权"
+      ],
+      "a": "<b>客户账户授权及订单需求邮件模板</b>：发件人邮箱需与合同联系人一致；邮件主题为<b>EW广告账户IDxxxx授权+订单需求</b>；收件人为我方销售；抄送品牌组运营@冯婷婷。正文写明：我方（客户）在此确认：自愿授权Eagllwin运营团队（下称“EW”）代我方执行广告投放操作；账户id: xxxx；授权范围包括：□ 设置投放预算、出价、定向条件；□ 优化广告素材及落地页；□ 调整投放策略；授权有效期：从____年__月__日起长期授权，如授权结束则另行通知。附件必须提供具体投放订单信息，可参考<a href=\"https://transsioner.feishu.cn/sheets/GnqgsRH61hVNz2txWEqcwjqdnvf\">媒体模版/ media plan demo</a>。正文还需注明：以上代投放委托为我方真实意思表示，贵方代我方投放所有行为同我方自行投放行为，我方对此知悉并认可，并对此完全负责。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EE1 IN广告配置",
+        "EE1 IN日预算无法控制",
+        "built-in ad configuration",
+        "EE1/IN email template",
+        "孙骞抄送",
+        "客户知晓无法控制日预算"
+      ],
+      "a": "<b>EE1、IN地区广告投放合作</b>需特别处理，因为在EE1、IN地区的系统功能无法控制日预算。销售需先与客户确认，然后发送邮件给团队对应商业化运营。邮件主题：<b>EE1/IN内置广告���置</b>；收件人：团队对应商业化运营；抄送：@孙骞、销售直属leader。邮件内容需包含：投放账户ID、广告计划ID、广告组ID、日预算，并在邮件中注明：<b>客户已知晓无法控制日预算</b>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "结算总指引",
+        "settlement guide",
+        "开票说明",
+        "Invoice specification",
+        "结算问题账户List",
+        "姚思洋",
+        "EW划款扣款"
+      ],
+      "a": "<b>结算总指引</b>包括<a href=\"https://transsioner.feishu.cn/sheets/OG7bscTBbhFGMytJhfdctp4enAh?from=space_search&ccm_open_type=space_search\">移动互联业务结算流程操作指引</a>和<a href=\"https://transsioner.feishu.cn/base/YetGbwBauaSXIAs0Bsnc5Zt3nUW?table=tblJBEwu7j84Lnke&view=vew9C8AiWN\">结算问题账户List</a>。开票说明参考<a href=\"https://transsioner.feishu.cn/docx/A686dapZloza75xuh03cyddJn1d\">移动互联事业部开票指引文档</a>与<a href=\"https://transsioner.feishu.cn/docx/J9MNdMaOvo360axgfr8cwjfkn1f\">发票相关说明 Invoice specification</a>，主要相关财务为@姚思洋。若涉及EW账户扣款，参考<a href=\"https://transsioner.feishu.cn/docx/J9FYdqcTCoqfv2xUPqlcBeZrnLh\">EW划款扣款-至内部媒体执行的流程要点（EW Deduction Process）</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW结算流程",
+        "EW每月几号出账单",
+        "EW invoice application",
+        "后付账户list",
+        "EW还款释放授信",
+        "运营后台付款",
+        "开票申请表"
+      ],
+      "a": "<b>EW结算</b>中，每月10号可生成上月账单。EW后付费账户list为<a href=\"https://transsioner.feishu.cn/base/YetGbwBauaSXIAs0Bsnc5Zt3nUW?table=tbljSO2c10UzzdNX\">合同&结算问题客户情况同频表</a>，每月10号之后更新EW后付费账户消耗数据。EW后付费账户还款释放授信额度时，销售将到款信息同步销售支持，销售支持登录<a href=\"http://mng-src.eagllwin.com/manage/#/dashboard\">运营后台</a>，路径为“财务管理”→“资金入账”→“创建”→“对应ID号”→“付款”。开票申请为<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn9d9fA2An5Yj7Ggy7NrcH5c\">开票申请表 Invoice Application Form</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发结算流程",
+        "分发每月15号账单",
+        "每月23号确认",
+        "distribution settlement timeline",
+        "订单系统对账模块",
+        "客户确认截图",
+        "分发开票"
+      ],
+      "a": "<b>分发运营订单结算流程</b>：分发运营通过订单管理后台-对账系统发送对账单给销售；销售登录系统后台确认数据并完成对账。时间节点要求为：每月15日系统发送上月账单，并邮件同步销售；每月23号前销售完成确认账单，并通过分发系统审批开票。如系统账单客户直接确认，销售直接上传客户确认的邮件截图并点击确认。操作手册为<a href=\"https://transsioner.feishu.cn/docx/XHYsdI3WRo2JFYxVh7ecDzk9nxk\">分发结算流程&订单系统-对账模块操作手册_V1.1</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "结算数据差异怎么办",
+        "客户对账异议",
+        "data discrepancy process",
+        "分发PS找谁",
+        "EW数据差异找谁",
+        "移动互联结算定损流程",
+        "数据gap责任"
+      ],
+      "a": "<b>结算数据差异处理</b>：如系统账单客户存在异议，分发PS请与@叶剑强沟通确认结算数据，并参考<a href=\"https://transsioner.feishu.cn/docx/ZYrFdbaj6oHBbLxbbTScf961nfb\">移动互联业务结算定损流程V2.0</a>执行；EW请与@孙骞沟通确认结算数据，并参考同一结算定损流程执行。特别说明：结算数据确认流程与人员定责没有任何强制绑定关系。销售提交流程仅因为订单由销售签约引入，不等于销售或运营人员需承担数据gap责任，也不等于提交人需承担数据gap责任。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "续约流程",
+        "合同终止流程",
+        "cooperation termination",
+        "EW退款流程",
+        "终止关注事项",
+        "后付关停",
+        "分发停投"
+      ],
+      "a": "<b>续约/合同终��</b>规则：续约流程与签约流程一致，仍按签署协议流程执行。合作终止如涉及EW退款，参考<a href=\"https://transsioner.feishu.cn/docx/VJzSdsGYIoSPfMxKGMncrq3Ln3d\">EW退款流程（EW Refund Process）</a>。合同终止时需重点关注两类情况：1. EW后付费账户关停或授信额度回收；2. 分发运营订单停投。若未及时处理后付费账户关停或余额清零，可能产生坏账风险，因此销售必须及时邮件同步相关方。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW后付账户关停邮件模板",
+        "授信额度回收邮件",
+        "postpaid shutdown email",
+        "客户管理组邮箱",
+        "khgl.mi@transsion.com",
+        "温凯欣沈海河",
+        "合作终止邮件"
+      ],
+      "a": "<b>EW后付费账户关停/授信额度回收邮件模板</b>：如后付费账户停止合作，销售需及时同步业务管理知晓，并邮件提醒产品账号停用或授信额度回收清零。邮件名：<b>后付费账户关停/授信额度回收+客户名+ID号</b>；发件人：销售；收件人：商业化运营；抄送：销售上级 + 客户管理组&lt;khgl.mi@transsion.com&gt; + 商业化运营@孙骞 + 财务@温凯欣@沈海河；正文包含：客户名 + 客户账号信息 + 合同终止/到期时间。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发停投邮件模板",
+        "distribution stop email",
+        "订单停投怎么申请",
+        "销售支持系统停投",
+        "停投邮件标题",
+        "停投时间原因",
+        "stop campaign template"
+      ],
+      "a": "<b>分发运营订单停投</b>以销售停投邮件为准申请系统停投，销售支持再通过下单系统申请停投。停投邮件模板为：发件人：销售；收件人：销售支持（信息参考销售支持联系人文档）；抄送：销售上级；邮件标题：<b>【停投】-【产品名称Product Name】</b>；邮件正文：停投时间 + 停投原因。该流程适用于分发订单合作结束或需停止投放的情况，销售需及时发出邮件，避免系统继续执行产生不必要消耗或结算争议。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "常用对接人",
+        "frequent contacts",
+        "客户管理联系人",
+        "销售支持联系人",
+        "财务联系人",
+        "风控问题找谁",
+        "分发运营联系人"
+      ],
+      "a": "<b>较常沟通的对接人信息</b>：客户管理包括@范丽莉@连佳柯@乔昕颖@陶诗盈；销售团队内的支持伙伴简称“销售支持”，包括政企业务部-中方（例如@林菲@郑乔楠）、销售二部-渠道管理部@庄茂潼@陈淑洁@曾玉梅@Joy Oluwatomi Adeniran、销售一部-销售运营部@刘艺良@王宇佳。EW商业化运营参考<a href=\"https://transsioner.feishu.cn/sheets/SpTDsv0dlhLpgetlHNEcOcGMnBY\">运营团队分工Operation team division of labor</a>；分发运营@叶剑强；财务到款确认@沈海河，开票@姚思洋（非大陆主体）@沈海河（大陆主体）；风控问题进群询问。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "销售一部EW充值邮件",
+        "充值邮件模板",
+        "Sales department recharge email",
+        "xsyyyb.MI@transsion.com",
+        "充值ID",
+        "返货金额",
+        "到账截图"
+      ],
+      "a": "<b>销售一部EW充值信息同步要求</b>：销售一部要求销售邮件同频EW充值信息。邮件标题为<b>【充值】+客户名+充值ID</b>；抄送为销售上级 + 邮箱组_MI销售运营一部 &lt;xsyyyb.MI@transsion.com&gt;；正文要点包括：客户名、充值ID、直客/代理、充值金额 + 返货金额、到账截图。到账截图可与财务沟通获取。该邮件用于销售运营部同步充值信息，保证EW充值、返货和到账凭证处理一致。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "流程相关人业务管理",
+        "business management contacts",
+        "客户管理分工",
+        "陶诗盈连佳柯范丽莉乔昕颖",
+        "一部全球游戏",
+        "代理相关联系人"
+      ],
+      "a": "<b>业务管理岗位对接人</b>如下：客户管理总对接为@陶诗盈；一部（全球游戏外）为@连佳柯；一部全球游戏 + 二部 + 政企为@范丽莉；代理相关为@乔昕颖。该分工用于客户报备、客户归属、客户��理台账、代理相关问题等业务管理事项。若在广告合作推进中涉及客户开发政策、冲突管理、代理政策或客户状态同步，可按该分工联系对应人员。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "财务对接人",
+        "finance contacts",
+        "到款确认财务",
+        "开票财务",
+        "温凯欣沈海河饶洁珣周林洁姚思洋",
+        "大陆主体开票",
+        "非大陆主体开票"
+      ],
+      "a": "<b>财务岗位对接人</b>包括@温凯欣@沈海河@饶洁珣@周林洁@姚思洋。快速执行引导中明确，到款确认主要联系@沈海河；开票相关财务为@姚思洋（非大陆主体）和@沈海河（大陆主体）。结算开票说明参考<a href=\"https://transsioner.feishu.cn/docx/A686dapZloza75xuh03cyddJn1d\">移动互联事业部开票指引文档</a>及<a href=\"https://transsioner.feishu.cn/docx/J9MNdMaOvo360axgfr8cwjfkn1f\">发票相关说明 Invoice specification</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "法务对接人",
+        "legal contacts",
+        "合同审核找谁",
+        "销售一部法务分工",
+        "销售二部法务",
+        "政企法务",
+        "移动互联法务门户"
+      ],
+      "a": "<b>法务对接分工</b>如有调整，以<a href=\"https://transsioner.feishu.cn/docx/TtcndaJPbog7PMxAM10cNtkcnOd?from=space_search&ccm_open_type=space_search\">移动互联 业务侧法务门户</a>为准。合同审核沟通按销售部门分工：销售一部中，全球游戏为@何蕾，战略-运营商、北美为@刘洁，生态、JV为@陈钰，除以上外为@侯义梅；销售二部为@何蕾；政企业务部为@陈钰。若合同模板有条款修改或使用非我司模板，需提前与法务沟通后再与客户沟通或提交系统流程。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "风控联系人",
+        "risk control contacts",
+        "素材被驳回",
+        "资质被驳回",
+        "其力木格史清洁",
+        "风控沟通群",
+        "审核原因询问"
+      ],
+      "a": "<b>风控岗位对接人</b>为@其力木格@史清洁。若素材或资质被驳回，需要询问原因时，应进入风控沟通群中询问。风控审核时效为工作日9:30-18:30（北京时间），一般2个工作日内完成审核，节假日则看风控排班。开户、素材审核、资质审核均可能涉及风控判���，相关标准可参考<a href=\"https://help-center.eagllwin.com/document?t=3476930&id=105\">素材审核标准</a>和<a href=\"https://help-center.eagllwin.com/document?t=5264499&id=97\">开户注册要求</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW运营对接人",
+        "Operation team division",
+        "商业化运营分工",
+        "EW operation contacts",
+        "EW操作答疑",
+        "运营团队表",
+        "Eagllwin support"
+      ],
+      "a": "<b>EW运营对接</b>参考<a href=\"https://transsioner.feishu.cn/sheets/SpTDsv0dlhLpgetlHNEcOcGMnBY?from=space_search&ccm_open_type=space_search\">运营团队分工Operation team division of labor</a>。快速执行引导中，EW客户注册后如有操作答疑，也使用同一份<a href=\"https://transsioner.feishu.cn/sheets/SpTDsv0dlhLpgetlHNEcOcGMnBY\">EW运营对接支持</a>表。涉及PAI及优选开白、ADX（IN地区）合作、EE1/IN配置、充值权限开通等事项，均需根据团队分工联系对应商业化运营；充值权限可沟通@孙骞。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发运营对接人",
+        "distribution contacts",
+        "朱锐叶剑强",
+        "桌面资源执行人",
+        "负一屏刘晨曜",
+        "系统权限李志华",
+        "分发测试芈娜"
+      ],
+      "a": "<b>分发运营岗位对接人</b>：执行总负责为@朱锐@叶剑强；桌面资源分场景执行人为@关佐龙；负一屏对接人为@刘晨曜；分发系统权限开通为@李志华；分发测试为@芈娜。快速执行引导中也明确分发运营常用联系人为@叶剑强。分发订单涉及下单、测试审核、运营执行、账单差异确认、结算定损等环节，销售应按事项联系对应角色。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "整合营销联系人",
+        "AHA Hola联系人",
+        "品牌组运营",
+        "冯婷婷方超涂秀娟",
+        "integrated marketing contacts",
+        "非程序化资源对接",
+        "媒体执行人"
+      ],
+      "a": "<b>整合营销/其它非程序化资源对接</b>适用于AHA、Hola等资源。品牌组运营为@冯婷婷；媒体执行人-AHA为@方超；媒体执行人-Hola为@涂秀娟。其它非程序化资源主要包括AHA插屏、悬浮球，Hola导航栏名站icon位，以及品牌整合营销CPM/CPC品牌订单。原媒体直投场景，即非程序化资源合作需求，在V4.0中已收口至“商业化-品牌类客户组”。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "MovieBox媒体运营",
+        "Max MovieBox流程",
+        "MovieBox contacts",
+        "吴龙陈蓓蓓",
+        "Cooperation Execution Process",
+        "媒体运营对接人",
+        "Max合作执行流程"
+      ],
+      "a": "<b>媒体运营MovieBox</b>相关执行说明参考<a href=\"https://transsioner.feishu.cn/docx/FGrndTWE3oPHJQxpGrLcNmQ6ngf\">Cooperation Execution Process For Max and Moviebox V1.1（Max、Moviebox合作执行流程 V1.1）</a>。我司对接人为@吴龙@陈蓓蓓。该流程属于与Max、MovieBox等媒体合作的专项执行文件，不同于常规EW自助投放或分发运营订单，若涉及JV或其它外部媒体合作，也需参考相应专项流程。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW直客注册入口",
+        "代理平台注册入口",
+        "客户注册后怎么投放",
+        "direct client registration",
+        "agency registration",
+        "代理子账户",
+        "EW官网"
+      ],
+      "a": "<b>EW开户注册入口</b>：直客注册使用<a href=\"https://ads.eagllwin.com\">https://ads.eagllwin.com</a>或EW官网<a href=\"https://www.eagllwin.com/\">https://www.eagllwin.com/</a>；代理注册使用<a href=\"https://agent.eagllwin.com\">https://agent.eagllwin.com</a>或<a href=\"https://agent.eagllwin.com/\">代理商平台</a>。代理注册完成后，需要创建子账户进行投放；代理平台支持创建多个不同的子直客账户，通过子账户投放广告。开户完成后需充值或完成后付申请，账户可用后才能创建计划投放。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发订单快速下单",
+        "销售怎么发分发订单",
+        "distribution quick order",
+        "销售支持提单",
+        "申请订单系统权限",
+        "同步销售支持",
+        "订单系统提单"
+      ],
+      "a": "<b>分发���单快速下单路径</b>：销售先申请订单系统权限，参考权限申请邮件审批模板；随后销售通过邮件将订单信息同步给销售支持，邮件需包含APK包、Brief内容、素材、客户下单原邮件等；销售支持在订单系统提单。订单系统链接为<a href=\"https://offerorder-admin.palmplaystore.com/?#/rs/data\">https://offerorder-admin.palmplaystore.com/?#/rs/data</a>或<a href=\"https://offerorder-admin.palmplaystore.com/\">https://offerorder-admin.palmplaystore.com/</a>。业务运营审核合规性后，由分发运营审核并投放。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW到款快速流程",
+        "EW系统充值",
+        "入账凭证给谁",
+        "sales support recharge",
+        "后付审批邮件作为凭证",
+        "运营后台提交充值单",
+        "EW payment received"
+      ],
+      "a": "<b>EW系统充值快速流程</b>：销售将入账凭证给到销售支持；销售支持在<a href=\"http://mng-src.eagllwin.com/manage/#/\">运营后台</a>提交充值单。若为后付合作，入账凭证为<a href=\"https://transsioner.feishu.cn/docx/M3txdYD6jovHgyxDih2c1AEon1f\">审批邮件</a>。后台操作路径可参考“财务管理”→“资金入账”→“创建”→对应ID号。交易过程中的银行手续费和税费由客户承担，我司仅入账实收金额，部分国家/地区如尼日、印尼、中国存在交易增值税。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW投放计划快速指南",
+        "程序化资源客户自行买量",
+        "PAI销售申请开白",
+        "非程序化品牌组配置",
+        "EE1 IN发邮件",
+        "campaign setup guide",
+        "EW media buying"
+      ],
+      "a": "<b>EW投放计划快速指南</b>：程序化资源竞价由客户自行买量；PAI及优选流量合作需销售先通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">申请开白</a>，客户再按<a href=\"https://transsioner.feishu.cn/wiki/Bbp9wUzBDiNbRVkVsHQcDLoWn9f\">操作说明</a>自行操作；其它非程序化资源需客户账户授权并明确需求，销售通过同一申请表流转给品牌组运营配置；EE1、IN地区广告投放需提前与运营沟通，并发送邮件进行广告配置，邮件中需注明客户已知晓无法控制日预算。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发投放计划怎么执行",
+        "distribution campaign execution",
+        "运营按订单系统执行",
+        "分发后付审批",
+        "分发预付到款",
+        "分发订单投放",
+        "distribution delivery"
+      ],
+      "a": "<b>分发订单投放计划</b>由分发运营按订单系统信息执行。到款确认方面，后付合作需先完成<a href=\"https://transsioner.feishu.cn/docx/M3txdYD6jovHgyxDih2c1AEon1f\">后付审批邮件</a>；预付合作则线下与财务确认到款。销售需在下单前确保订单系统权限、客户原始下单邮件、APK包、Brief、素材、归因授权等信息齐全。正式下单后，业务运营审核合规性，分发运营审核后按订单系统内容执行投放。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW开票怎么申请",
+        "Invoice Application Form",
+        "EW每月10号账单",
+        "飞书表格开票",
+        "开票指引",
+        "EW billing",
+        "开票未尽事宜"
+      ],
+      "a": "<b>EW开票</b>：每月10号可生成上月账单，销售可通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn9d9fA2An5Yj7Ggy7NrcH5c\">开票申请表 Invoice Application Form</a>申请开票。开票未尽事宜参考<a href=\"https://transsioner.feishu.cn/docx/A686dapZloza75xuh03cyddJn1d\">移动互联事业部开票指引文档</a>。V4.0更新中明确，EW开票改用飞书表格处理，以提升流程标准化程度；分发订单则仍通过分发系统开票不变。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发开票怎么做",
+        "分发系统开票",
+        "distribution invoice",
+        "每月23号前确认",
+        "订单系统开票链接",
+        "对账后开票",
+        "分发账单确认"
+      ],
+      "a": "<b>分发订单开票</b>需先完成数据确认。分发运营每月15号前输出上月账单，销售需每月23号前���<a href=\"https://offerorder-admin.palmplaystore.com/?#/rs/data\">订单系统对账模块</a>完成数据确认。数据确认后，可通过<a href=\"https://offerorder-admin.palmplaystore.com/?#/rs/data\">订单系统</a>开票，开票操作参考<a href=\"https://transsioner.feishu.cn/docx/A686dapZloza75xuh03cyddJn1d\">开票指引</a>和<a href=\"https://transsioner.feishu.cn/docx/XHYsdI3WRo2JFYxVh7ecDzk9nxk\">订单系统--对账模块操作手册</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "广告合作准入条件",
+        "distribution qualification",
+        "负一屏准入",
+        "杂志锁屏门槛",
+        "代理分发限制",
+        "准入要求",
+        "eligibility requirements"
+      ],
+      "a": "<b>广告合作准入/限制</b>包括：分发运营整体交付仅支持KA直客，签署代理协议的不支持分发交付；桌面非程序化资源中，负一屏属于技术合作，有准入要求，杂志锁屏准入门槛极高。代理开户需有合同，无合同不审核。后付合作需提前申请，并在正式合作前具备我司法务确认且对方已盖章的合同。非KA分发订单不接受客户自归因方式；若三方归因不授权我方查看数据，客户必须提供三方平台数据截图。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "后付白名单申请",
+        "Post-payment whitelist approval",
+        "后付审批链接",
+        "postpay application",
+        "后付合作提前申请",
+        "授信额度申请",
+        "后付流程"
+      ],
+      "a": "<b>后付费合作</b>需提前申请，申请材料链接为<a href=\"https://transsioner.feishu.cn/docx/M3txdYD6jovHgyxDih2c1AEon1f\">后付白名单审批流程 “Post-payment whitelist approval process”</a>。后付合同条款需描述回款条款；正式合作开展前，必须有我司法务确认且对方已盖章的合同文件。EW开户成功后还需沟通设置为后付费账户，充值方式为授信额度入账；客户回款后需在系统中充值还款付款，释放授信额度。分发后付合作也需审批邮件。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "商业化品牌类客户组",
+        "媒体直投收口",
+        "非程序化资源需求收口",
+        "brand client team",
+        "V4直投变化",
+        "AHA Hola收口",
+        "品牌整合营销"
+      ],
+      "a": "<b>媒体直投/非程序化资源合作需求</b>在V4.0中已收口至“商业化-品牌类客户组”。也就是说，原媒体直投场景，如AHA插屏、悬浮球、Hola导航栏名站icon位、品牌整合营销CPM/CPC品牌订单等，不再按原零散直投文件推进，而是统一纳入其它非程序化资源流程。客户需进行账户授权并明确订单需求，销售通过<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\">EW非标场景需求申请单</a>流转，品牌组运营对接人为@冯婷婷。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "合同归档要求",
+        "需归档list",
+        "签约引导",
+        "contract archive",
+        "合同流程编号",
+        "快速执行业务",
+        "归档合同"
+      ],
+      "a": "<b>合同归档与快速执行</b>：签约材料包括<a href=\"https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc?from=from_parent_docx\">签约引导+归档要求</a>和<a href=\"https://transsioner.feishu.cn/base/YetGbwBauaSXIAs0Bsnc5Zt3nUW?table=tblJBEwu7j84Lnke&view=vew9C8AiWN\">需归档的list</a>。预付合作正式开展业务时，如确实无法提供归档合同，可提供合同流程编号以推动业务快速执行；但后付合作正式开展前必须具备我司法务确认且对方已盖章的合同文件，不能仅依靠流程编号替代。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "客户开发政策链接",
+        "客户冲突管理",
+        "client conflict management",
+        "报备和台账",
+        "客户归属",
+        "Client Management Book",
+        "Client Development Policy"
+      ],
+      "a": "<b>客户开发及冲突管理</b>需结合客户报备和台账执行。客户报备入口为<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">客户报备表单 Client Registration Form</a>；合作台账为<a href=\"https://transsioner.feishu.cn/base/NNudbSt5HabGrNsqV2acwQY5nIc?table=tbllPzdSYi5gqP8N&view=vewXyOxLg7\">客户管理台帐Client Management Book</a>；政策文件为<a href=\"https://transsioner.feishu.cn/wiki/VzzYwzukcibQhrkmDn1cIeNYnsx\">客户开发及冲突管理政策/Client Development and Conflict Management Policy-V3.1</a>。销售在开发客户前应及时报备，避免客户归属和冲突问题影响签约及投放。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发常见问题材料",
+        "KA大分发服务地图",
+        "分国家激活量",
+        "历史订单效果数据",
+        "distribution FAQ",
+        "商务参考数据",
+        "能力值"
+      ],
+      "a": "<b>分发运营常见问题与参考材料</b>包括：<a href=\"https://transsioner.feishu.cn/docx/IcTidHeXjo6zh0x7KdDcajvpnlf\">KA客户--大分发服务地图</a>、<a href=\"https://transsioner.feishu.cn/sheets/shtcnqsQ2etL9dJ4jMztlMfXrub?sheet=1ErIBV\">分发分国家激活量（能力值）</a>、<a href=\"https://transsioner.feishu.cn/sheets/shtcnmTFuoKHcAdgk8fyHDaCFHb\">历史订单效果数据-商务参考</a>。这些材料主要用于销售在分发合作前评估国家能力、历史效果和交付方式，并与分发运营沟通结算价格、资源准入和投放可行性。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "主体及银行账户信息",
+        "bank account info",
+        "签约主体",
+        "移动互联主体",
+        "收款账户",
+        "客户付款信息",
+        "bank details link"
+      ],
+      "a": "<b>主体及银行账户信息</b>在签约和到款确认环节均会使用。签约阶段相关链接为<a href=\"https://transsioner.feishu.cn/wiki/UzMhwh3jCirXkQkFQnFctMbVnqd\">主体及银行账户信息</a>；到款确认阶段同样参考<a href=\"https://transsioner.feishu.cn/wiki/UzMhwh3jCirXkQkFQnFctMbVnqd\">移动互联主体及银行账户信息</a>。客户付款时需注意银行手续费和税费由客户承担，我司仅入账实收金额；部分国家/地区如尼日、印尼、中国可能存在交易增值税，销售应提前与客户说明。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "EW代理平台功能",
+        "代理创建子账户",
+        "agency sub account",
+        "代理商平台操作手册",
+        "代理投放广告",
+        "多个子直客账户",
+        "agent.eagllwin.com"
+      ],
+      "a": "<b>EW代理商平台</b>入口为<a href=\"https://agent.eagllwin.com/\">https://agent.eagllwin.com/</a>，代理注册完成后需创建子账户进行投放。代理平台支持创建多个不同的子直客账户，并通过子账户投放广告。代理商平台操作可参考<a href=\"https://transsioner.feishu.cn/docx/HryJdudNaokRfdxPInDc31GAnUc\">EW代理商平台操作手册</a>。代理开户需有合同，无合同不审核；代理签约前还需完成代理商尽调BPM-MI003，签约使用代理合同模板。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "分发订单数据差异走BPM吗",
+        "V4分发差异确认",
+        "BPM数据差异",
+        "distribution discrepancy BPM",
+        "数据差异确认流程",
+        "结算定损",
+        "分发订单gap"
+      ],
+      "a": "<b>分发订单数据差异确认</b>在V4.0变更中明确走BPM流程。实际执行时，如系统账单客户存在异议，分发PS需与@叶剑强沟通确认结算数据，并参考<a href=\"https://transsioner.feishu.cn/docx/ZYrFdbaj6oHBbLxbbTScf961nfb\">移动互联业务结算定损流程V2.0</a>执行。特别说明，数据确认流程不等于人员定责流程，销售提交仅因订单由销售签约引入，不代表销售、运营或提交人必须承担数据gap责任。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "广告合作全链路涉及系统",
+        "systems used in ad process",
+        "BPM EW订单系统运营后台",
+        "流程系统清单",
+        "广告合作平台",
+        "常用URL汇总",
+        "ad process tools"
+      ],
+      "a": "<b>广告合作全链路常用系统/链接</b>包括：客户报备表单<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">Client Registration Form</a>；签约BPM-LA11<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">链接</a>；代理尽调BPM-MI003<a href=\"https://hk-paas.transsion.com/front/matter/startProcess?flowKey=MI003\">链接</a>；EW官网<a href=\"https://www.eagllwin.com/\">https://www.eagllwin.com/</a>；代理平台<a href=\"https://agent.eagllwin.com/\">https://agent.eagllwin.com/</a>；EW运营后台<a href=\"http://mng-src.eagllwin.com/manage/#/dashboard\">http://mng-src.eagllwin.com/manage/#/dashboard</a>；分发订单系统<a href=\"https://offerorder-admin.palmplaystore.com/\">https://offerorder-admin.palmplaystore.com/</a>；开发者平台<a href=\"https://dev.dlightek.com/\">https://dev.dlightek.com/</a>。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "销售在广告流程中做什么",
+        "sales responsibilities",
+        "销售操作事项",
+        "销售下划线事项",
+        "广告流程销售职责",
+        "sales checklist",
+        "销售推进清单"
+      ],
+      "a": "<b>销售主要职责</b>贯穿客户报备、签约、开户/下单、到款、投放、结算和终止。销售需填写客户报备表单，发起BPM-LA11签约；代理需先完成BPM-MI003尽调；EW场景需推动客户注册、收集入账凭证并同步销售支持，PAI及优选需申请开白，非程序化资源需获取客户账户授权和订单需求；分发订单需申请系统权限并邮件同步销售支持下单；结算时需在每月23号前确认分发账单；终止时需发EW后付关停邮件或分发停投邮件。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "销售支持职责",
+        "sales support responsibilities",
+        "销售支持做什么",
+        "EW充值单",
+        "分发系统提单",
+        "停投系统提交",
+        "后付还款操作"
+      ],
+      "a": "<b>销售支持职责</b>包括：在EW场景中根据销售提供的入账凭证，在<a href=\"http://mng-src.eagllwin.com/manage/#/\">运营后台</a>提交充值单；EW后付账户还款时，登录运营后台按“财务管理”→“资金入账”→“创建”→“对应ID号”→“付款”操作，释放授信额度。在分发订单中，销售支持根据销售邮件在订单系统提单，并在合作终止时根据销售停投邮件通过下单系统申请停投。销售支持联系人按各销售团队分工，包括@林菲@郑乔楠、@庄茂潼@陈淑洁@曾玉梅@Joy Oluwatomi Adeniran、@刘艺良@王宇佳等。",
+      "source": "Advertisement Cooperation Process V4.0（广告业务合作流程 V4.0）.md"
+    },
+    {
+      "q": [
+        "游戏联运业务流程是什么",
+        "Game Joint Operation Business Process",
+        "如何快速开启游戏联运",
+        "联运整体步骤",
+        "游戏联运从了解到账款怎么走",
+        "joint operation workflow",
+        "游戏联运V2.1流程总览"
+      ],
+      "a": "<b>游戏联运快速开启流程</b>包括6个主环节：<br><ul><li><b>了解游戏联运</b>：先阅读H5或APK游戏合作介绍文档/视频。</li><li><b>合作游戏提测</b>：根据H5或APK类型提交对应提测表。</li><li><b>客户报备</b>：通过客户报备入口登记客户，联系人为@范丽莉、@连佳柯、@陶诗盈。</li><li><b>与CP签署合作协议</b>：通过BPM发起合同，EE1合作需查看合作要求，增值服务需签署补充协议并邮件确认下单。</li><li><b>技术对接+上架服务+运营</b>：与运营人员完成接入与上线。</li><li><b>月度结算+报支</b>：每月15日前确认月度流水数据并启动结算。</li></ul>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "H5游戏合作介绍在哪里",
+        "H5 Game Cooperation Introduction",
+        "H5联运资料",
+        "AHA H5合作文档",
+        "H5游戏联运文档视频",
+        "H5 joint operation docs",
+        "了解H5游戏合作"
+      ],
+      "a": "<b>H5游戏合作介绍资料</b>包含文档和视频两类：<br><ul><li>文档：<a href=\"https://dev.dlightek.com/docs?id=20\">H5游戏合作介绍</a>，完整URL为：https://dev.dlightek.com/docs?id=20</li><li>视频：<a href=\"https://transsioner.feishu.cn/file/RcGUbf4XVo1klbxzCKvcC17EnFh\">H5游戏合作介绍</a>，完整URL为：https://transsioner.feishu.cn/file/RcGUbf4XVo1klbxzCKvcC17EnFh</li></ul>H5联运运营对接人是H5（AHA）@郑林君，后续技术接入、上架服务和运营均需与运营人员协作完成。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK游戏合作介绍在哪里",
+        "APK Game Cooperation Introduction",
+        "APK联运资料",
+        "APK游戏文档视频",
+        "了解APK游戏合作",
+        "APK joint operation docs",
+        "APK联运合作介绍链接"
+      ],
+      "a": "<b>APK游戏合作介绍资料</b>包括文档与视频：<br><ul><li>文档：<a href=\"https://dev.dlightek.com/docs?id=70\">APK游戏合作介绍</a>，URL：https://dev.dlightek.com/docs?id=70</li><li>视频：<a href=\"https://transsioner.feishu.cn/file/CU6vbi5shoRZ0Kx409tcwZLXnLg\">APK游戏合作介绍</a>，URL：https://transsioner.feishu.cn/file/CU6vbi5shoRZ0Kx409tcwZLXnLg</li></ul>APK游戏联运根据模式不同可分为IAA、IAP、IAA+IAP混变、IAA广告+增值服务等，后续需按对应提测表、合同和运营对接人执行。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "H5联运提测入口",
+        "AHA H5联运游戏评测表",
+        "H5 game evaluation form",
+        "H5游戏怎么���测",
+        "H5合作游戏评测入口",
+        "H5 submission portal",
+        "AHA H5测试表链接"
+      ],
+      "a": "<b>H5联运提测入口</b>为AHA H5联运游戏评测表：<a href=\"https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh?table=tblMExgHsYzyYYTL&view=vewSt0NjBR\">AHA H5联运游戏评测表</a>，完整URL：https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh?table=tblMExgHsYzyYYTL&view=vewSt0NjBR。H5合作需要先通过提测，后续再进行客户报备、合同签署、技术对接、上架服务、运营以及月度���算。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK联运提测入口",
+        "IAA及EE1地区IAP提测表",
+        "混变及非EE1地区IAP提测表",
+        "APK game evaluation form",
+        "APK游戏怎么提测",
+        "APK submission portals",
+        "APK联运测试表"
+      ],
+      "a": "<b>APK联运提测入口</b>按合作类型区分：<br><ul><li>IAA及EE1地区IAP提测表：<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq\">https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq</a></li><li>混变及非EE1地区IAP提测表：<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke\">https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke</a></li></ul>APK联运通过提测是CP准入的基础要求。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "客户报备入口",
+        "Client Registration Form",
+        "游戏联运客户怎么报备",
+        "客户报备找谁",
+        "客户报备表单",
+        "client report portal",
+        "联运报备联系人"
+      ],
+      "a": "<b>客户报备</b>需通过客户报备入口提交：<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">客户报备表单</a>，完整URL：https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh。客户报备对接人为客户管理团队：@范丽莉、@连佳柯、@陶诗盈。该步骤位于游戏提测之后、签署CP合作协议之前，用于记录客户及合作信息，保障后续合同、运营接入和结算流程顺畅。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "发起合同入口",
+        "Initiate Contract",
+        "游戏联运合同怎么发起",
+        "LA11流程",
+        "CP合作协议签署",
+        "contract initiation link",
+        "联运协议BPM入口"
+      ],
+      "a": "<b>游戏联运合同发起入口</b>为BPM流程链接：<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">发起合同 / Initiate Contract</a>，完整URL：https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true。IT系统中也明确合同签署使用https://bpm.transsion.com/，LA11-1流程。合同签署需按照移动互联业务合同签署指引及归档管理要求执行。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1合作要求在哪里",
+        "EE1 Cooperation Requirements",
+        "EE1 IAP合作怎么签",
+        "EE1地区合作要求",
+        "EE1合作链接",
+        "EE1 requirements",
+        "EE1 IAP流程"
+      ],
+      "a": "<b>EE1合作要求</b>需要在签约环节查阅。中文入口为：<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-QlZMdhioiowKAlxgnc7clQB0n9f\">合作要求</a>；英文表格中EE1 Cooperation要求链接为：<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-VPBMdXPNxozQ0PxDF2OcTuEFntR\">Cooperation Requirements</a>。EE1地区IAP合作通常为与我司邮件报备并与渠道方签署联运协议，CP和渠道结算，不涉及通过我司报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "增值服务邮件模板链接",
+        "Value-Added Services email template",
+        "增值服务下单怎么确认",
+        "增值服务补充协议",
+        "联运增值服务合同",
+        "value added service order email",
+        "增值服务邮件入口"
+      ],
+      "a": "<b>增值服务签约与邮件确认</b>要求：如果合作涉及“增值服务”，需与客户签署联运合同+增值服务补充协议；签署后，增值服务需要发送邮件确认下单。中文邮件模板链接：<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-JVDGdH6EIo4sJMxwrIVc3RwhnIc\">邮件模板</a>；英文表格中Email Template链接为：<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-ClMedCYuCoXWN0xT4jycyeiqnAg\">Email Template</a>。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "运营对接人是谁",
+        "Operations Contact",
+        "联运运营联系人",
+        "H5 APK运营找谁",
+        "IAA IAP混变运营",
+        "technical integration contact",
+        "上架运营联系人"
+      ],
+      "a": "<b>技术对接、上架服务和运营对接人</b>如下：<br><ul><li>H5（AHA）：@郑林君</li><li>APK游戏IAA运营：@孟奇标、@唐舒嘉</li><li>IAP、IAA+IAP混变运营：@姜泽华、@陈婷婷</li><li>EE1-IAP：@程昶</li></ul>客户通过提测、报备和合同签署后，应与对应运营人员对接，完成后续技术接入、游戏上架服务、日常运营及必要的业务信息流转。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "月度结算时间",
+        "Monthly Settlement timeline",
+        "每月几号确认流水",
+        "结算什么时候启动",
+        "15日前确认什么",
+        "monthly revenue confirmation",
+        "游戏联运对账时间"
+      ],
+      "a": "<b>月度结算时间节点</b>为每月15日前确认月度流水数据，并启动结算流程。具体流程：联运运营/客户管理团队会通过邮件发出客户对账单；销售收到邮件后，需要与CP确认发票，并在对账单上盖CP公章确认。英文流程中说明：By the 15th of each month, confirm the monthly revenue data to initiate the settlement process；Joint Ops/Client Management Team sends the settlement statement via email to sales。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "游戏联运报支指引",
+        "Payment Request Guide",
+        "结算报支参考链接",
+        "销售报支怎么操作",
+        "联运报支文档",
+        "报支guide",
+        "payment request reference"
+      ],
+      "a": "<b>游戏联运报支参考文档</b>包括两个链接：<br><ul><li><a href=\"https://transsioner.feishu.cn/docx/PRSFdqNUHoo4kTxKKa2cXJxBnKf\">游戏联运报支操作指引</a>，英文表格中带参数版本为：https://transsioner.feishu.cn/docx/PRSFdqNUHoo4kTxKKa2cXJxBnKf?from=from_parent_docx</li><li><a href=\"https://transsioner.feishu.cn/wiki/S5cZwX84IiJcsrkoiRocVPeznBg\">游戏联运报支指引（对销售-销售一部）</a></li></ul>结算时销售需配合确认发票、对账单盖章和报支材料。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "文档V2.1变更日志",
+        "2026.2.26更新了什么",
+        "版本V2.1修改内容",
+        "change log V2.1",
+        "游戏联运流程最新版",
+        "杨宽饶一帆变更",
+        "V2.1合并哪些文档"
+      ],
+      "a": "<b>2026.2.26，版本V2.1</b>的变更人为杨宽、饶一帆。主要变更内容：<br><ul><li>合并<a href=\"https://transsioner.feishu.cn/docx/KPKTdN9IpoX8jExyJQfcczHbn9f\">游戏联运业务运营流程_V2.0</a>、<a href=\"https://transsioner.feishu.cn/docx/PdEjd0t5morq9ux38PfcSJIDnnb\">联运游戏IAP合作流程框架 IAP Cooperation Process Framework</a>、<a href=\"https://transsioner.feishu.cn/file/Nm3TbxWavoDXK5xaEVycWfcDnqc\">2025年移动互联联运游戏 增值服务合作规则 LY-202503-31.pdf</a>。</li><li>以<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc\">游��联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）</a>最新版为准。</li><li>加入V2.0的运营说明。</li></ul>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "V2.0变更日志",
+        "2024.6.18版本",
+        "范丽莉顾怡雯更新",
+        "change log V2.0",
+        "游戏联运业务运营流程V2.0",
+        "V2.0链接",
+        "历史版本V2.0"
+      ],
+      "a": "<b>2024.6.18，版本V2.0</b>的变更人为范丽莉、顾怡雯。该版本对应文档为<a href=\"https://transsioner.feishu.cn/docx/KPKTdN9IpoX8jExyJQfcczHbn9f\">游戏联运业务运营流程_V2.0</a>，完整URL：https://transsioner.feishu.cn/docx/KPKTdN9IpoX8jExyJQfcczHbn9f。后续2026.2.26的V2.1版本已合并V2.0及其他IAP、增值服务规则文档，并以V2.1最新版为准。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "V1.0变更��志",
+        "2023.5.31版本",
+        "范丽莉V1.0",
+        "APK H5业务流程20230531",
+        "历史版本V1.0",
+        "change log V1.0",
+        "最早游戏联运流程"
+      ],
+      "a": "<b>2023.5.31，版本V1.0</b>的变更人为范丽莉。该版本对应文档为<a href=\"https://transsioner.feishu.cn/docx/HfEVdvxttoohAFxwRDPck8H1nBg\">游戏联运APK&H5业务流程-20230531</a>，URL：https://transsioner.feishu.cn/docx/HfEVdvxttoohAFxwRDPck8H1nBg。V1.0是早期APK和H5业务流程文档，后续经过V2.0和V2.1迭代，目前应以V2.1最新版为准。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "游戏联运流程目的",
+        "流程制定目的",
+        "purpose of process",
+        "为什么制定联运流程",
+        "联运业务规范目的",
+        "销售协作事项",
+        "业务有序进行"
+      ],
+      "a": "<b>本流程的目的</b>是规范移动互联游戏联运业务流程，覆盖IAA、IAP、IAA+IAP、增值服务等混合场景。文档强调通过流程规范帮助销售明确联运过程中的协作事项，保障游戏联运业务有序进行。也就是说，销售、客户管理、联运运营、财务、CP以及EE1合作商等角色均需按统一流程完成提测、报备、签约、接入、投放运营、结算和必要的合作终止沟通。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "适用范围",
+        "scope",
+        "流程适用于哪些合作",
+        "IAA IAP增值服务适用吗",
+        "游戏联运适用业务",
+        "适用合作模式",
+        "联运流程覆盖什么"
+      ],
+      "a": "<b>适用范围</b>：本游戏联运业务运营流程适用于游戏的IAA、IAP、增值服务合作。文档还在目的中明确包括IAA、IAP、IAA+IAP、增值服务的混合场景，因此实际覆盖H5和APK联运中的广告合作、应用内购买、混变模式，以及当前仅在联运APK-IAA开展的增值服务场景。各场景需结合对应提测表、准入条件、分成比例及结算方式执行。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IAA是什么意思",
+        "In-App Advertising",
+        "应用内广告定义",
+        "IAA名词解释",
+        "什么是IAA",
+        "广告变现合作",
+        "IAA definition"
+      ],
+      "a": "<b>IAA</b>是In-App Advertising，中文为应用内广告。文档定义为：开发者通过在应用内嵌入广告，例如激���视频、插屏广告或横幅广告等，来获取广告收入。这种方式不要求用户直接付费，而是依靠广告带来收益。联运业务中，IAA既可出现在APK广告合作，也可出现在H5广告合作中；政策要求IAA分成比例不得低于我司:CP=6:4。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IAP是什么意思",
+        "In-App Purchase",
+        "应用内购买定义",
+        "IAP名词解释",
+        "什么是IAP",
+        "内购变现合作",
+        "IAP definition"
+      ],
+      "a": "<b>IAP</b>是In-App Purchase，中文为应用内购买。文档定义为：用户在应用内购买虚拟物品、订阅服务等，通过付费获取功能解锁的方式。常见于手游中的购买金币/皮肤、工具类应用中的解锁高级功能，以及内容类应用中的付费订阅。联运中IAP可按EE1地区、白名单目标CP、非EE1地区或混变场景执行，不同地区和合作对象有不同分成要求。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "增值服务场景是什么",
+        "Value-Added Services definition",
+        "联运增值服务模式",
+        "APK IAA增值服务",
+        "什么是增值服务",
+        "增值服务费",
+        "value added service cooperation"
+      ],
+      "a": "<b>“增值服务”场景</b>当前仅联运APK-IAA有开展此模式。模式说明为：游戏CP向传音支付“增值服务费”，助力其联运产品快速推广营销，以加速提升联运变现收入日流水，并享受专项优化提升服务，同时采用阶梯式收入分成。相关准入及阶梯分成需参考<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">2026年移动互联联运游戏 增值服务合作规则.pdf</a>。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "游戏CP是什么意思",
+        "Games Content Provider",
+        "CP定义",
+        "游戏研发商是什么",
+        "游戏内容提供方",
+        "CP role",
+        "游戏CP职责"
+      ],
+      "a": "<b>游戏CP</b>指Games Content Provider，即游戏研发商或游戏内容提供方，负责开发游戏产品。在联运流程中，游戏CP需配合提交游戏提测、完成客户报备信息确认、签署联运协议或补充协议、按要求接入Apostar平台或支付SDK（如EE1 IAP）、与销售确认发票和对账单，并在结算对账单上盖CP公章确认。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1合作商是什么意思",
+        "EE1合作伙伴",
+        "EE1 partner definition",
+        "EE1渠道商",
+        "联运APK IAP EE1",
+        "外部支付渠道",
+        "EE1合作商定义"
+      ],
+      "a": "<b>EE1合作商</b>是联运APK-IAP在EE1地区的合作伙伴。文档说明当前EE1地区IAP需借助外部支付渠道的能力��该渠道商简称“EE1合作商”。在流程中，销售先通过邮件与CP确认合作并同步联运运营、客户管理；客户管理记录并回复后，联运运营将信息流转给EE1合作商确认；EE1合作商接收后，游戏CP与EE1合作商签约执行。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK IAA广告合作规则",
+        "APK IAA分成比例",
+        "APK广告合作准入",
+        "APK IAA settlement",
+        "APK IAA合作模式表",
+        "广告合作起结金额",
+        "APK IAA row"
+      ],
+      "a": "<b>APK-IAA广告合作</b>的规则如下：合作模式为APK，子类一为IAA，子类二为广告合作；CP准入要求为提测通过；分成比例为我司:CP=6:4；签约方式为联运协议；合作费用为我司付款；结算方式为按月结算，最低起结为小传人民币￥5000起结、AFMOBI美金$1000起结，并由销售报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK IAA广告加增值服务",
+        "增值服务准入门槛",
+        "广告+增值服务规则",
+        "APK value added service row",
+        "阶梯分成",
+        "非商单自投要求",
+        "CP支付增值服务费"
+      ],
+      "a": "<b>APK-IAA广告+增值服务</b>规则：合作模式为APK，子类一为IAA，子类二为广告+增值服务。CP准入要求为提测通过、满足<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">相关门槛</a>，且为非商单/自投。分成按<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">阶梯分成</a>执行；签约方式为主协议联运合同并附加增值合同；合作费用为CP支付增值服务费&我司付款。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK IAP EE1地区规则",
+        "EE1 IAP分成",
+        "EE1地区IAP怎么结算",
+        "APK IAP EE1 row",
+        "EE1签约方式",
+        "EE1不走我司报支",
+        "CP与渠道结算"
+      ],
+      "a": "<b>APK-IAP EE1地区</b>规则：合作模式为APK，子类一为IAP，子类二为EE1地区；CP准入为提测通过；分成与结算为CP与渠道结算，结算分成比例为我司:CP=3:7；签约方式为EE1地区与我司邮件报备+与渠道方签署联运协议；合作费用层面为CP和渠道结算；结算不涉及通过我司报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK IAP白名单目标CP规则",
+        "白名单CP链接",
+        "目标CP IAP分成",
+        "APK IAP whitelist",
+        "小传AFMOBI起结",
+        "IAP联运协议",
+        "白名单内CP"
+      ],
+      "a": "<b>APK-IAP白名单内目标CP</b>规则：子类二为<a href=\"https://transsioner.feishu.cn/sheets/XK7zsqrZnh20mvtiNa0cl5ZSnle\">白名单</a>内目标CP；CP准入为提测通过；分成比例为我司:CP=3:7；签约方式为联运协议；合作费用为我司付款；结算为按月结算，最低起结为小传人民币￥5000起结、AFMOBI美金$1000起结，并由销售报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "APK IAA+IAP混变规则",
+        "混变分成比例",
+        "Hybrid monetization",
+        "IAA IAP hybrid row",
+        "混变合作准入",
+        "混变联运协议",
+        "APK混合变现"
+      ],
+      "a": "<b>APK-IAA+IAP混变</b>规则：合作模式为APK，子类一为IAA+IAP，子类二为混变；CP准入要求为提测通过；IAA分成比例为我司:CP=6:4，IAP分成比例为我司:CP=5:5；签约方式为联运协议；合作费用为我司付款。该模式需分别满足IAA与IAP的合作政策要求，提测入口通常使用“混变及非EE1地区IAP提测表”。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "H5 IAA广告合作规则",
+        "H5广告分成比例",
+        "H5 IAA row",
+        "H5联运准入",
+        "H5联运协议",
+        "H5我司付款",
+        "AHA IAA合作"
+      ],
+      "a": "<b>H5-IAA广告合作</b>规则：合作模式为H5，子类一为IAA，子类二为广告合作；CP准入要求为提测通过；分成比例为我司:CP=6:4；签约方式为联运协议；合作费用为我司付款。H5提测入口为AHA H5联运游戏评测表，运营对接人为H5（AHA）@郑林君，后续依次开展客户报备、合同签署、技术接入、上线运营和结算。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合作政策分成比例",
+        "IAA IAP分成要求",
+        "minimum revenue share",
+        "IAP政策PDF",
+        "联运分成不得低于多少",
+        "合作政策要求",
+        "2026 Dlightek IAP政策"
+      ],
+      "a": "<b>合作政策分成要求</b>如下：IAA分成比例不得低于我司:CP=6:4；IAP分成比例中，EE1地区和目标CP的IAP分成比例不得低于我司:CP=3:7，其他地区IAP分成比例不得低于我司:CP=5:5；IAA+IAP合作需分别满足上述要求。IAP政策详见<a href=\"https://transsioner.feishu.cn/file/WgMVbbygRoRHrRxEhyVcyGDfnXf\">2026年Dlightek联运游戏 IAP业务合作推进政策.pdf</a>。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IAA-APK增值服务合作政策",
+        "2026增值服务合作规则",
+        "增值服务政策文档",
+        "value added service policy",
+        "增值服务准入要求",
+        "移动互联联运游戏增值服务规则",
+        "阶梯分成PDF"
+      ],
+      "a": "<b>IAA-APK增值服务合作政策</b>需参考<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">2026年移动互联联运游戏 增值服务合作规则.pdf</a>，完整URL：https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c。文档要求合作准入需符合政策文档要求，表格中明确需提测通过、满足相关门槛、并且为非商单/自投；分成按阶梯分成执行，CP需支付增值服务费。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "对接人清单",
+        "联系人清单",
+        "所有联运联系人",
+        "contact list",
+        "运营财务客户管理联系人",
+        "游戏联运找谁",
+        "完整人员名单"
+      ],
+      "a": "<b>游戏联运对接人清单</b>如下：<br><ul><li>游戏联运运营：H5（AHA）@郑林君；APK分发游戏业务部中，IAA运营@孟奇标、@唐舒嘉；IAP、IAA+IAP混变运营@姜泽华、@陈婷婷；EE1-IAP：@程昶。</li><li>财务：报支通过Transsion财务工作台；开票@姚思洋；到款@沈海河。</li><li>客户管理：@范丽莉、@连佳柯、@陶诗盈。</li></ul>不同阶段需联系对应角色。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "开通开发者平台权限",
+        "developer platform permission",
+        "dev.transsion.com权限",
+        "销售怎么开权限",
+        "传音开发者平台开户",
+        "吴一鸣李志华邮箱",
+        "开发者平台邮件模板"
+      ],
+      "a": "<b>开通开发者平台权限</b>地址为传音开发者平台：<a href=\"https://dev.transsion.com/\">https://dev.transsion.com/</a>。开通方式：销售发送邮件给@吴一鸣，��箱<a href=\"mailto:MI_xsglb@transsion.com\">MI_xsglb@transsion.com</a>；抄送@李志华，邮箱zhihua.li@transsion.com。邮件标题为“开通开发者平台权限”；正文为“申请为「销售姓名」开通开发者平台权限，工号：XX，邮箱：XX”。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "开发者平台权限邮件完整模板",
+        "开通开发者平台邮件怎么写",
+        "permission email template",
+        "邮件收件人抄送",
+        "开发者平台开户邮件",
+        "销售权限申请正文",
+        "MI_xsglb邮箱"
+      ],
+      "a": "<b>开发者平台权限邮件模板</b>：<br><ul><li>收件人：@吴一鸣，<a href=\"mailto:MI_xsglb@transsion.com\">MI_xsglb@transsion.com</a></li><li>抄送：@李志华，zhihua.li@transsion.com</li><li>邮件标题：开通开发者平台权限</li><li>正文：申请为「销售姓名」开通开发者平台权限，工号：XX，邮箱：XX</li></ul>平台地址为<a href=\"https://dev.transsion.com/\">https://dev.transsion.com/</a>。该权限用于销售进入传音开发者平台处理联运相关协作事项。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合同签署指导",
+        "合同标准要求",
+        "合同归档管理要求",
+        "Contract Signing and Archiving",
+        "移动互联合同指引",
+        "联运合同签署规范",
+        "合同签署文档链接"
+      ],
+      "a": "<b>合同签署指导</b>要求按照合同标准执行，参考文档为<a href=\"https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc\">移动互联业务合同签署指引及归档管理要求Guidelines for Contract Signing and Archiving Management (Mobile Internet Business)</a>。该链接完整URL为：https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc。联运协议、主协议联运合同、增值服务补充协议等均应按该指引处理签署与归档。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1地区IAP确认邮件",
+        "EE1 IAP confirmation email",
+        "EE1邮件模板",
+        "EE1销售业绩确认",
+        "EE1报备邮件正文",
+        "Apostar平台支付SDK",
+        "EE1合作邮件怎么写"
+      ],
+      "a": "<b>EE1地区IAP合作确认邮件</b>用于确认我方引入销售的业绩。引入销售需要与CP邮件确认合作，确认后转发邮件同步联运运营、客户管理。邮件正文模板关键内容如下，a.b.c.d四项不可缺失：<br>【Dear 】<br>如线下沟通，我们预备将您的联系方式，同步告知我司EE1合作商，由其承接我们在EE1地区的联运IAP变现合作。<br>希望您提前知晓：<br>1. EE1的IAP联运合作，非CPS合作<br>2. 贵司需要通过Apostar平台分发至传音<br>3. 贵司需要接入Apostar支付SDK<br>4. 本次联运IAP合作获取的收入，在扣除支付通道费后，双方的收益分成比例：贵司占 %，我司占 %。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1 IAP后续流程",
+        "EE1合作确认后怎么做",
+        "EE1客户管理运营流程",
+        "EE1合作商确认",
+        "EE1签约执行步骤",
+        "全球游戏团队同步",
+        "EE1 workflow after email"
+      ],
+      "a": "<b>EE1地区IAP合作确认后的流程</b>：<br><ol><li>引入销售与CP邮件确认合作，并转发同步联运运营、客户管理。</li><li>客户管理完成合作信息记录并回复确认。</li><li>客户管理回复后，联运运营将信息流转给EE1合作商进行确认。</li><li>EE1合作商回复确认接收后，游戏CP与EE1合作商签约执行。</li><li>联运运营将“EE1合作商执行的游戏产品名”同步告知“全球游戏团队”，避免团队对外沟通中的信息gap。</li></ol>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "联运增值服务确认邮件",
+        "增值服务下单邮件模板",
+        "value added service order template",
+        "陈婷婷收件人",
+        "增值服务邮件抄送谁",
+        "下单金额服务期目标",
+        "到款截图邮件"
+      ],
+      "a": "<b>联运增值服务确认邮件模板</b>要求如下：<br><ul><li>发件人：销售</li><li>邮件名：【联运增值服务下单】+公司名称</li><li>收件人：分发游戏业务负责人陈婷婷&lt;tingting.chen@transsion.com&gt;</li><li>抄送人：销售leader；财务温凯欣&lt;candise.wan@transsion.com&gt;、沈海河&lt;haihe.shen@transsion.com&gt;；客户管理组&lt;khgl.mi@transsion.com&gt;；分发运营叶剑强&lt;jianqiang.ye@transsion.com&gt;、宋天然&lt;tianran.song@transsion.com&gt;</li></ul>正文需包含CP名称、下单金额、增值服务期具体时间、期望达到的增值服务目标、与财务确认的到款邮件截图。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "增值服务邮件正文要点",
+        "增值服务下单正文写什么",
+        "value added email body",
+        "下单金额怎么写",
+        "增值服务期具体时间",
+        "服务目标是否承诺",
+        "财务到款截图"
+      ],
+      "a": "<b>联运增值服务确认邮件正文</b>必须包含以下信息：<br><ul><li>CP名称</li><li>下单金额</li><li>增值服务期的具体时间，首次合作主要是1期的明确时间</li><li>期望达到的增值服务目标，备注为“非承诺，仅业务线参考”</li><li>与财务确认的到款邮件的截图</li></ul>该邮件由销售发送，邮件名为【联运增值服务下单】+公司名称，收件人为陈婷婷&lt;tingting.chen@transsion.com&gt;，并需抄送销售leader、财务、客户管理组及分发运营。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "结算前提是什么",
+        "settlement prerequisite",
+        "报支前需要什么材料",
+        "营业执照银行卡信息",
+        "BPM-FN02流程",
+        "最终结算流水前提",
+        "结算材料要求"
+      ],
+      "a": "<b>结算前提</b>：在按照最终结算流水与客户结算、报支之前，需按照BPM-FN02流程提供客户营业执照和盖有公章的银行卡信息。BPM系统地址为<a href=\"https://bpm.transsion.com/\">https://bpm.transsion.com/</a>。同时可参考<a href=\"https://transsioner.feishu.cn/wiki/S5cZwX84IiJcsrkoiRocVPeznBg\">游戏联运报支指引（对销售-销售一部）</a>，确保结算材料、发票、对账单盖章等事项完整。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "月度结算开票主体",
+        "invoice entity",
+        "国内开票主体",
+        "海外开票主体",
+        "上海小传科技有限��司",
+        "AFMOBI TECHNOLOGY HK LIMITED",
+        "1019 3015主体"
+      ],
+      "a": "<b>月度结算开票主体</b>分国内和海外：<br><ul><li>国内：1019 上海小传科技有限公司</li><li>海外：3015 AFMOBI TECHNOLOGY HK LIMITED</li></ul>结算时需结合客户所在地、合同主体和账务安排确认开票主体。联运运营/客户管理会通过邮件发出客户对账单，销售收到后与CP确认发票，并要求CP在对账单上盖公章确认，再按报支流程处理。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "结算起结金额",
+        "minimum settlement amount",
+        "小传5000起结",
+        "AFMOBI 1000美元起结",
+        "海外客户500美元起结",
+        "终止合作起结要求",
+        "最低起结金额"
+      ],
+      "a": "<b>结算起结金额</b>：在合作期内，最低起结金额为小传人民币5000起结，AFMOBI美金1000起结；文档还特别注明海外客户AFMOBI美金500起结。终止合作时，结算流水没有起结金额的要求。该起结金额规则同样出现在分场景差异表中：APK-IAA广告合作、白名单目标CP的APK-IAP等按月结算并由销售报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "联运中英文接入文档",
+        "integration document",
+        "接入文档链接",
+        "technical integration docs",
+        "开发接入教程",
+        "联运详细教程",
+        "dev.transsion docs id 12"
+      ],
+      "a": "<b>联运中英文接入文档</b>位于传音开发者平台，链接为<a href=\"https://dev.transsion.com/docs?id=12\">https://dev.transsion.com/docs?id=12</a>。该文档属于“联运相关文档（详细教程）”，用于技术接入阶段参考。游戏通过提测、客户报备、合同签署后，需要与对应运营对接人协作完成技术对接、上架服务和运营，包括H5（AHA）@郑林君、IAA运营@孟奇标@唐舒嘉等。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IT系统有哪些",
+        "游戏联运系统入口",
+        "IT system list",
+        "产品提测系统",
+        "客户报备合同结算系统",
+        "运营结算用什么",
+        "合同终止用什么"
+      ],
+      "a": "<b>游戏联运相关IT系统</b>包括：<br><ul><li>产品提测：APK使用飞书表单，包括IAA及EE1地区IAP提测表、混变及非EE1地区IAP提测表；H5（AHA）使用AHA H5联运游戏评测表。</li><li>客户报备：使用客户报备表单。</li><li>合同签署：使用<a href=\"https://bpm.transsion.com/\">https://bpm.transsion.com/</a>，LA11-1流程。</li><li>运营结算：邮件。</li><li>合同终止：邮件。</li></ul>",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IT系统APK提测",
+        "APK飞书表单",
+        "IAA EE1 IAP form",
+        "混变非EE1表单",
+        "APK evaluation IT portal",
+        "APK产品提测系统",
+        "APK提测链接汇总"
+      ],
+      "a": "<b>IT系统中的APK产品提测</b>使用飞书表单：<br><ul><li>IAA及EE1地区IAP提测表：<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq\">https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq</a></li><li>混变及非EE1地区IAP提测表：<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke\">https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke</a></li></ul>APK提测通过是IAA、IAP、混变及增值服务等合作准入的共同基础。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IT系统H5提测",
+        "H5 AHA评测表",
+        "AHA H5 evaluation IT",
+        "H5产品提测系统",
+        "H5联运游戏评测表",
+        "H5提测链接汇总",
+        "AHA form"
+      ],
+      "a": "<b>IT系统中的H5（AHA）产品提测</b>使用<a href=\"https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh?table=tblMExgHsYzyYYTL&view=vewSt0NjBR\">AHA H5联运游戏评测表</a>，完整URL：https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh?table=tblMExgHsYzyYYTL&view=vewSt0NjBR。H5-IAA广告合作的CP准入为提测通过，分成为我司:CP=6:4，签约方式为联运协议。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "客户报备IT系统",
+        "客户报备表单链接",
+        "client report IT",
+        "客户管理报备入口",
+        "联运客户登记",
+        "报备系统",
+        "客户报备URL"
+      ],
+      "a": "<b>客户报备IT入口</b>为<a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\">客户报备表单</a>，完整URL：https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh。客户报备联系人为@范丽莉、@连佳柯、@陶诗盈。报备位于游戏提测后、合同签署前，是对客户、CP和合作机会进行内部记录与管理的重要环节。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合同签署IT系统",
+        "BPM LA11-1流程",
+        "contract signing IT system",
+        "合同在什么系统签",
+        "BPM合同入口",
+        "LA11合同流程",
+        "联运协议系统"
+      ],
+      "a": "<b>合同签署IT系统</b>为BPM系统，地址：<a href=\"https://bpm.transsion.com/\">https://bpm.transsion.com/</a>，使用LA11-1流程。快速流程表中发起合同的直达链接为<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true</a>。合同签署还需遵守移动互联业务合同签署指引及归档管理要求。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "运营结算用邮件吗",
+        "合同终止怎么做",
+        "settlement by email",
+        "contract termination by email",
+        "运营结算系统",
+        "终止合作流程",
+        "合同终止IT系统"
+      ],
+      "a": "<b>运营结算和合同终止的IT方式</b>：文档在IT系统中明确，运营结算使用“邮件”，合同终止也使用“邮件”。结算场景中，联运运营/客户管理通过邮件向销售发出客户对账单，销售再与CP确认发票并取得CP公章确认。合同终止未提供更细模板，但系统方式已明确为邮件；终止合作时，结算流水没有起结金额要求。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合作终止结算",
+        "终止合作起结金额",
+        "contract termination settlement",
+        "合同终止邮件",
+        "结束合作怎么结算",
+        "termination no minimum",
+        "合作终止流程怎么走"
+      ],
+      "a": "<b>合作终止相关要求</b>：IT系统中明确“合同终止：邮件”，即终止流程通过邮件处理。结算起结金额规则中特别说明：终止合作时，结算流水没有起结金额的要求，这与合作期内小传人民币5000起结、AFMOBI美金1000起结、海外客户AFMOBI美金500起结不同。因此终止时即使未达到常规起结金额，也可按终止结算要求处理应结流水。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "月度结算完整流程",
+        "monthly settlement workflow",
+        "对账单谁发",
+        "销售收到对账单做什么",
+        "CP盖章确认",
+        "发票确认流程",
+        "联运结算步骤"
+      ],
+      "a": "<b>月度结算完整流程</b>：每月15日前确认月度流水数据以启动结算；随后联运运营/客管会通过邮件发出客户对账单；销售收到邮件后与CP确认发票；CP需要在对账单上盖CP公章确认。英文版也说明Workflow为：1. Joint Ops/Client Management Team sends the settlement statement via email to sales；2. Sales confirm the invoice details with the CP；Then the CP stamps the settlement statement with the official seal。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "财务联系人",
+        "开票找谁",
+        "到款找谁",
+        "报支系统",
+        "finance contacts",
+        "Transsion财务工作台",
+        "姚思洋沈海河"
+      ],
+      "a": "<b>财务对接信息</b>：报支通过Transsion财务工作台处理；开票联系人为@姚思洋；到款联系人为@沈海河。在联运增值服务确认邮件中，财务抄送人为温凯欣&lt;candise.wan@transsion.com&gt;、沈海河&lt;haihe.shen@transsion.com&gt;，正文还需包含“与财务确认的到款邮件的截图”。结算前还需通过BPM-FN02提供营业执照和盖章银行卡信息。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "客户管理联系人",
+        "客管是谁",
+        "client management contacts",
+        "范丽莉连佳柯陶诗盈",
+        "客户报备对接人",
+        "客户管理组邮箱",
+        "khgl.mi"
+      ],
+      "a": "<b>客户管理联系人</b>为@范丽莉、@连佳柯、@陶诗盈，快速流程中的客户报备环节和流程要点中的对接人清单均列出这三位。增值服务下单邮件还需抄送客户管理组&lt;khgl.mi@transsion.com&gt;。在EE1地区IAP合作中，客户管理负责完成合作信息记录并回复确认，之后联运运营再将信息流转给EE1合作商。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "分发运营联系人",
+        "增值服务抄送分发运营",
+        "叶剑强宋天然",
+        "distribution operation contacts",
+        "jianqiang ye email",
+        "tianran song email",
+        "增值服务邮件抄送"
+      ],
+      "a": "<b>增值服务下单邮件中的分发运营抄送人</b>包括叶剑强&lt;jianqiang.ye@transsion.com&gt;、宋天然&lt;tianran.song@transsion.com&gt;。同一邮件还需要抄送销售leader、财务温凯欣&lt;candise.wan@transsion.com&gt;和沈海河&lt;haihe.shen@transsion.com&gt;、客户管理组&lt;khgl.mi@transsion.com&gt;。收件人为分发游戏业务负责人陈婷婷&lt;tingting.chen@transsion.com&gt;。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "H5和APK差异",
+        "H5 APK cooperation difference",
+        "H5 APK联运有什么不同",
+        "提测入口区别",
+        "运营联系人差异",
+        "合作模式分类",
+        "H5 APK comparison"
+      ],
+      "a": "<b>H5与APK联运差异</b>：H5当前表格中列为IAA广告合作，CP准入为提测通过，分成为我司:CP=6:4，签约为联运协议，运营对接人为H5（AHA）@郑林君，提测表为AHA H5联运游戏评测表。APK覆盖IAA广告、IAA广告+增值服务、IAP EE1地区、IAP白名单目标CP、IAA+IAP混变等；APK运营联系人按模式分为IAA @孟奇标@唐舒嘉，IAP/混变 @姜泽华@陈婷婷，EE1-IAP @程昶。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "IAA和IAP差异",
+        "IAA IAP difference",
+        "广告和内购有什么不同",
+        "分成比例差异",
+        "变现方式区别",
+        "IAA IAP policy comparison",
+        "联运模式对比"
+      ],
+      "a": "<b>IAA与IAP差异</b>：IAA是应用内广告，通过激励视频、插屏广告、横幅广告等获取广告收入，不要求用户直接付费；合作政策中IAA分成比例不得低于我司:CP=6:4。IAP是应用内购买，用户在应用内购买虚拟物品、订阅服务或功能解锁；EE1地区和目标CP的IAP分成比例不得低于我司:CP=3:7，其他地区IAP不得低于我司:CP=5:5。IAA+IAP混变需分别满足两类要求。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1和非EE1 IAP差异",
+        "EE1 non-EE1 IAP difference",
+        "EE1 IAP为什么特殊",
+        "IAP分成地区差异",
+        "EE1渠道结算",
+        "非EE1提测表",
+        "EE1 white list comparison"
+      ],
+      "a": "<b>EE1与非EE1 IAP差异</b>：EE1地区IAP需借助外部支付渠道能力，即EE1合作商；签约方式为与我司邮件报备+与渠道方签署联运协议；CP和渠道结算，不涉及通过我司报支；分成为我司:CP=3:7。非EE1地区IAP使用“混变及非EE1地区IAP提测表”，其他地区IAP分成不得低于我司:CP=5:5；白名单内目标CP则分成为我司:CP=3:7并走联运协议、我司付款、销售报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "增值服务与普通IAA区别",
+        "广告合作和增值服务对比",
+        "IAA value added difference",
+        "CP付款还是我司付款",
+        "阶梯分成区别",
+        "增值服务门槛",
+        "普通广告合作分成"
+      ],
+      "a": "<b>普通APK-IAA广告合作与广告+增值服务差异</b>：普通广告合作只要求提测通过，分成我司:CP=6:4，签约联运协议，合作费用为我司付款。广告+增值服务除提测通过外，还需满足<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">相关门槛</a>并为非商单/自投；分成按阶梯分成；签约为主协议联运合同+附加增值合同；费用为CP支付增值服务费&我司付款。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "白名单目标CP在哪里",
+        "target CP whitelist",
+        "IAP白名单链接",
+        "白名单内目标CP表",
+        "XK7zsqrZ链接",
+        "目标CP准入",
+        "whitelist CP URL"
+      ],
+      "a": "<b>IAP白名单内目标CP</b>的链接为<a href=\"https://transsioner.feishu.cn/sheets/XK7zsqrZnh20mvtiNa0cl5ZSnle\">https://transsioner.feishu.cn/sheets/XK7zsqrZnh20mvtiNa0cl5ZSnle</a>。分场景表中说明，白名单内目标CP如果提测通过，则APK-IAP分成比例为我司:CP=3:7，签约方式为联运协议，合作费用为我司付款，并按月结算。最低起结为小传￥5000、AFMOBI $1000，销售报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "游戏联运常见问题",
+        "FAQ",
+        "常见问题Q&A",
+        "联运FAQ有没有",
+        "游戏联运问答",
+        "Q&A status",
+        "常见问题持续完善"
+      ],
+      "a": "<b>常见问题Q&A</b>章节目前状态为“持续完善”。文档未在该章节列出具体问题与答案，但前文已给出核心流程、分场景差异、合作政策、对接人清单、开发者平台权限开通、EE1地区IAP确认邮件、增值服务确认邮件、结算前提、开票主体、起结金额、IT系统和合同终止方式等内容。后续FAQ应以该文档V2.1最新版本补充为准。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "销售在联运流程中做什么",
+        "sales responsibilities",
+        "销售协作事项",
+        "销售要确认哪些",
+        "销售报备签约结算",
+        "销售邮件职责",
+        "联运销售操作"
+      ],
+      "a": "<b>销售在游戏联运流程中的主要职责</b>包括：引导客户了解H5或APK合作资料；推动游戏提测；通过客户报备表单报备客户；发起BPM合同或配合EE1邮件报备；需要开通传音开发者平台权限时，发送邮件给@吴一鸣并抄送@李志华；增值服务场景由销售发送【联运增值服务下单】邮件；月度结算时，销售收到对账单后与CP确认发票，并要求CP在对账单上盖公章，随后按报支指引处理。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "技术对接和上架怎么做",
+        "technical integration launch",
+        "游戏上线流程",
+        "接入后找谁",
+        "运营接入步骤",
+        "联运技术对接",
+        "launch operation"
+      ],
+      "a": "<b>技术对接+上架服务+运营</b>阶段要求与运营人员对接，完成后续接入、上线和运营。对应联系人为：H5（AHA）@郑林君；APK IAA运营@孟奇标@唐舒嘉；IAP、IAA+IAP混变运营@姜泽华@陈婷婷；EE1-IAP @程昶。技术接入可参考联运中英文接入文档<a href=\"https://dev.transsion.com/docs?id=12\">https://dev.transsion.com/docs?id=12</a>。完成接入后再进入月度流水确认和结算流程。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "增值服务到款要求",
+        "到款邮件截图",
+        "payment received screenshot",
+        "增值服务费支付确认",
+        "财务确认到款",
+        "下单邮件财务截图",
+        "沈海河到款"
+      ],
+      "a": "<b>增值服务到款要求</b>体现在联运增值服务确认邮件中：正文必须包含“与财务确认的到款邮件的截图”。该邮件抄送财务温凯欣&lt;candise.wan@transsion.com&gt;、沈海河&lt;haihe.shen@transsion.com&gt;，流程要点中的到款财务联系人为@沈海河。由于增值服务模式中CP需向传音支付“增值服务费”，销售在下单邮件中还需写明CP名称、下单金额、服务期具体时间和期望目标。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "EE1不是CPS吗",
+        "EE1 IAP非CPS合作",
+        "Apostar分发要求",
+        "Apostar支付SDK要求",
+        "EE1邮件四项不可缺失",
+        "EE1 CP需要做什么",
+        "EE1 cooperation terms"
+      ],
+      "a": "<b>EE1地区IAP确认邮件中四项不可缺失内容</b>包括：1. EE1的IAP联运合作，非CPS合作；2. 贵司需要通过Apostar平台分发至传音；3. 贵司需要接入Apostar支付SDK；4. 本次联运IAP合作获取的收入，在扣除支付通道费后，双方的收益分成比例需写明“贵司占 %，我司占 %”。这些内容用于让CP提前知晓EE1合作的商业性质、分发渠道、支付接入和收益分成安排。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "AFMOBI起结金额矛盾吗",
+        "AFMOBI 1000还是500",
+        "海外客户起结金额",
+        "minimum settlement AFMOBI",
+        "小传和AFMOBI区别",
+        "起结金额细则",
+        "结算金额要求"
+      ],
+      "a": "<b>起结金额细则</b>：文档在分场景表中列出最低起结为小传-￥5000起结，AFMOBI-$1000起结；流程要点又进一步说明，在合作期内最低起结金额为小传人民币5000起结，AFMOBI美金1000起结，并特别注明“海外客户AFMOBI美金500起结”。此外，终止合作时结算流水没有起结金额要求。实际执行应结合客户类型、主体和最新财务要求确认。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "报支和结算谁负责",
+        "销售报支适用哪些场景",
+        "which scenarios sales payment request",
+        "EE1要不要报支",
+        "我司付款场景",
+        "CP渠道结算场景",
+        "结算方式对比"
+      ],
+      "a": "<b>报支与结算责任对比</b>：APK-IAA广告合作、APK-IAP白名单内目标CP、H5-IAA广告合作以及APK-IAA+IAP混变等我司付款场景，通常按月结算，达到起结金额后由销售报支。EE1地区APK-IAP则不同：CP与渠道结算，签约为与我司邮件报备+与渠道方签署联运协议，合作费用为CP和渠道结算，不涉及通过我司报支。增值服务场景还包含CP支付增值服务费&我司付款。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合作费用有哪些类型",
+        "我司付款是什么意思",
+        "CP支付增值服务费",
+        "合作费用对比",
+        "joint operation fees",
+        "CP和渠道结算",
+        "费用承担方式"
+      ],
+      "a": "<b>合作费用类型</b>按场景不同：普通APK-IAA广告合作、白名单内目标CP的APK-IAP、APK-IAA+IAP混变、H5-IAA广告合作均为“我司付款”。APK-IAA广告+增值服务为“CP支付增值服务费&我司付款”，即CP向传音支付增值服务费，同时联运收入仍按规则结算。APK-IAP EE1地区为“CP和渠道结算”，不涉及通过我司报支。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合同签署方式对比",
+        "联运协议增值合同EE1区别",
+        "signing method comparison",
+        "主协议联运合同",
+        "附加增值合同",
+        "EE1渠道方协议",
+        "签约方式有哪些"
+      ],
+      "a": "<b>签约方式对比</b>：普通APK-IAA广告合作、白名单内目标CP的APK-IAP、APK-IAA+IAP混变、H5-IAA广告合作均签署联运协议。APK-IAA广告+增值服务需要“主协议联运合同，附加增值合同”。APK-IAP EE1地区签约方式为“与我司邮件报备+与渠道方签署联运协议”。合同发起可使用BPM LA11-1流程，直达链接为https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "CP准入条件",
+        "准入要求有哪些",
+        "admission requirements",
+        "提测通过是不是必须",
+        "增值服务准入",
+        "白名单准入",
+        "合作准入政策"
+      ],
+      "a": "<b>CP准入条件</b>：分场景差异表中绝大多数合作均要求“提测通过”，包括APK-IAA广告合作、APK-IAP EE1地区、APK-IAP白名单内目标CP、APK-IAA+IAP混变、H5-IAA广告合作。APK-IAA广告+增值服务除提测通过外，还需满足<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">相关门槛</a>并且为非商单/自投。白名单内目标CP还需在<a href=\"https://transsioner.feishu.cn/sheets/XK7zsqrZnh20mvtiNa0cl5ZSnle\">白名单</a>中。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "英文快速流程",
+        "Quickly Start Game Joint Operations",
+        "English workflow",
+        "Game Evaluation Client Report",
+        "Technical Integration Launch",
+        "Monthly Settlement Payment",
+        "英文版流程说明"
+      ],
+      "a": "<b>英文版快速流程</b>为Quickly Start Game Joint Operations with Clients，包含：Understand the Cooperation Model、Game Evaluation、Client Report、Sign Agreement、Technical Integration & Launch、Monthly Settlement & Payment。英文说明中，Game Evaluation提供H5 Joint Operation和APK Joint Operation表单；Client Report使用Client Registration Form；Sign Agreement使用Initiate Contract；Technical Integration & Launch要求Coordinate with the Operations team；Monthly Settlement要求By the 15th of each month确认monthly revenue data。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "所有材料链接汇总",
+        "document links summary",
+        "联运资料URL",
+        "游戏联运所有链接",
+        "表单文档合同链接",
+        "materials list",
+        "重要链接有哪些"
+      ],
+      "a": "<b>重要材料链接汇总</b>：H5文档https://dev.dlightek.com/docs?id=20，H5视频https://transsioner.feishu.cn/file/RcGUbf4XVo1klbxzCKvcC17EnFh；APK文档https://dev.dlightek.com/docs?id=70，APK视频https://transsioner.feishu.cn/file/CU6vbi5shoRZ0Kx409tcwZLXnLg；H5提测https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh?table=tblMExgHsYzyYYTL&view=vewSt0NjBR；APK提测表分别为https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq和https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke；客户报备https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "重要政策链接汇总",
+        "policy links summary",
+        "IAP政策增值服务规则",
+        "合作要求邮件模板链接",
+        "policy documents",
+        "联运政策文件",
+        "规则PDF链接"
+      ],
+      "a": "<b>重要政策与规则链接</b>包括：IAP合作推进政策<a href=\"https://transsioner.feishu.cn/file/WgMVbbygRoRHrRxEhyVcyGDfnXf\">2026年Dlightek联运游戏 IAP业务合作推进政策.pdf</a>；增值服务规则<a href=\"https://transsioner.feishu.cn/file/NxA6buSzdoDDGXxKcb3crJPPn3c\">2026年移动互联联运游戏 增值服务合作规则.pdf</a>；EE1合作要求中文链接https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-QlZMdhioiowKAlxgnc7clQB0n9f，英文链接https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc#share-VPBMdXPNxozQ0PxDF2OcTuEFntR。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "合同和报支链接汇总",
+        "contract payment links",
+        "BPM报支文档链接",
+        "LA11 FN02",
+        "合同签署归档链接",
+        "payment guide URLs",
+        "BPM系统地址"
+      ],
+      "a": "<b>合同与报支相关链接</b>：BPM系统<a href=\"https://bpm.transsion.com/\">https://bpm.transsion.com/</a>；发起合同直达链接<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc&__isFull__=true\">LA11-1流程</a>；合同签署归档指引<a href=\"https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc\">移动互联业务合同签署指引及归档管理要求</a>；报支操作指引https://transsioner.feishu.cn/docx/PRSFdqNUHoo4kTxKKa2cXJxBnKf；销售报支指引https://transsioner.feishu.cn/wiki/S5cZwX84IiJcsrkoiRocVPeznBg。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "V2.1以哪个文档为准",
+        "最新版文档",
+        "current version",
+        "游戏联运业务运营流程V2.1",
+        "最新版链接",
+        "以V2.1为准",
+        "Game Joint Operation Business Process V2.1"
+      ],
+      "a": "<b>当前最新版</b>以<a href=\"https://transsioner.feishu.cn/wiki/SCyQwzuvDi5S1FkAIQGc2dAjnyc\">游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）</a>为准。V2.1于2026.2.26由杨宽、饶一帆变更，合并了游戏联运业务运营流程_V2.0、联运游戏IAP合作流程框架、2025年移动互联联运游戏增值服务合作规则LY-202503-31.pdf，并加入V2.0的运营说明。",
+      "source": "游戏联运业务运营流程_V2.1（Game Joint Operation Business Process_V2.1）.md"
+    },
+    {
+      "q": [
+        "游戏联运",
+        "game joint operation",
+        "联运是什么",
+        "what is joint operation"
+      ],
+      "a": "<b>游戏联运（Game Joint Operation）</b> 是指游戏CP（内容提供方）通过传音Dlightek平台进行游戏分发和变现的合作模式。支持APK和H5两种形态；合作模式包括：IAA（应用内广告）、IAP（应用内购买）、IAA+IAP混合变现、增值服务。"
+    },
+    {
+      "q": [
+        "IAA是什么",
+        "IAA meaning",
+        "in-app advertising 游戏",
+        "什么是IAA"
+      ],
+      "a": "<b>IAA（In-App Advertising，应用内广告）</b>：开发者通过在应用内嵌入激励视频、插屏广告、横幅广告等获取广告收入。用户无需直接付费。分成比例：我司:CP = 6:4。"
+    },
+    {
+      "q": [
+        "IAP是什么",
+        "IAP meaning",
+        "in-app purchase 游戏",
+        "什么是IAP"
+      ],
+      "a": "<b>IAP（In-App Purchase，应用内购买）</b>：用户在应用内购买虚拟物品、订阅服务等。EE1地区分成比例：我司:CP = 3:7；目标CP分成比例：我司:CP = 3:7；其他地区分成比例：我司:CP = 5:5。"
+    },
+    {
+      "q": [
+        "混变",
+        "IAA+IAP",
+        "混合变现",
+        "mixed monetization"
+      ],
+      "a": "<b>IAA+IAP 混合变现</b>：同时支持广告收入和内购收入。IAA部分分成 我司:CP=6:4，IAP部分分成 我司:CP=5:5。需分别满足IAA和IAP的政策要求。"
+    },
+    {
+      "q": [
+        "增值服务",
+        "value-added service",
+        "VAS 游戏",
+        "增值服务费"
+      ],
+      "a": "<b>增值服务（Value-Added Service）</b>：目前仅适用于联运APK-IAA场景。游戏CP向传音支付\"增值服务费\"，助力联运产品快速推广营销，享受专项优化提升服务，同时采用阶梯式收入分成。需满足相关门槛且非商单/自投。"
+    },
+    {
+      "q": [
+        "游戏提测",
+        "game evaluation",
+        "评测",
+        "提测入口",
+        "提测流程"
+      ],
+      "a": "<b>游戏提测（Game Evaluation）</b>：H5联运通过 <a href=\"https://transsioner.feishu.cn/wiki/Ox3ww829PiG1bMkfYFKcCJt3nBh\" target=\"_blank\">AHA H5联运游戏评测表</a>；APK联运：IAA及EE1地区IAP通过 <a href=\"https://transsioner.feishu.cn/share/base/form/shrcnPlxZlPxDxPrDr3WXmAIDQq\" target=\"_blank\">此表</a>，混变及非EE1地区IAP通过 <a href=\"https://transsioner.feishu.cn/share/base/form/shrcnehXJX5yHdCFROnTr3yv2ke\" target=\"_blank\">此表</a>。提测通过后方可进入后续流程。"
+    },
+    {
+      "q": [
+        "客户报备",
+        "client registration",
+        "报备入口",
+        "客户注册"
+      ],
+      "a": "<b>客户报备</b>：填写 <a href=\"https://transsioner.feishu.cn/share/base/form/shrcnXxb7EbLZ79DevJFJhc0Irh\" target=\"_blank\">客户报备表单 Client Registration Form</a>。对接人：@范丽莉、@连佳柯、@陶诗盈。"
+    },
+    {
+      "q": [
+        "合同签署",
+        "contract signing",
+        "签约流程",
+        "sign agreement"
+      ],
+      "a": "<b>合同签署（Contract Signing）</b>：通过BPM系统发起合同流程，链接：<a href=\"https://bpm.transsion.com/front/matter/startProcess?flowKey=LA11_1ydhlywhtsplc\" target=\"_blank\">BPM-LA11</a>。预估耗时7至14个工作日。签约前请查阅：<a href=\"https://transsioner.feishu.cn/docx/CUvBd3pRAoAuMyxWZS0cqYaOnFc\" target=\"_blank\">合同签署指引及归档管理要求</a>。EE1合作请先查阅合作要求。"
+    },
+    {
+      "q": [
+        "结算",
+        "settlement",
+        "报支",
+        "月度结算",
+        "对账单",
+        "起结金额"
+      ],
+      "a": "<b>月度结算</b>：每月15日前确认月度流水数据。联运运营通过邮件发出客户对账单，销售需与CP确认发票并在对账单上盖CP公章确认。最低起结金额：小传 ¥5000，AFMOBI $1000（海外客户$500起结）。开票主体：国内1019上海小传科技有限公司，海外3015 AFMOBI TECHNOLOGY HK LIMITED。结算前需提交客户营业执照和盖公章的银行卡信息（BPM-FN02流程）。"
+    },
+    {
+      "q": [
+        "EE1",
+        "EE1地区",
+        "EE1合作",
+        "EE1 IAP"
+      ],
+      "a": "<b>EE1地区IAP合作</b>：CP与渠道结算，分成比例我司:CP=3:7（扣除支付通道费后）。签约方式：与我司邮件报备 + 与渠道方签署联运协议。需通过Apostar平台分发并接入Apostar支付SDK。不涉及通过我司报支。对接人：@程昶。"
+    },
+    {
+      "q": [
+        "开发者平台",
+        "developer platform",
+        "开通权限",
+        "dev.transsion"
+      ],
+      "a": "<b>开发者平台权限开通</b>：销售发送邮件给@吴一鸣 MI_xsglb@transsion.com，抄送@李志华 zhihua.li@transsion.com。邮件标题：\"开通开发者平台权限\"，正文：申请为【销售姓名】开通开发者平台权限，工号：XX，邮箱：XX。平台地址：<a href=\"https://dev.transsion.com/\" target=\"_blank\">https://dev.transsion.com/</a>。"
+    },
+    {
+      "q": [
+        "H5游戏合作",
+        "H5联运",
+        "AHA",
+        "H5 game cooperation"
+      ],
+      "a": "<b>H5游戏合作（H5 Joint Operation）</b>：仅支持IAA广告合作模式。分成比例：我司:CP=6:4。运营对接人：@郑林君。文档：<a href=\"https://dev.dlightek.com/docs?id=20\" target=\"_blank\">H5游戏合作介绍</a>。"
+    },
+    {
+      "q": [
+        "APK游戏合作",
+        "APK联运",
+        "APK game cooperation"
+      ],
+      "a": "<b>APK游戏合作（APK Joint Operation）</b>：支持IAA、IAP、IAA+IAP混变三种模式。IAA运营@孟奇标@唐舒嘉；IAP及混变运营@姜泽华@陈婷婷；EE1-IAP@程昶。文档：<a href=\"https://dev.dlightek.com/docs?id=70\" target=\"_blank\">APK游戏合作介绍</a>。"
+    },
+    {
+      "q": [
+        "联运对接人",
+        "联系人",
+        "contact list",
+        "游戏运营对接",
+        "财务对接"
+      ],
+      "a": "<b>游戏联运对接人清单</b>：<br>• H5（AHA）：@郑林君<br>• APK IAA运营：@孟奇标、@唐舒嘉<br>• APK IAP及混变运营：@姜泽华、@陈婷婷<br>• EE1-IAP：@程昶<br>• 客户管理：@范丽莉、@连佳柯、@陶诗盈<br>• 财务-报支：Transsion财务工作台<br>• 财务-开票：@姚思洋<br>• 财务-到款：@沈海河"
+    },
+    {
+      "q": [
+        "EW",
+        "eagllwin",
+        "EW是什么",
+        "什么是EW",
+        "程序化广告"
+      ],
+      "a": "<b>Eagllwin（EW）广告平台</b>：传音的程序化广告投放平台。支持程序化资源竞价、PAI及优选流量、非程序化资源（AHA悬浮球、Hola Icon等）投放。客户自行注册开户后创建广告计划进行买量。直客注册：<a href=\"https://ads.eagllwin.com\" target=\"_blank\">ads.eagllwin.com</a>，代理注册：<a href=\"https://agent.eagllwin.com\" target=\"_blank\">agent.eagllwin.com</a>。"
+    },
+    {
+      "q": [
+        "分发运营",
+        "distribution order",
+        "分发订单",
+        "什么是分发"
+      ],
+      "a": "<b>分发运营（Distribution Order）</b>：KA直客的分发运营整体交付。客户下订单 → 分发运营执行买量+配置。支持CPM、CPC、CPD、CPI模式，采用固定结算单价。仅支持纯现金消耗，无代理返点返货。分发运营对接人：@叶剑强。订单系统：<a href=\"https://offerorder-admin.palmplaystore.com/\" target=\"_blank\">palmplaystore.com</a>。"
+    },
+    {
+      "q": [
+        "EW和分发区别",
+        "EW vs 分发",
+        "程序化和分发",
+        "EW distribution difference"
+      ],
+      "a": "<b>EW vs 分发运营区别</b>：<br>• <b>EW</b>：程序化竞价，实时动态价格。客户自行注册开户、自行创建计划买量。支持预付/后付。预付有代理返货政策。<br>• <b>分发运营</b>：固定结算单价。销售下单 → 运营执行。仅支持纯现金消耗，无代理返点。不支持代理签约的分发交付。<br>• 如何判断：客户想自己操作 → EW；客户需要全托管 → 分发运营。"
+    },
+    {
+      "q": [
+        "直客",
+        "代理",
+        "直客和代理区别",
+        "direct client",
+        "agency"
+      ],
+      "a": "<b>直客 vs 代理区别</b>：<br>• <b>直客</b>：开放后付合作申请，无预付费代理返货政策。使用直客合同模板。从EW官网注册登录。<br>• <b>代理</b>：后付审批受限，支持EW预付费代理返货（不支持抵扣分发运营订单）。使用代理合同模板，签约前需完成尽调流程（BPM-MI003）。从代理商平台注册，支持创建多个子账户。"
+    },
+    {
+      "q": [
+        "预付",
+        "后付",
+        "prepaid",
+        "postpaid",
+        "预付和后付区别"
+      ],
+      "a": "<b>预付 vs 后付区别</b>：<br>• <b>预付</b>：无需特别申请。无需额外调整合同条款。开户默认预付账户。现金充值入账。<br>• <b>后付</b>：需提前申请后付白名单审批。合同中需描述回款条款。正式合作前必须有法务确认且对方已盖章的合同。开户后需设置调整为后付费账户。授信额度入账，回款后需充值还款释放额度。结算时每月需与客户数据确认并开票追款。"
+    },
+    {
+      "q": [
+        "EW开户",
+        "广告开户",
+        "账户注册",
+        "how to open EW account"
+      ],
+      "a": "<b>EW开户注册</b>：直客从 <a href=\"https://ads.eagllwin.com\" target=\"_blank\">EW官网</a> 注册登录；代理从 <a href=\"https://agent.eagllwin.com\" target=\"_blank\">代理商平台</a> 注册。风控审核时效：工作日9:30-18:30（北京时间），2个工作日内完成审核。代理开户需有合同，无合同不审核。开户完成后需完成充值方可投放广告。"
+    },
+    {
+      "q": [
+        "EW充值",
+        "充值",
+        "recharge",
+        "到款确认"
+      ],
+      "a": "<b>EW充值流程</b>：销售将入账凭证给到销售支持 → 销售支持在<a href=\"http://mng-src.eagllwin.com/manage/#/\" target=\"_blank\">运营后台</a>提交充值单（\"财务管理\"→\"资金入账\"→\"创建\"→对应ID号）。后付合作：入账凭证为审批邮件，授信额度入账。充值权限开通可联系商业化运营@孙骞。"
+    },
+    {
+      "q": [
+        "EW开票",
+        "invoicing",
+        "发票",
+        "申请开票",
+        "billing EW"
+      ],
+      "a": "<b>EW开票</b>：每月10号可生成上月账单。通过 <a href=\"https://transsioner.feishu.cn/share/base/form/shrcn9d9fA2An5Yj7Ggy7NrcH5c\" target=\"_blank\">开票申请表 Invoice Application Form</a> 申请开票。开票未尽事宜参考<a href=\"https://transsioner.feishu.cn/docx/A686dapZloza75xuh03cyddJn1d\" target=\"_blank\">开票指引</a>。开票财务：@姚思洋（非大陆主体）、@沈海河（大陆主体）。"
+    },
+    {
+      "q": [
+        "分发下单",
+        "distribution order placement",
+        "下单流程",
+        "分发系统",
+        "offerorder"
+      ],
+      "a": "<b>分发运营下单流程</b>：1. 销售申请订单系统权限（邮件审批）；2. 销售将订单信息同步给销售支持；3. 销售支持在下单系统提单。下单邮件需包含：APK包 + Brief内容 + 素材（按我方尺寸要求） + 客户下单原邮件。订单系统：<a href=\"https://offerorder-admin.palmplaystore.com/\" target=\"_blank\">palmplaystore.com</a>。"
+    },
+    {
+      "q": [
+        "分发结算",
+        "distribution settlement",
+        "分发对账",
+        "分发开票"
+      ],
+      "a": "<b>分发运营结算</b>：每月15号系统发送上月账单；每月23号前销售完成确认账单，通过分发系统审批开票。数据确认在 <a href=\"https://offerorder-admin.palmplaystore.com/\" target=\"_blank\">订单系统</a> 中操作。如客户有异议：PS请与@叶剑强沟通，参考<a href=\"https://transsioner.feishu.cn/docx/ZYrFdbaj6oHBbLxbbTScf961nfb\" target=\"_blank\">结算定损流程</a>。"
+    },
+    {
+      "q": [
+        "合同终止",
+        "contract termination",
+        "停投",
+        "合作终止",
+        "后付账户关停"
+      ],
+      "a": "<b>合作终止流程</b>：<br>• <b>EW后付费</b>：销售邮件同步业务管理，提醒产品账号停用/授信额度回收。邮件收件人：商业化运营；抄送销售上级+客户管理组+@孙骞+财务@温凯欣@沈海河。<br>• <b>分发运营</b>：销售发出停投邮件 → 销售支持通过下单系统申请停投。邮件标题：【停投】-【产品名称】，正文：停投时间+停投原因。<br>• EW退款参考：<a href=\"https://transsioner.feishu.cn/docx/VJzSdsGYIoSPfMxKGMncrq3Ln3d\" target=\"_blank\">EW退款流程</a>。"
+    },
+    {
+      "q": [
+        "广告对接人",
+        "广告业务联系人",
+        "advertising contact",
+        "EW联系",
+        "分发联系人"
+      ],
+      "a": "<b>广告业务对接人</b>：<br>• 客户管理：@范丽莉、@连佳柯、@乔昕颖、@陶诗盈<br>• EW商业化运营：参见<a href=\"https://transsioner.feishu.cn/sheets/SpTDsv0dlhLpgetlHNEcOcGMnBY\" target=\"_blank\">运营团队分工</a><br>• 分发运营：@叶剑强<br>• 品牌整合营销：@冯婷婷<br>• 财务：到款@沈海河；开票@姚思洋（非大陆）@沈海河（大陆）<br>• 风控：@其力木格、@史清洁（进群沟通）"
+    },
+    {
+      "q": [
+        "非程序化资源",
+        "AHA",
+        "Hola",
+        "悬浮球",
+        "负一屏",
+        "杂志锁屏",
+        "品牌整合营销"
+      ],
+      "a": "<b>非程序化资源</b>包括：AHA（插屏、悬浮球）、Hola（导航栏名站icon位）、品牌整合营销（CPM/CPC品牌订单）。品牌组运营对接人：@冯婷婷。投放前需提交<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\" target=\"_blank\">EW非标场景需求申请单</a>。桌面非程序化资源（负一屏、杂志锁屏）属技术合作，有较高准入门槛。"
+    },
+    {
+      "q": [
+        "PAI",
+        "优选流量",
+        "PAI and premium",
+        "开白名单",
+        "pai是什么"
+      ],
+      "a": "<b>PAI及优选流量合作</b>：第一步：销售为广告主ID申请开通（<a href=\"https://transsioner.feishu.cn/share/base/form/shrcn4JqxvbF9mAeNHWxqsViZOh\" target=\"_blank\">发起申请</a>）；第二步：客户创建广告计划和广告组下单投放。操作说明：<a href=\"https://transsioner.feishu.cn/wiki/Bbp9wUzBDiNbRVkVsHQcDLoWn9f\" target=\"_blank\">EW平台PAI及优选流量下单投放</a>。"
+    },
+    {
+      "q": [
+        "EE1广告",
+        "IN广告",
+        "EE1投放",
+        "印度广告",
+        "日预算控制"
+      ],
+      "a": "<b>EE1/IN地区广告投放</b>：因系统功能限制，无法在EE1、IN地区控制日预算。销售需与客户确认后发送邮件给商业化运营，抄送@孙骞和销售直属leader。邮件内容需包含：投放账户ID、广告计划ID、广告组ID、日预算，并注明客户已知晓无法控制日预算。"
+    },
+    {
+      "q": [
+        "代理商全流程",
+        "代理返货",
+        "agent process",
+        "代理返点",
+        "尽调"
+      ],
+      "a": "<b>代理商全流程</b>：1. 完成尽调（BPM-MI003）；2. 签署代理合同模板；3. 尽调通过后从代理商平台注册开户；4. 预付费充值 → 获得返货返点；5. EW代理返货不支持抵扣分发运营订单。详细参考：<a href=\"https://transsioner.feishu.cn/docx/Cf4XdFavNouRgUxdEnqcmb0Nnoh\" target=\"_blank\">代理商全流程执行一页纸</a>。"
+    },
+    {
+      "q": [
+        "分发测试",
+        "offer测试",
+        "归因测试",
+        "自测",
+        "TCTP"
+      ],
+      "a": "<b>分发测试</b>包括APK安全/兼容性测试和归因测试（埋点/三方平台授权）。提效方法：销售自行开通测试平台权限，在TCTP平台上传APK包进行自测，减少下单流程打回。非KA订单不接受客户自归因方式合作。分发测试联系人：@芈娜。"
+    },
+    {
+      "q": [
+        "应用上架",
+        "app listing",
+        "PS上架",
+        "开发者平台注册"
+      ],
+      "a": "<b>应用上架</b>：客户在<a href=\"https://dev.dlightek.com/\" target=\"_blank\">开发者平台</a>注册账号 → 登录后进入账号管理 → 应用管理 → 创建新应用。上架指导参考：<a href=\"https://help-center.eagllwin.com/document?t=6248164&id=324\" target=\"_blank\">应用上架指导</a>。非应用类广告可忽略此步骤。"
+    }
+  ]
+}

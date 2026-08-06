@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains secrets)
+.env
+
+# SSL certificates (local only)
+certs/
+
+# macOS
+.DS_Store
+
+# Backup files
+*.backup-*.json
+
+# Large static assets (not needed for Render deployment)
+avatar-video.mp4
+videos/
+原始视频/
+原始答疑知识库/

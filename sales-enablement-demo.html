@@ -1,0 +1,4735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales AI — 销售赋能平台 · 产品演示</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f2f5f9;
+    --surface: #ffffff;
+    --primary: #2b5fd9;
+    --primary-light: #e8f0fe;
+    --text: #1f2937;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --accent-purple: #8b5cf6;
+    --accent-red: #ef4444;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+
+
+  .hero p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .hero .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--primary-light);
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  /* ---- 卡片通用 ---- */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    position: relative;
+  }
+  .card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .card-body { padding: 20px 24px; }
+
+  .status-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+  .status-dot .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ==================== 产品概览 ==================== */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .overview-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .overview-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .overview-card .ov-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+  .overview-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .overview-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ---- 首页欢迎区 ---- */
+  .welcome-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 40%, #60a5fa 100%);
+    border-radius: var(--radius);
+    padding: 56px 48px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+  }
+  .welcome-hero .welcome-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(96,165,250,0.3) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .welcome-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+  }
+  .welcome-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+  .welcome-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .welcome-desc {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 28px;
+  }
+  .welcome-actions {
+    display: flex;
+    gap: 14px;
+  }
+  .btn-welcome-primary {
+    padding: 12px 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-welcome-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+  .btn-welcome-outline {
+    padding: 12px 32px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-welcome-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .home-stats-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .home-stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+  }
+  .hs-num {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .hs-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  /* ---- AI 实时答疑浮窗 ---- */
+  .qa-widget {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 320px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .qa-widget.collapsed {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .qa-widget.collapsed .qa-w-body,
+  .qa-widget.collapsed .qa-w-input { display: none; }
+  .qa-widget.collapsed .qa-w-header {
+    padding: 0;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    border-radius: 50%;
+  }
+  .qa-widget.collapsed .qa-w-header .qa-w-title,
+  .qa-widget.collapsed .qa-w-header .qa-w-status,
+  .qa-widget.collapsed .qa-w-header .qa-w-toggle { display: none; }
+  .qa-widget.collapsed .qa-w-header .qa-w-icon { margin: 0; }
+  .qa-w-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #4a6cf7 100%);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  .qa-w-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .qa-w-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex: 1;
+  }
+  .qa-w-status {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .qa-w-status .s-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #6ee7b7;
+    animation: pulse 2s infinite;
+  }
+  .qa-w-toggle {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .qa-w-body {
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .qa-w-body::-webkit-scrollbar { width: 4px; }
+  .qa-w-body::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
+  .qw-msg { display: flex; gap: 6px; animation: fadeIn 0.3s ease; }
+  .qw-msg.bot { align-self: flex-start; }
+  .qw-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+  .qw-avatar {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .qw-msg.bot .qw-avatar { background: #dbeafe; color: #3b82f6; }
+  .qw-msg.user .qw-avatar { background: #d1fae5; color: #059669; }
+  .qw-bubble {
+    max-width: 200px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .qw-msg.bot .qw-bubble { background: var(--surface); color: var(--text); border: 1px solid var(--border); border-bottom-left-radius: 2px; max-width: 320px; }
+  .qw-msg.user .qw-bubble { background: var(--primary); color: #fff; border-bottom-right-radius: 2px; }
+  .qa-w-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .qa-w-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    color: var(--text);
+    background: transparent;
+  }
+  .qa-w-input input::placeholder { color: #c4c9d4; }
+  .qa-w-send {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .qa-w-send:hover { background: #1a4dc2; }
+
+  /* ==================== 数字人培训 ==================== */
+  
+  /* 培训下拉选择器 */
+  .training-selects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .ts-group { display: flex; flex-direction: column; gap: 6px; }
+  .ts-group label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+  .ts-group select {
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    color: var(--text);
+    background: var(--surface);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: auto;
+  }
+  .ts-group select:focus { border-color: var(--primary); }
+  .btn-generate {
+    padding: 12px 36px;
+    background: linear-gradient(135deg, #2b5fd9, #4f8fff);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-generate:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(43,95,217,.35); }
+  .btn-generate:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .real-video-area {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #000;
+    margin-top: 16px;
+  }
+  .real-video-area video {
+    width: 100%;
+    display: block;
+    max-height: 380px;
+    object-fit: contain;
+    background: #0a0a0a;
+  }
+  .video-placeholder-new {
+    width: 100%;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .video-placeholder-new .vp-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.7; }
+  .video-placeholder-new .vp-text { font-size: 15px; opacity: 0.6; }
+
+  /* Practice input area */
+  .practice-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px 24px;
+    align-items: center;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .practice-input-area .pi-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .practice-input-area .pi-hint {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: -8px;
+    text-align: center;
+  }
+  .practice-input-area textarea {
+    width: 100%;
+    max-width: 650px;
+    min-height: 140px;
+    padding: 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+  }
+  .practice-input-area textarea:focus { border-color: var(--primary); }
+  .pi-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pi-lang-select {
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: var(--surface);
+    cursor: pointer;
+    outline: none;
+  }
+  .pi-lang-select:focus { border-color: var(--primary); }
+
+  .practice-session { display: none; }
+  .practice-session.active { display: block; }
+
+  @media (max-width: 768px) {
+    .training-selects { grid-template-columns: 1fr; }
+    .practice-input-area { padding: 24px 16px; }
+  }
+
+  .training-modules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .module-tab {
+    background: #f8fafc;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .module-tab:hover { border-color: #bcc8de; }
+  .module-tab.active {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(43,95,217,0.1);
+  }
+  .module-tab .tab-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .module-tab .tab-icon.blue { background: #dbeafe; color: #3b82f6; }
+  .module-tab .tab-icon.green { background: #d1fae5; color: #10b981; }
+  .module-tab .tab-icon.purple { background: #ede9fe; color: #8b5cf6; }
+  .module-tab .tab-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .module-tab .tab-desc { font-size: 12px; color: var(--text-secondary); }
+
+  .action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .btn-submit {
+    padding: 10px 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-submit:hover { background: #1a4dc2; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(43,95,217,0.3); }
+
+  .video-preview-row {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
+  }
+  .video-area {
+    background: #0f172a;
+    border-radius: var(--radius-sm);
+    aspect-ratio: 16/9;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .video-area .video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.92;
+  }
+  .video-area .video-overlay-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.6) 100%);
+    z-index: 1;
+  }
+  .video-area .video-topbar {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .video-area .rec-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(239,68,68,0.85);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+  .video-area .rec-badge .rec-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pulse 1s infinite;
+  }
+  .video-area .live-badge {
+    background: rgba(16,185,129,0.85);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+  .video-area .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    z-index: 2;
+  }
+  .video-area:hover .play-btn { transform: translate(-50%, -50%) scale(1.08); }
+  .video-area .play-arrow {
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 22px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+  }
+  .video-area .video-label {
+    position: absolute;
+    bottom: 42px;
+    left: 12px;
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 2;
+  }
+  .video-area .video-sublabel {
+    position: absolute;
+    bottom: 42px;
+    right: 12px;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    z-index: 2;
+  }
+  .video-area .video-progress {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+  .video-area .progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .video-area .progress-fill {
+    width: 35%;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  .video-area .time { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  .ai-keypoints {
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ai-keypoints h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .kp-item {
+    font-size: 13px;
+    color: #78350f;
+    line-height: 1.5;
+    padding: 8px 10px;
+    background: #fffbeb;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-orange);
+  }
+  .kp-item strong { font-weight: 700; }
+
+  /* ==================== AI 答疑助手 ==================== */
+  .qa-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    height: calc(100vh - 220px);
+    min-height: 560px;
+  }
+  .qa-sidebar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .qa-sidebar h3 { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; }
+  .qa-topic-list { display: flex; flex-direction: column; gap: 6px; }
+  .qa-topic {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .qa-topic:hover { background: #f8fafc; }
+  .qa-topic.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+  .qa-history-list { display: flex; flex-direction: column; gap: 6px; }
+  .qa-history-item {
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .qa-history-item:hover { background: #f8fafc; color: var(--text); }
+
+  .qa-main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .qa-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .qa-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .qa-brand-logo {
+    width: 36px; height: 36px;
+    background: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .qa-brand-title h3 { font-size: 16px; font-weight: 700; }
+  .qa-brand-title p { font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .qa-brand-tags { display: flex; align-items: center; gap: 8px; }
+  .qa-tag-bot {
+    background: #fef3c7;
+    color: #d97706;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .qa-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 8px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .qa-tab {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .qa-tab.active { background: var(--primary-light); color: var(--primary); }
+  .qa-tab:not(.active) { color: var(--text-secondary); }
+  .qa-tab:not(.active):hover { background: #f8fafc; }
+  .qa-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background: #fafbfc;
+  }
+  .qa-msg { display: flex; gap: 12px; animation: fadeIn 0.3s ease; }
+  .qa-msg.user { flex-direction: row-reverse; }
+  .qa-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .qa-msg.bot .qa-avatar { background: var(--primary); color: #fff; }
+  .qa-msg.user .qa-avatar { background: #d1fae5; color: #059669; }
+  .qa-bubble {
+    max-width: 560px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .qa-msg.bot .qa-bubble {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+    box-shadow: var(--shadow-sm);
+  }
+  .qa-msg.user .qa-bubble {
+    background: var(--primary);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+  .qa-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 10px 0;
+  }
+  .qa-note-icon { font-size: 14px; flex-shrink: 0; }
+  .qa-start-new {
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .qa-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+  }
+  .qa-input-area {
+    padding: 16px 20%;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .qa-lang-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .qa-lang {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .qa-translate { font-size: 13px; color: var(--text-secondary); }
+  .qa-input-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    background: var(--surface);
+  }
+  .qa-input-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: var(--text);
+    background: transparent;
+  }
+  .qa-input-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+  }
+  .qa-input-actions span { cursor: pointer; font-size: 16px; }
+  .qa-send-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qa-send-btn:hover { background: #1a4dc2; }
+
+  /* ==================== 数字人实战演练 ==================== */
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+  }
+  .practice-panel { min-height: 620px; }
+  .dh-toggle {
+    display: flex;
+    background: #f8fafc;
+    border-radius: var(--radius-sm);
+    padding: 3px;
+    gap: 2px;
+  }
+  .dh-toggle button {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  .dh-toggle button.active {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+  }
+  .dh-session {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .dh-session .dh-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .dh-session .dh-scenario { color: var(--primary); font-weight: 500; }
+  .dh-session .dh-dot { width: 1px; height: 14px; background: var(--border); }
+  .dh-call-area {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .dh-call-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(43,95,217,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .dh-avatar-ring {
+    width: 190px; height: 190px;
+    border-radius: 50%;
+    border: 3px solid rgba(43,95,217,0.4);
+    padding: 4px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    animation: ringPulse 2s ease-in-out infinite;
+  }
+  @keyframes ringPulse {
+    0%, 100% { border-color: rgba(43,95,217,0.4); box-shadow: 0 0 0 0 rgba(43,95,217,0.2); }
+    50% { border-color: rgba(43,95,217,0.7); box-shadow: 0 0 20px 4px rgba(43,95,217,0.15); }
+  }
+  .dh-avatar-img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+  .dh-avatar-name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .dh-avatar-role {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+  .dh-waveform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 36px;
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .dh-waveform span {
+    width: 3px;
+    background: var(--accent-green);
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  .dh-waveform span:nth-child(1) { height: 12px; animation-delay: 0s; }
+  .dh-waveform span:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+  .dh-waveform span:nth-child(3) { height: 28px; animation-delay: 0.2s; }
+  .dh-waveform span:nth-child(4) { height: 36px; animation-delay: 0.3s; }
+  .dh-waveform span:nth-child(5) { height: 28px; animation-delay: 0.4s; }
+  .dh-waveform span:nth-child(6) { height: 20px; animation-delay: 0.5s; }
+  .dh-waveform span:nth-child(7) { height: 12px; animation-delay: 0.6s; }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.4; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+  .dh-subtitle {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    color: #fff;
+    text-align: center;
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+    max-width: 85%;
+  }
+  .dh-subtitle .sub-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .dh-subtitle .sub-text { font-size: 14px; color: #e2e8f0; }
+  .dh-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .dh-ctrl-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+  .dh-ctrl-btn:hover { background: #f3f4f6; }
+  .dh-ctrl-btn.end-call {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+    width: 52px; height: 52px;
+    font-size: 20px;
+  }
+  .dh-ctrl-btn.end-call:hover { background: #dc2626; }
+  .dh-speaking-indicator {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16,185,129,0.15);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 999px;
+    padding: 5px 14px;
+    z-index: 2;
+  }
+  .dh-speaking-indicator .sp-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-green);
+    animation: pulse 1s infinite;
+  }
+  .dh-speaking-indicator .sp-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-green);
+  }
+  .practice-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .score-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .score-card h4 { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; }
+  .score-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0% 78%, var(--border) 78% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+  .score-ring::before {
+    content: '';
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: var(--surface);
+    position: absolute;
+  }
+  .score-value {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .score-label { text-align: center; font-size: 13px; color: var(--text-secondary); }
+  .score-list { display: flex; flex-direction: column; gap: 10px; }
+  .score-row { display: flex; justify-content: space-between; font-size: 13px; }
+  .score-row .label { color: var(--text-secondary); }
+  .score-row .value { font-weight: 600; }
+
+  /* ==================== 个人中心 & 团队管理 通用 ==================== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card .stat-label { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .stat-card .stat-value { font-size: 28px; font-weight: 700; color: var(--text); }
+  .stat-card .stat-trend { font-size: 12px; color: var(--accent-green); margin-top: 6px; font-weight: 500; }
+  .stat-card .stat-trend.down { color: var(--accent-red); }
+  .data-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+  }
+  .data-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .data-card .card-header h2 { font-size: 16px; }
+  .table-wrap { overflow-x: auto; }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .data-table th, .data-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-green { background: #d1fae5; color: #047857; }
+  .tag-yellow { background: #fef3c7; color: #b45309; }
+  .tag-red { background: #fee2e2; color: #b91c1c; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  .weak-list { display: flex; flex-direction: column; gap: 12px; }
+  .weak-item {
+    padding: 14px;
+    background: #f8fafc;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent-orange);
+  }
+  .weak-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .weak-item p { font-size: 13px; color: var(--text-secondary); }
+  .weak-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  .weak-bar .fill { height: 100%; background: var(--accent-orange); border-radius: 3px; }
+
+  /* ---- 底部 Feature 区 ---- */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .feature-card .f-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .feature-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ---- 响应式 ---- */
+  @media (max-width: 1366px) {
+    .qa-chat, .qa-input-area { padding-left: 15%; padding-right: 15%; }
+    .video-preview-row { grid-template-columns: 1fr 200px; }
+    .practice-grid { grid-template-columns: 1fr 300px; }
+    .data-grid { grid-template-columns: 1.5fr 1fr; }
+    .overview-grid { grid-template-columns: repeat(3, 1fr); }
+    .home-stats-row { grid-template-columns: repeat(5, 1fr); }
+    .qa-widget { width: 290px; }
+  }
+  @media (max-width: 1024px) {
+    .overview-grid, .practice-grid, .data-grid { grid-template-columns: 1fr; }
+    .qa-container { grid-template-columns: 1fr; height: auto; }
+    .qa-sidebar { display: none; }
+    .qa-chat, .qa-input-area { padding-left: 24px; padding-right: 24px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .home-stats-row { grid-template-columns: repeat(5, 1fr); }
+    .home-stat { padding: 16px 8px; }
+    .hs-num { font-size: 22px; }
+    .features { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .page { padding: 16px; }
+    .hero h1 { font-size: 22px; }
+    .training-modules { grid-template-columns: 1fr; }
+    .video-preview-row { grid-template-columns: 1fr; }
+    .features, .stats-row, .overview-grid { grid-template-columns: 1fr; }
+    .home-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .home-stat { padding: 16px 8px; }
+    .dh-call-area { min-height: 380px; }
+    .welcome-hero { padding: 36px 24px; }
+    .welcome-title { font-size: 24px; }
+    .qa-widget { width: 260px; bottom: 12px; right: 12px; }
+  }
+
+  /* ==================== AI 工作台 — ChatGPT 风格 ==================== */
+  .workbench-page {
+    display: flex;
+    height: 100vh;
+    background: #fff;
+    overflow: hidden;
+  }
+  .wb-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: #f9f9f9;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+  }
+  .wb-new-chat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    margin: 0 4px 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .wb-new-chat:hover { background: #f3f4f6; border-color: #d1d5db; }
+  .wb-new-chat svg { width: 18px; height: 18px; }
+
+  .wb-menu-group { margin-bottom: 18px; }
+  .wb-menu-title {
+    font-size: 12px; font-weight: 600; color: #9ca3af;
+    padding: 0 12px 6px; text-transform: uppercase; letter-spacing: .5px;
+  }
+  .wb-menu-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 9px 12px; margin: 0 4px; border-radius: 8px;
+    font-size: 14px; color: #4b5563; cursor: pointer; transition: all .15s;
+  }
+  .wb-menu-item:hover { background: #f0f0f0; color: var(--text); }
+  .wb-menu-item.active { background: #eef4ff; color: var(--primary); font-weight: 600; }
+  .wb-menu-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; }
+
+  .wb-recent-list { flex: 1; overflow-y: auto; }
+  .wb-recent-item {
+    padding: 8px 12px; margin: 0 4px; border-radius: 8px;
+    font-size: 13px; color: #6b7280; cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    transition: all .15s;
+  }
+  .wb-recent-item:hover { background: #f0f0f0; color: var(--text); }
+  .wb-recent-item.active { background: #eef4ff; color: var(--primary); font-weight: 600; }
+
+  /* Language dropdown */
+  .lang-dropdown-item { transition: background .15s; }
+  .lang-dropdown-item:hover { background: #f3f4f6; }
+
+  .wb-user {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; margin-top: 8px; border-top: 1px solid #e5e5e5;
+  }
+  .wb-user-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--primary); color: #fff; display: flex;
+    align-items: center; justify-content: center; font-size: 13px; font-weight: 600;
+  }
+  .wb-user-info { flex: 1; min-width: 0; }
+  .wb-user-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .wb-user-plan { font-size: 11px; color: #9ca3af; }
+
+  /* Main area */
+  .wb-main {
+    flex: 1; display: flex; flex-direction: column;
+    min-width: 0; position: relative;
+  }
+  .wb-main-header {
+    height: 50px; display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid #f0f0f0; font-size: 15px; font-weight: 600; color: var(--text);
+  }
+  .wb-messages {
+    flex: 1; overflow-y: auto; padding: 24px 16px;
+    display: flex; flex-direction: column;
+  }
+  .wb-messages-inner {
+    max-width: 800px; width: 100%; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .wb-msg { display: flex; animation: wbFadeIn .3s ease; }
+  @keyframes wbFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .wb-msg-bubble {
+    max-width: 80%; padding: 12px 18px; border-radius: 18px;
+    font-size: 14px; line-height: 1.65; word-break: break-word;
+  }
+  .wb-msg.user { justify-content: flex-end; }
+  .wb-msg.user .wb-msg-bubble {
+    background: #2b5fd9; color: #fff; border-bottom-right-radius: 4px;
+  }
+  .wb-msg.ai { justify-content: flex-start; }
+  .wb-msg.ai .wb-msg-bubble {
+    background: #f3f4f6; color: var(--text); border-bottom-left-radius: 4px;
+  }
+  .wb-msg.system { justify-content: center; }
+  .wb-msg.system .wb-msg-bubble {
+    background: #eef2ff; color: #4a5568; font-size: 13px;
+    padding: 10px 18px; border-radius: 12px; max-width: 90%; text-align: center;
+  }
+  .wb-greeting {
+    text-align: center; padding: 60px 20px 40px;
+  }
+  .wb-greeting-icon { font-size: 48px; margin-bottom: 16px; }
+  .wb-greeting h1 {
+    font-size: 28px; font-weight: 600; color: var(--text); margin-bottom: 12px;
+  }
+  .wb-greeting p { color: var(--text-secondary); font-size: 15px; }
+
+  /* Centered bottom input area */
+  .wb-bottom {
+    padding: 20px 16px 32px; background: #fff;
+  }
+  .wb-bottom-inner {
+    max-width: 800px; margin: 0 auto;
+  }
+
+  /* Mode-specific panels above input */
+  .wb-mode-panel {
+    background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 14px; margin-bottom: 12px;
+  }
+  .wb-training-selectors {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  }
+  .wb-selector-row { display: flex; align-items: center; gap: 8px; }
+  .wb-selector-row label { font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+  .wb-selector-row select {
+    padding: 8px 28px 8px 12px; border: 1px solid #d1d5db; border-radius: 10px;
+    font-size: 13px; background: #fff; cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center; min-width: 170px;
+  }
+  .wb-generate-btn {
+    margin-left: auto; padding: 8px 18px; background: var(--primary); color: #fff;
+    border: none; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .wb-generate-btn:hover { background: #1a4dc2; }
+
+  .wb-practice-input { display: flex; gap: 10px; align-items: flex-end; }
+  .wb-practice-input textarea {
+    flex: 1; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 10px;
+    font-size: 13px; resize: none; font-family: inherit; outline: none; min-height: 56px;
+  }
+  .wb-practice-input textarea:focus { border-color: var(--primary); }
+  .wb-practice-start {
+    padding: 10px 20px; background: var(--primary); color: #fff; border: none;
+    border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap;
+  }
+  .wb-practice-start:hover { background: #1a4dc2; }
+
+  /* Page panels (profile, team) inside workbench */
+  .wb-page-panel {
+    flex: 1; overflow-y: auto; padding: 28px 32px; background: var(--bg);
+  }
+  .wb-page-panel-content {
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  /* Input box */
+  .wb-input-area {
+    display: flex; align-items: flex-end; gap: 10px;
+    padding: 10px 14px; background: #f9fafb;
+    border: 1px solid #e5e7eb; border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+  }
+  .wb-input-area textarea {
+    flex: 1; border: none; background: transparent; padding: 6px 4px;
+    font-size: 15px; font-family: inherit; resize: none; outline: none; line-height: 1.5;
+    max-height: 160px;
+  }
+  .wb-input-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: transparent; color: #6b7280; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: all .2s;
+  }
+  .wb-input-btn:hover { background: #f3f4f6; color: var(--text); }
+  .wb-input-btn.send { background: var(--primary); color: #fff; }
+  .wb-input-btn.send:hover { background: #1a4dc2; }
+
+  /* Quick action cards */
+  .wb-quick-cards {
+    display: flex; gap: 10px; justify-content: center;
+    margin-top: 16px; flex-wrap: wrap;
+  }
+  .wb-quick-card {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 18px; background: #fff;
+    border: 1px solid #e5e7eb; border-radius: 14px;
+    font-size: 14px; color: var(--text); cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,.03);
+    transition: all .2s; min-width: 160px;
+  }
+  .wb-quick-card:hover {
+    border-color: var(--primary); color: var(--primary);
+    box-shadow: 0 4px 12px rgba(43,95,217,.08);
+    transform: translateY(-1px);
+  }
+  .wb-quick-card.active {
+    border-color: var(--primary); background: #eef4ff; color: var(--primary); font-weight: 600;
+  }
+  .wb-quick-card-icon { font-size: 20px; }
+
+  /* Video preview */
+  /* ==================== 培训视频画廊 ==================== */
+  .wb-video-preview { margin-bottom: 12px; }
+  .wb-video-gallery {
+    background: #f8f9fb; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  }
+  .wb-video-player-area {
+    background: #0a0a0a; position: relative; border-radius: 12px 12px 0 0; overflow: hidden;
+    min-height: 200px;
+  }
+  .wb-video-player-area video {
+    width: 100%; display: block; max-height: 400px; object-fit: contain; background: #0a0a0a;
+  }
+  .wb-video-label {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,.75); color: #fff; padding: 5px 14px; border-radius: 14px;
+    font-size: 12px; white-space: nowrap; pointer-events: none; transition: opacity .3s;
+  }
+  .wb-video-nav {
+    display: flex; gap: 0; background: #fff; border-top: 1px solid var(--border); overflow-x: auto;
+  }
+  .wb-video-thumb {
+    flex: 0 0 auto; padding: 10px 14px; cursor: pointer; font-size: 13px; color: var(--text-secondary);
+    border-bottom: 2px solid transparent; transition: all .2s; white-space: nowrap;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .wb-video-thumb:hover { color: var(--text); background: #f0f4ff; }
+  .wb-video-thumb.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; background: #f0f4ff; }
+  .wb-video-thumb .v-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
+  .wb-video-thumb-generated { font-style: italic; }
+  .wb-video-thumb-generated .g-dot { background: #f59e0b; }
+  .wb-video-selection-info {
+    display: flex; align-items: center; gap: 8px; padding: 6px 12px;
+    background: #f8fafc; border-radius: 8px; margin-bottom: 8px; font-size: 12px; color: var(--text-secondary);
+  }
+  .wb-video-selection-info .s-label { font-weight: 600; color: var(--text); }
+  .wb-video-empty {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 36px; color: var(--text-secondary); font-size: 14px;
+  }
+  .wb-video-empty svg { margin-bottom: 8px; opacity: .4; }
+
+  /* Practice setup */
+  .wb-practice-setup {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 12px;
+  }
+  .wb-practice-setup-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+  .wb-practice-setup-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px;
+  }
+  @media (max-width: 600px) { .wb-practice-setup-grid { grid-template-columns: 1fr; } }
+  .wb-setup-field { display: flex; flex-direction: column; gap: 4px; }
+  .wb-setup-field label { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+  .wb-setup-field select, .wb-setup-field textarea {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px;
+    background: #fff; color: var(--text); font-family: inherit;
+  }
+  .wb-setup-field textarea { resize: vertical; min-height: 60px; }
+  .wb-setup-scenario { margin-top: 0; }
+  .wb-practice-avatar-preview {
+    display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--primary); border-radius: 10px; margin: 12px 0;
+  }
+  .wb-pap-avatar { font-size: 36px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 50%; }
+  .wb-pap-info { color: #fff; }
+  .wb-pap-name { font-size: 16px; font-weight: 700; }
+  .wb-pap-role { font-size: 12px; opacity: .85; }
+  .wb-practice-start-btn {
+    width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 600; cursor: pointer; transition: all .2s;
+  }
+  .wb-practice-start-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,.3); }
+
+  /* Practice session */
+  .wb-practice-session { margin-bottom: 12px; }
+  .wb-practice-header {
+    display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+    background: #1a1a2e; border-radius: 12px; color: #fff; font-size: 13px; flex-wrap: wrap;
+  }
+  .wb-practice-avatar { font-size: 24px; }
+  .wb-practice-info { display: flex; flex-direction: column; }
+  .wb-practice-info strong { font-size: 14px; }
+  .wb-practice-info span { font-size: 11px; opacity: .7; }
+  .wb-practice-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: wbPulse 1.5s infinite; margin-left: auto; }
+  @keyframes wbPulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .wb-practice-status { font-size: 12px; opacity: .8; }
+  .wb-practice-actions { display: flex; gap: 6px; margin-left: auto; align-items: center; }
+  .wb-practice-end {
+    padding: 4px 10px; background: rgba(255,255,255,.15); color: #f87171; border: 1px solid rgba(248,113,113,.4);
+    border-radius: 6px; font-size: 12px; cursor: pointer;
+  }
+  .wb-practice-body { margin-top: 8px; position: relative; background: #0a0a0a; border-radius: 12px; overflow: hidden; }
+  .wb-practice-video-area {
+    display: flex; align-items: center; justify-content: center; min-height: 440px; position: relative;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+  .wb-practice-avatar-large { font-size: 80px; transition: transform .3s; }
+  .wb-practice-avatar-large.speaking { animation: avatarBounce .6s ease-in-out infinite alternate; }
+  .wb-practice-canvas-wrap { width: 100%; height: 440px; position: relative; transition: transform .3s; }
+  .wb-practice-canvas-wrap.speaking { animation: canvasPulse .8s ease-in-out infinite; }
+  @keyframes canvasPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+  .wb-practice-canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+  .wb-duix-container { width: 100%; height: 100%; overflow: hidden; border-radius: var(--radius-sm); background: #0a0a0a; }
+  .wb-duix-container video { width: 100%; height: 100%; object-fit: contain; object-position: center center; }
+  .wb-pap-canvas-wrap { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: #fff; flex-shrink: 0; }
+  .wb-pap-canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+  .wb-practice-avatar-large.speaking { animation: avatarBounce .6s ease-in-out infinite alternate; }
+  @keyframes avatarBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+  .wb-practice-speaking-indicator {
+    position: absolute; bottom: 20px; display: flex; gap: 4px;
+  }
+  .wb-practice-speaking-indicator span {
+    width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: speakingDot 1.2s ease-in-out infinite;
+  }
+  .wb-practice-speaking-indicator span:nth-child(2) { animation-delay: .2s; }
+  .wb-practice-speaking-indicator span:nth-child(3) { animation-delay: .4s; }
+  @keyframes speakingDot { 0%,100%{opacity:.3;transform:scale(1)} 50%{opacity:1;transform:scale(1.5)} }
+  .wb-practice-subtitle-area {
+    display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: rgba(0,0,0,.85); min-height: 44px;
+  }
+  .wb-practice-subtitle {
+    flex: 1; color: #fff; font-size: 13px; line-height: 1.5; word-break: break-word;
+  }
+  .wb-practice-replay-btn {
+    width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,.1); color: #fff; border: none; border-radius: 50%; cursor: pointer;
+    flex-shrink: 0; transition: background .2s;
+  }
+  .wb-practice-replay-btn:hover { background: rgba(255,255,255,.25); }
+
+  /* Mobile sidebar toggle */
+  .wb-sidebar-toggle {
+    display: none; position: absolute; left: 12px; top: 12px;
+    width: 34px; height: 34px; border-radius: 8px; border: 1px solid #e5e5e5;
+    background: #fff; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
+  }
+
+  @media (max-width: 900px) {
+    .wb-sidebar { position: absolute; left: 0; top: 0; bottom: 0; z-index: 20; transform: translateX(-100%); transition: transform .25s; }
+    .wb-sidebar.open { transform: translateX(0); }
+    .wb-sidebar-toggle { display: flex; }
+    .wb-main-header { justify-content: center; padding-left: 44px; }
+    .workbench-page { position: relative; }
+  }
+
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .workbench-container { height: calc(100vh - 160px); min-height: 500px; border-radius: 0; }
+    .wb-messages { padding: 16px; }
+    .wb-msg-bubble { max-width: 90%; }
+    .wb-bottom { padding: 12px 16px; }
+    .wb-training-selectors { flex-direction: column; }
+    .wb-practice-video-area { min-height: 360px; }
+    .wb-practice-canvas-wrap { height: 360px; }
+  }
+
+  /* Markdown 格式化样式 */
+  .wb-msg-bubble h2, .wb-msg-bubble h3, .wb-msg-bubble h4, .wb-msg-bubble h5 {
+    margin: 0 0 6px 0; font-weight: 700; line-height: 1.4;
+  }
+  .wb-msg-bubble h2 { font-size: 16px; }
+  .wb-msg-bubble h3 { font-size: 15px; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+  .wb-msg-bubble h4 { font-size: 14px; }
+  .wb-msg-bubble h5 { font-size: 13px; }
+  .wb-msg-bubble ul, .wb-msg-bubble ol { margin: 4px 0 8px 0; padding-left: 18px; }
+  .wb-msg-bubble li { margin-bottom: 3px; line-height: 1.6; }
+  .wb-msg-bubble p { margin: 0 0 6px 0; line-height: 1.65; }
+  .wb-msg-bubble p:last-child { margin-bottom: 0; }
+  .wb-msg-bubble code {
+    background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px;
+    font-size: 13px; font-family: 'SF Mono', Menlo, Consolas, monospace;
+  }
+  .wb-msg-bubble blockquote {
+    margin: 6px 0; padding: 6px 12px;
+    border-left: 3px solid #2563eb; background: rgba(37,99,235,0.05);
+    border-radius: 0 4px 4px 0; color: #4a5568;
+  }
+  .wb-msg-bubble hr { border: none; border-top: 1px solid #e5e7eb; margin: 8px 0; }
+  .wb-msg-bubble a { color: #2563eb; text-decoration: underline; }
+
+  /* 浮窗气泡 Markdown */
+  .qw-bubble h3, .qw-bubble h4, .qw-bubble h5 {
+    margin: 0 0 4px 0; font-weight: 700; font-size: 12px;
+  }
+  .qw-bubble ul, .qw-bubble ol { margin: 2px 0 4px 0; padding-left: 14px; }
+  .qw-bubble li { margin-bottom: 2px; line-height: 1.5; font-size: 11px; }
+  .qw-bubble p { margin: 0 0 4px 0; line-height: 1.5; }
+  .qw-bubble p:last-child { margin-bottom: 0; }
+  .qw-bubble code {
+    background: rgba(0,0,0,0.06); padding: 1px 3px; border-radius: 2px; font-size: 11px;
+  }
+  .qw-bubble a { color: #2563eb; text-decoration: underline; }
+  .qw-bubble blockquote {
+    margin: 4px 0; padding: 2px 8px; border-left: 2px solid #2563eb; font-size: 11px;
+  }
+  .qw-bubble hr { border: none; border-top: 1px solid #e5e7eb; margin: 4px 0; }
+
+</style>
+<!-- Duix H5 SDK for duix.com platform. Official npm package: duix-guiji-light -->
+<script src="https://cdn.jsdelivr.net/npm/duix-guiji-light@0.4.0/dist/duix.min.js"></script>
+</head>
+<body>
+
+<div class="workbench-page">
+      <!-- 左侧边栏 -->
+      <aside class="wb-sidebar" id="wbSidebar">
+        <div class="wb-new-chat" onclick="createNewChat(workMode||'training');resetWorkbenchChatUI();">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span data-i18n="new_chat">新聊天</span>
+        </div>
+
+        <div class="wb-menu-group">
+          <div class="wb-menu-item active" data-mode="training" onclick="switchWorkMode('training')">
+            <span class="wb-menu-icon">📚</span>
+            <span data-i18n="digital_training">数字人培训</span>
+          </div>
+          <div class="wb-menu-item" data-mode="qa" onclick="switchWorkMode('qa')">
+            <span class="wb-menu-icon">💬</span>
+            <span data-i18n="ai_assistant">AI 答疑助手</span>
+          </div>
+          <div class="wb-menu-item" data-mode="practice" onclick="switchWorkMode('practice')">
+            <span class="wb-menu-icon">🎯</span>
+            <span data-i18n="digital_practice">数字人实战演练</span>
+          </div>
+        </div>
+
+
+        <div class="wb-menu-group">
+          <div class="wb-menu-title" data-i18n="pages">页面</div>
+          <div class="wb-menu-item wb-menu-page" data-page="profile" onclick="switchWbPage('profile')">
+            <span class="wb-menu-icon">👤</span>
+            <span data-i18n="profile">个人中心</span>
+          </div>
+          <div class="wb-menu-item wb-menu-page" data-page="team" onclick="switchWbPage('team')">
+            <span class="wb-menu-icon">👥</span>
+            <span data-i18n="team">团队管理</span>
+          </div>
+        </div>
+
+        <div class="wb-menu-group">
+          <div class="wb-menu-title" data-i18n="recent">最近</div>
+          <div class="wb-recent-list" id="wbRecentList">
+            <div class="wb-recent-item" style="color:#9ca3af;cursor:default;">—</div>
+          </div>
+        </div>
+
+        <div class="wb-user">
+          <div class="wb-user-avatar">GB</div>
+          <div class="wb-user-info">
+            <div class="wb-user-name">Gina Bai</div>
+            <div class="wb-user-plan" data-i18n="free_plan">免费版</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 主区域 -->
+      <main class="wb-main">
+        <div class="wb-sidebar-toggle" onclick="toggleWbSidebar()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </div>
+        <div class="wb-main-header" id="wbMainHeader">Sales Copilot销售AI赋能助手</div>
+
+        <div class="wb-messages" id="wbMessages">
+          <div class="wb-messages-inner" id="wbMessagesInner">
+            <div class="wb-greeting" id="wbGreeting">
+              <div class="wb-greeting-icon">🤖</div>
+              <h1 data-i18n="greeting_title">你好，准备好开始了吗？</h1>
+              <p data-i18n="greeting_desc">我是您的 AI 销售助手。在下方选择工作模式，开始销售赋能之旅。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 个人中心面板 -->
+        <div class="wb-page-panel" id="wbProfilePanel" style="display:none;">
+          <div class="wb-page-panel-content">
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-label">累计演练时长</div>
+                <div class="stat-value">128<span style="font-size:14px;font-weight:500;color:var(--text-secondary)"> 分钟</span></div>
+                <div class="stat-trend">↑ 较上周 +32%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">完成模拟对练</div>
+                <div class="stat-value">24<span style="font-size:14px;font-weight:500;color:var(--text-secondary)"> 场</span></div>
+                <div class="stat-trend">↑ 较上周 +8 场</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">平均综合得分</div>
+                <div class="stat-value">84.6</div>
+                <div class="stat-trend">↑ 较上周 +5.2</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">薄弱项待改进</div>
+                <div class="stat-value">2<span style="font-size:14px;font-weight:500;color:var(--text-secondary)"> 项</span></div>
+                <div class="stat-trend down">↓ 较上周 -1 项</div>
+              </div>
+            </div>
+
+            <div class="data-grid">
+              <div class="data-card">
+                <div class="card-header"><h2>最近演练记录</h2><span style="font-size:13px;color:var(--text-secondary)">近 7 天</span></div>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr><th>时间</th><th>场景</th><th>数字人客户</th><th>得分</th><th>薄弱环节</th><th>状态</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>08-05 09:20</td><td>广告预装方案洽谈</td><td>Marcus Johnson</td><td>86</td><td>促成闭环</td><td><span class="tag tag-green">已完成</span></td></tr>
+                      <tr><td>08-04 18:45</td><td>价格异议处理</td><td>Linda Chen</td><td>79</td><td>异议处理</td><td><span class="tag tag-green">已完成</span></td></tr>
+                      <tr><td>08-04 11:30</td><td>新客户首次触达</td><td>张经理</td><td>82</td><td>需求挖掘</td><td><span class="tag tag-green">已完成</span></td></tr>
+                      <tr><td>08-03 16:10</td><td>竞品对比沟通</td><td>王总</td><td>75</td><td>产品表达</td><td><span class="tag tag-yellow">待复盘</span></td></tr>
+                      <tr><td>08-02 14:00</td><td>续约谈判</td><td>Sarah Wu</td><td>88</td><td>—</td><td><span class="tag tag-blue">已复盘</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="data-card">
+                <div class="card-header"><h2>我的薄弱环节</h2></div>
+                <div class="card-body">
+                  <div class="weak-list">
+                    <div class="weak-item">
+                      <h4>促成闭环能力</h4>
+                      <p>仅 58% 的演练在结尾明确下一步行动。</p>
+                      <div class="weak-bar"><div class="fill" style="width:58%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>异议处理速度</h4>
+                      <p>平均响应时长 4.2 秒，高于优秀线 2.5 秒。</p>
+                      <div class="weak-bar"><div class="fill" style="width:72%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>产品数据引用</h4>
+                      <p>30% 的场景未引用具体案例或数据。</p>
+                      <div class="weak-bar"><div class="fill" style="width:70%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 团队管理面板 -->
+        <div class="wb-page-panel" id="wbTeamPanel" style="display:none;">
+          <div class="wb-page-panel-content">
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-label">团队总人数</div>
+                <div class="stat-value">108</div>
+                <div class="stat-trend">↑ 本月新增 12 人</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">本周活跃率</div>
+                <div class="stat-value">91%</div>
+                <div class="stat-trend">↑ 较上周 +6%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">团队平均得分</div>
+                <div class="stat-value">81.3</div>
+                <div class="stat-trend">↑ 较上周 +3.1</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">待关注成员</div>
+                <div class="stat-value">14</div>
+                <div class="stat-trend down">↓ 较上周 -3 人</div>
+              </div>
+            </div>
+
+            <div class="data-grid">
+              <div class="data-card">
+                <div class="card-header"><h2>成员使用情况</h2><span style="font-size:13px;color:var(--text-secondary)">按最近 7 天活跃度排序</span></div>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr><th>成员</th><th>部门</th><th>演练场次</th><th>平均得分</th><th>主要薄弱项</th><th>状态</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>李明</strong></td><td>华东一部</td><td>18</td><td>92</td><td>—</td><td><span class="tag tag-green">优秀</span></td></tr>
+                      <tr><td><strong>王芳</strong></td><td>华南二部</td><td>15</td><td>88</td><td>促成闭环</td><td><span class="tag tag-green">良好</span></td></tr>
+                      <tr><td><strong>张伟</strong></td><td>华北一部</td><td>12</td><td>76</td><td>异议处理</td><td><span class="tag tag-yellow">需关注</span></td></tr>
+                      <tr><td><strong>刘洋</strong></td><td>华东二部</td><td>9</td><td>71</td><td>产品表达 / 闭环</td><td><span class="tag tag-red">重点辅导</span></td></tr>
+                      <tr><td><strong>陈静</strong></td><td>西南一部</td><td>14</td><td>84</td><td>需求挖掘</td><td><span class="tag tag-green">良好</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="data-card">
+                <div class="card-header"><h2>团队薄弱项 TOP5</h2></div>
+                <div class="card-body">
+                  <div class="weak-list">
+                    <div class="weak-item">
+                      <h4>1. 促成闭环能力</h4>
+                      <p>67 人得分低于 80，占比 62%</p>
+                      <div class="weak-bar"><div class="fill" style="width:62%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>2. 异议处理</h4>
+                      <p>51 人得分低于 80，占比 47%</p>
+                      <div class="weak-bar"><div class="fill" style="width:47%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>3. 产品数据引用</h4>
+                      <p>43 人未能在对话中引用具体数据</p>
+                      <div class="weak-bar"><div class="fill" style="width:40%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>4. 需求挖掘深度</h4>
+                      <p>32 人提问少于 3 轮</p>
+                      <div class="weak-bar"><div class="fill" style="width:30%"></div></div>
+                    </div>
+                    <div class="weak-item">
+                      <h4>5. 商务礼仪</h4>
+                      <p>18 人开场白不规范</p>
+                      <div class="weak-bar"><div class="fill" style="width:17%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wb-bottom" id="wbBottomArea">
+          <div class="wb-bottom-inner">
+            <!-- 培训模式：视频播放 -->
+            <div class="wb-video-preview" id="wbVideoPreview" style="display:none;">
+              <div class="wb-video-gallery">
+                <div class="wb-video-player-area" id="wbVideoPlayerArea">
+                  <div class="wb-video-empty">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span data-i18n="video_select_hint">从下方选择培训视频播放</span>
+                  </div>
+                </div>
+                <div class="wb-video-nav" id="wbVideoNav"></div>
+              </div>
+            </div>
+
+            <!-- 培训模式：选择器 -->
+            <div class="wb-mode-panel" id="wbTrainingSelectors" style="display:none;">
+              <div class="wb-video-selection-info" id="wbSelectionInfo">
+                <span class="s-label" data-i18n="video_selected">已选择：</span>
+                <span id="wbVideoInfo">—</span>
+              </div>
+              <div class="wb-training-selectors">
+                <div class="wb-selector-row">
+                  <label data-i18n="select_product">产品</label>
+                  <select id="wbProduct" onchange="updateWbTrainingPreview()">
+                    <option value="" data-i18n="select_product">请选择产品</option>
+                    <option value="ew">EW程序化广告业务</option>
+                    <option value="preinstall">预装业务</option>
+                    <option value="distribution">分发业务</option>
+                    <option value="game">游戏联运业务</option>
+                    <option value="bigdata">大数据业务</option>
+                    <option value="desktop">桌面业务</option>
+                  </select>
+                </div>
+                <div class="wb-selector-row">
+                  <label data-i18n="select_avatar">数字人</label>
+                  <select id="wbAvatar" onchange="updateWbTrainingPreview()">
+                    <option value="" data-i18n="select_avatar">请选择数字人</option>
+                    <option value="ella">👩🏻‍🦰 Ella (Duix: Emma)</option>
+                    <option value="joy">👦🏾 Joy (Duix: Caleb)</option>
+                    <option value="yangkun">👨‍💼 赵钱孙 (Duix: Kai)</option>
+                    <option value="elaine">👩🏼 Elaine (Duix: Sofia)</option>
+                  </select>
+                </div>
+                <div class="wb-selector-row">
+                  <label data-i18n="select_lang">语言</label>
+                  <select id="wbLang" onchange="updateWbTrainingPreview()">
+                    <option value="" data-i18n="select_lang">请选择语言</option>
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="ha">Hausa</option>
+                    <option value="hi">Hindi</option>
+                  </select>
+                </div>
+                <button class="wb-generate-btn" onclick="generateTrainingVideo()" data-i18n="btn_generate">开始生成培训视频</button>
+              </div>
+            </div>
+
+            <!-- 实战演练：场景输入 -->
+            <div class="wb-mode-panel" id="wbPracticeInput" style="display:none;">
+              <div class="wb-practice-setup">
+                <div class="wb-practice-setup-title" data-i18n="practice_setup_title">设置实战场景</div>
+                <div class="wb-practice-setup-grid">
+                  <div class="wb-setup-field">
+                    <label data-i18n="practice_client_type">客户类型</label>
+                    <select id="wbPracticeClientType" onchange="updatePracticeScenario()">
+                      <option value="telecom_nigeria" data-i18n="client_telecom_nigeria">尼日利亚电信运营商</option>
+                      <option value="telecom_francophone" data-i18n="client_telecom_francophone">法语区电信运营商</option>
+                      <option value="enterprise_europe" data-i18n="client_enterprise_europe">欧洲企业客户</option>
+                      <option value="enterprise_china" data-i18n="client_enterprise_china">中国大型企业</option>
+                      <option value="custom" data-i18n="client_custom">自定义场景</option>
+                    </select>
+                  </div>
+                  <div class="wb-setup-field">
+                    <label data-i18n="practice_digital_human">数字人</label>
+                    <select id="wbPracticeAvatarSel" onchange="updatePracticeAvatarPreview()">
+                      <option value="joy" selected>👦🏾 Joy (Duix: Caleb) — 黑人男孩（英文）</option>
+                      <option value="elaine">👩🏼 Elaine (Duix: Sofia) — 法国女孩（法文）</option>
+                      <option value="ella">👩🏻‍🦰 Ella (Duix: Emma) — 白人女孩（英文）</option>
+                      <option value="yangkun">👨‍💼 赵钱孙 (Duix: Kai) — 东亚男人（中文）</option>
+                    </select>
+                  </div>
+                  <div class="wb-setup-field">
+                    <label data-i18n="practice_topic">演练主题</label>
+                    <select id="wbPracticeTopic">
+                      <option value="first_meeting" data-i18n="topic_first_meeting">初次拜访与方案介绍</option>
+                      <option value="price_negotiation" data-i18n="topic_price">价格谈判</option>
+                      <option value="objection_handling" data-i18n="topic_objection">异议处理</option>
+                      <option value="contract_closing" data-i18n="topic_contract">合同签署与促成</option>
+                      <option value="renewal" data-i18n="topic_renewal">续约谈判</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="wb-setup-field wb-setup-scenario">
+                  <label data-i18n="practice_scenario_desc">场景描述</label>
+                  <textarea id="wbPracticeScenarioDesc" data-i18n-placeholder="practice_scenario_placeholder" placeholder="描述你的客户情况和目标...&#10;&#10;例如：我约了一个尼日利亚运营商 MTN 的市场总监，下周第一次见面。我想介绍传音的 EW 程序化广告方案，目标是让他同意安排一次正式的方案演示。" rows="3"></textarea>
+                </div>
+                <div class="wb-practice-avatar-preview" id="wbPracticeAvatarPreview">
+                  <div class="wb-pap-canvas-wrap" id="wbPapCanvasWrap">
+                    <div class="wb-pap-emoji" id="wbPapEmoji" style="font-size:40px;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--primary-light);">👦🏾</div>
+                  </div>
+                  <div class="wb-pap-info">
+                    <div class="wb-pap-name" id="wbPapName">Joy</div>
+                    <div class="wb-pap-role" id="wbPapRole">CEO | Telecom Operator | Nigeria</div>
+                  </div>
+                </div>
+                <button class="wb-practice-start-btn" onclick="startWbPractice()" data-i18n="btn_start_practice">开始实战演练</button>
+              </div>
+            </div>
+
+            <!-- 实战演练：进行中 -->
+            <div class="wb-mode-panel wb-practice-session" id="wbPracticeSession" style="display:none;">
+              <div class="wb-practice-header">
+                <span class="wb-practice-avatar" id="wbPracticeAvatar">👦🏾</span>
+                <div class="wb-practice-info">
+                  <strong id="wbPracticeName">Joy</strong>
+                  <span id="wbPracticeRole">Nigerian Telecom Operator</span>
+                </div>
+                <span class="wb-practice-dot"></span>
+                <span class="wb-practice-status" id="wbPracticeStatus" data-i18n="practice_live">数字人实时连线中</span>
+                <div class="wb-practice-actions">
+                  <button onclick="startVoiceInput()" class="wb-practice-voice" title="语音输入" style="background:none;border:none;cursor:pointer;color:#6b7280;padding:4px 8px;border-radius:6px;margin-right:4px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  </button>
+                  <button onclick="endWbPractice()" class="wb-practice-end" data-i18n="practice_end">结束演练</button>
+                </div>
+              </div>
+              <div class="wb-practice-body">
+                <div class="wb-practice-video-area" id="wbPracticeVideoArea">
+                  <div class="wb-practice-canvas-wrap" id="wbPracticeCanvasWrap">
+                    <div id="wbPracticeDuixContainer" class="wb-duix-container"></div>
+                  </div>
+                  <div class="wb-practice-speaking-indicator" id="wbPracticeSpeaking" style="display:none;">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+                <div class="wb-practice-subtitle-area">
+                  <div class="wb-practice-subtitle" id="wbPracticeSubtitle">正在等待对话开始...</div>
+                  <button class="wb-practice-replay-btn" id="wbPracticeReplayBtn" onclick="replayLastPracticeSpeech()" style="display:none;" title="重新播放">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 输入框 -->
+            <div class="wb-input-area">
+              <div class="lang-selector-wrapper" style="position:relative;flex-shrink:0;">
+                <button class="wb-input-btn" title="切换语言" onclick="toggleLanguageMenu()" style="font-size:16px;">
+                  <span class="lang-current-label">🇨🇳 中文</span>
+                </button>
+                <div id="langDropdown" style="display:none;position:absolute;bottom:44px;left:0;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:100;min-width:150px;overflow:hidden;">
+                  <div class="lang-dropdown-item" data-lang="zh" style="padding:6px 14px;font-size:13px;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('zh')">🇨🇳 中文</div>
+                  <div class="lang-dropdown-item" data-lang="en" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('en')">🇬🇧 English</div>
+                  <div class="lang-dropdown-item" data-lang="fr" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('fr')">🇫🇷 Français</div>
+                  <div class="lang-dropdown-item" data-lang="es" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('es')">🇪🇸 Español</div>
+                  <div class="lang-dropdown-item" data-lang="ha" style="padding:6px 14px;font-size:13px;color:#4b5563;cursor:pointer;display:flex;align-items:center;gap:8px;" onclick="setLanguage('ha')">🇳🇬 Hausa</div>
+                </div>
+              </div>
+              <textarea id="wbInput" placeholder="有问题，随便问" data-i18n-placeholder="input_placeholder" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendWbMessage();}"></textarea>
+              <button class="wb-input-btn" title="语音输入" data-i18n="voice_input" onclick="startVoiceInput()" id="wbVoiceBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </button>
+              <button class="wb-input-btn send" id="wbSendBtn" onclick="sendWbMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+
+            <!-- 快捷功能卡片 -->
+            <div class="wb-quick-cards">
+              <div class="wb-quick-card active" data-mode="training" onclick="switchWorkMode('training')">
+                <span class="wb-quick-card-icon">📚</span>
+                <span data-i18n="quick_training">数字人培训</span>
+              </div>
+              <div class="wb-quick-card" data-mode="qa" onclick="switchWorkMode('qa')">
+                <span class="wb-quick-card-icon">💬</span>
+                <span data-i18n="quick_qa">AI 答疑助手</span>
+              </div>
+              <div class="wb-quick-card" data-mode="practice" onclick="switchWorkMode('practice')">
+                <span class="wb-quick-card-icon">🎯</span>
+                <span data-i18n="quick_practice">数字人实战演练</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+
+<script>
+
+  // ===== 多语言系统 (i18n) =====
+  var LANGUAGES = ['zh', 'en', 'fr', 'es', 'ha'];
+  var LANG_NAMES = { zh: '中文', en: 'English', fr: 'Français', es: 'Español', ha: 'Hausa' };
+  var LANG_FLAGS = { zh: '🇨🇳', en: '🇬🇧', fr: '🇫🇷', es: '🇪🇸', ha: '🇳🇬' };
+
+  var translations = {
+    zh: {
+      new_chat: '新聊天',
+      ai_assistant: 'AI 答疑助手',
+      digital_training: '数字人培训',
+      digital_practice: '数字人实战演练',
+      pages: '页面',
+      profile: '个人中心',
+      team: '团队管理',
+      recent: '最近',
+      free_plan: '免费版',
+      workbench_title: 'Sales Copilot销售AI赋能助手',
+      greeting_title: '你好，准备好开始了吗？',
+      greeting_desc: '我是您的 AI 销售助手。在下方选择工作模式，开始销售赋能之旅。',
+      input_placeholder: '有问题，随便问',
+      voice_input: '语音输入',
+      quick_training: '数字人培训',
+      quick_qa: 'AI 答疑助手',
+      quick_practice: '数字人实战演练',
+      switch_training: '已切换到<b>数字人培训</b>模式。请在上方选择产品、数字人和语言，然后生成培训视频。',
+      switch_qa: '',
+      switch_practice: '已切换到<b>数字人实战演练</b>模式。请在下方输入你的客户情况开始演练。',
+      select_product: '请选择产品',
+      select_avatar: '请选择数字人',
+      select_lang: '请选择语言',
+      btn_generate: '开始生成培训视频',
+      generated_video_title: '生成视频',
+      btn_start_practice: '开始实战演练',
+      practice_setup_title: '设置实战场景',
+      practice_client_type: '客户类型',
+      client_telecom_nigeria: '尼日利亚电信运营商',
+      client_telecom_francophone: '法语区电信运营商',
+      client_enterprise_europe: '欧洲企业客户',
+      client_enterprise_china: '中国大型企业',
+      client_custom: '自定义场景',
+      practice_digital_human: '数字人客户',
+      practice_topic: '演练主题',
+      topic_first_meeting: '初次拜访与方案介绍',
+      topic_price: '价格谈判',
+      topic_objection: '异议处理',
+      topic_contract: '合同签署与促成',
+      topic_renewal: '续约谈判',
+      practice_scenario_desc: '场景描述',
+      practice_scenario_placeholder: '描述你的客户情况和目标...',
+      practice_scenario_label: '演练场景',
+      practice_placeholder: '',
+      practice_live: '数字人实时连线中',
+      practice_end: '结束演练',
+      practice_ended: '演练已结束',
+      practice_speaking: ' 正在说话...',
+      practice_thinking: '思考中...',
+      practice_scoring: '正在生成演练评分...',
+      practice_score_title: '演练评分',
+      practice_tips: '改进建议',
+      practice_score: '演练已结束，综合得分：<b>{score}</b> 分。',
+      practice_return: '演练已结束。是否返回输入界面？',
+      llm_loading: '正在查询本地知识库并调用 LLM...',
+      llm_fallback: '注：LLM API 暂时不可用，已使用本地知识库兜底回答。',
+      kb_loading: '本地知识库正在加载，请稍后再试。',
+      kb_error: '本地知识库加载失败，请检查 knowledge-base.json 是否存在且格式正确。',
+      select_all_first: '请先选择产品、数字人和语言！',
+      ready_training: '已准备就绪！产品：<b>{product}</b>，数字人：<b>{avatar}</b>，语言：<b>{lang}</b>。<br>请在视频预览区点击生成培训视频。',
+      click_generate: '请先在上方选择<b>产品</b>、<b>数字人</b>和<b>语言</b>，然后点击「开始生成培训视频」。',
+      enter_scenario: '请先设置上面的演练场景，然后点击「开始实战演练」。',
+      scenario_required: '请输入场景描述！',
+      video_select_hint: '从下方选择培训视频播放',
+      video_generating: '正在生成培训视频...',
+      practice_matched: '🎯 已匹配数字人 <b>{name}</b>（{role}）开始演练。',
+      dim_rapport: '开场与建立关系',
+      dim_discovery: '需求挖掘',
+      dim_presentation: '方案呈现',
+      dim_objection: '异议处理',
+      dim_closing: '促成闭环',
+      video_playing: '视频正在生成并播放中...',
+      kb_status: '已加载本地知识库（{count}条）',
+      kb_status_fail: '知识库加载失败',
+      fallback_hint: '⚠️ 知识库暂未覆盖，请提问其他问题。',
+      fallback_suggest: '您可以尝试询问：游戏联运、IAA/IAP、EW广告、分发运营、结算流程、合同签署、客户报备等相关问题。',
+      general_greeting_zh: '你好！有什么可以帮助你的？可以试试问我：什么是游戏联运？EW和分发的区别？如何结算？',
+      general_thanks: '不客气！有任何问题随时问我。',
+      general_hi: 'Hi! What can I help you?',
+      general_fr: 'Bonjour ! Comment puis-je vous aider ?',
+      general_fr_thanks: 'De rien ! N\'hésitez pas si vous avez d\'autres questions.',
+      general_ha: 'Sannu! Yaya zan iya taimaka muku?',
+      general_hi_gr: 'Namaste! Main aapki kaise sahayata kar sakta hoon?',
+      no_chats: '暂无聊天记录',
+      delete_chat: '删除',
+      confirm_delete: '确定要删除此聊天记录吗？',
+      ew_product: 'EW程序化广告业务',
+      preinstall_product: '预装业务',
+      distribution_product: '分发业务',
+      game_product: '游戏联运业务',
+      bigdata_product: '大数据业务',
+      desktop_product: '桌面业务',
+      avatar_ella: 'Ella (Duix: Emma) — 白人年轻女孩',
+      avatar_joy: 'Joy (Duix: Caleb) — 黑人男孩',
+      avatar_yangkun: '赵钱孙 (Duix: Kai) — 东亚男人',
+      avatar_elaine: 'Elaine (Duix: Sofia) — 法国女孩',
+      lang_zh: '中文',
+      lang_en: 'English',
+      lang_fr: 'French',
+      lang_ha: 'Hausa',
+      lang_hi: 'Hindi',
+      training_greeting_zh: '大家好！欢迎参加今天的培训课程。',
+      training_greeting_en: 'Hello everyone! Welcome to today\'s training session.',
+      training_greeting_fr: 'Bonjour à tous ! Bienvenue à la session de formation.',
+      training_greeting_ha: 'Barka da zuwa! Barkanmu da wannan horon na yau.',
+      training_greeting_hi: 'Namaste! Aaj ke prashikshan mein aapka swagat hai.',
+      practice_sub_en: 'Welcome! I\'ve been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?',
+      practice_sub_zh: '欢迎！我一直期待这次会面。请告诉我，你们的解决方案与我们目前使用的有什么不同？',
+      practice_sub_fr: 'Bienvenue ! J\'attendais cette réunion avec impatience. Dites-moi, qu\'est-ce qui différencie votre solution de ce que nous utilisons actuellement ?',
+      practice_sub_ha: 'Barka da zuwa! Na dade ina jiran wannan taron. Ka gaya mini, me ya bambanta maganinku da abin da muke amfani da shi yanzu?',
+      practice_sub_hi: 'Swagat hai! Main is meeting ka besabri se intezaar kar raha tha. Batao, aapka solution hamare vartamaan upayog se kaise alag hai?',
+      practice_sub2_en: 'That\'s an interesting point. Can you share some specific ROI data to support that claim?',
+      practice_sub2_zh: '这个观点很有意思。你能分享一些具体的ROI数据来支持这个说法吗？',
+      practice_sub2_fr: 'C\'est un point intéressant. Pouvez-vous partager des données de ROI spécifiques ?',
+      practice_sub2_ha: 'Wannan batu ne mai ban sha\'awa. Za ka iya raba wasu takamaiman bayanai na ROI?',
+      practice_sub2_hi: 'Yeh ek dilchasp baat hai. Kya aap kuch vishesh ROI data sajha kar sakte hain?',
+    },
+    en: {
+      new_chat: 'New Chat',
+      ai_assistant: 'AI Assistant',
+      digital_training: 'Digital Training',
+      digital_practice: 'Practice Session',
+      pages: 'Pages',
+      profile: 'Profile',
+      team: 'Team',
+      recent: 'Recent',
+      free_plan: 'Free Plan',
+      workbench_title: 'Sales Copilot',
+      greeting_title: 'Hello, ready to get started?',
+      greeting_desc: 'I\'m your AI sales assistant. Choose a mode below to start your sales enablement journey.',
+      input_placeholder: 'Ask me anything...',
+      voice_input: 'Voice input',
+      quick_training: 'Digital Training',
+      quick_qa: 'AI Assistant',
+      quick_practice: 'Practice Session',
+      switch_training: 'Switched to <b>Digital Training</b> mode. Select your product, avatar and language above, then generate a training video.',
+      switch_qa: '',
+      switch_practice: 'Switched to <b>Practice Session</b> mode. Enter your client scenario below to start.',
+      select_product: 'Select Product',
+      select_avatar: 'Select Avatar',
+      select_lang: 'Select Language',
+      btn_generate: 'Generate Training Video',
+      generated_video_title: 'Generated Video',
+      btn_start_practice: 'Start Practice',
+      practice_setup_title: 'Setup Practice Scenario',
+      practice_client_type: 'Client Type',
+      client_telecom_nigeria: 'Nigerian Telecom Operator',
+      client_telecom_francophone: 'Francophone Telecom Operator',
+      client_enterprise_europe: 'European Enterprise Client',
+      client_enterprise_china: 'Chinese Enterprise Client',
+      client_custom: 'Custom Scenario',
+      practice_digital_human: 'Digital Human',
+      practice_topic: 'Practice Topic',
+      topic_first_meeting: 'First Meeting & Solution Intro',
+      topic_price: 'Price Negotiation',
+      topic_objection: 'Objection Handling',
+      topic_contract: 'Contract Closing',
+      topic_renewal: 'Renewal Negotiation',
+      practice_scenario_desc: 'Scenario Description',
+      practice_scenario_placeholder: 'Describe your client situation and goals...',
+      practice_scenario_label: 'Scenario',
+      practice_placeholder: '',
+      practice_live: 'Live Session',
+      practice_end: 'End Session',
+      practice_ended: 'Session Ended',
+      practice_speaking: ' speaking...',
+      practice_thinking: 'Thinking...',
+      practice_scoring: 'Generating session score...',
+      practice_score_title: 'Practice Score',
+      practice_tips: 'Improvement Tips',
+      practice_score: 'Session ended. Overall score: <b>{score}</b>.',
+      practice_return: 'Session ended. Return to input?',
+      practice_matched: '🎯 Matched digital human <b>{name}</b> ({role}). Starting practice.',
+      dim_rapport: 'Rapport Building',
+      dim_discovery: 'Discovery',
+      dim_presentation: 'Presentation',
+      dim_objection: 'Objection Handling',
+      dim_closing: 'Closing',
+      llm_loading: 'Searching knowledge base and calling LLM...',
+      llm_fallback: 'Note: LLM API temporarily unavailable, fallback to local knowledge base.',
+      kb_loading: 'Knowledge base is loading, please wait.',
+      kb_error: 'Knowledge base failed to load. Please check if knowledge-base.json exists.',
+      select_all_first: 'Please select product, avatar and language first!',
+      ready_training: 'Ready! Product: <b>{product}</b>, Avatar: <b>{avatar}</b>, Language: <b>{lang}</b>.<br>Click the video preview to generate the training video.',
+      click_generate: 'Please select <b>Product</b>, <b>Avatar</b> and <b>Language</b> above, then click "Generate Training Video".',
+      enter_scenario: 'Please set up your scenario above, then click "Start Practice".',
+      scenario_required: 'Please describe your client scenario!',
+      practice_score: 'Session ended. Overall score: <b>{score}</b>.',
+      practice_return: 'Session ended. Return to input?',
+      practice_matched: '🎯 Matched avatar <b>{name}</b> ({role}). Session started.',
+      practice_speaking: ' is speaking...',
+      video_select_hint: 'Select a training video below to play',
+      video_generating: 'Generating training video...',
+      video_playing: 'Video is generating and playing...',
+      kb_status: 'Knowledge base loaded ({count} entries)',
+      kb_status_fail: 'Knowledge base load failed',
+      fallback_hint: '⚠️ Knowledge base doesn\'t cover this topic. Please try another question.',
+      fallback_suggest: 'Try asking about: Game Joint Operations, IAA/IAP, EW Ads, Distribution, Settlement, Contracts, Client Registration, etc.',
+      general_greeting_zh: 'Hello! How can I help you? Try asking: What is Game Joint Operations? Difference between EW and Distribution? How does settlement work?',
+      general_thanks: 'You\'re welcome! Feel free to ask anytime.',
+      general_hi: 'Hi! What can I help you?',
+      general_fr: 'Bonjour ! Comment puis-je vous aider ?',
+      general_fr_thanks: 'De rien ! N\'hésitez pas si vous avez d\'autres questions.',
+      general_ha: 'Sannu! Yaya zan iya taimaka muku?',
+      general_hi_gr: 'Namaste! Main aapki kaise sahayata kar sakta hoon?',
+      no_chats: 'No chat history',
+      delete_chat: 'Delete',
+      confirm_delete: 'Are you sure you want to delete this chat?',
+      ew_product: 'EW Programmatic Ads',
+      preinstall_product: 'Pre-install Business',
+      distribution_product: 'Distribution Business',
+      game_product: 'Game Joint Operations',
+      bigdata_product: 'Big Data Business',
+      desktop_product: 'Desktop Business',
+      avatar_ella: 'Ella (Duix: Emma) — Young White Woman',
+      avatar_joy: 'Joy (Duix: Caleb) — Black Boy',
+      avatar_yangkun: 'Zhao Qiansun (Duix: Kai) — East Asian Man',
+      avatar_elaine: 'Elaine (Duix: Sofia) — French Woman',
+      lang_zh: 'Chinese',
+      lang_en: 'English',
+      lang_fr: 'French',
+      lang_ha: 'Hausa',
+      lang_hi: 'Hindi',
+      training_greeting_zh: 'Hello everyone! Welcome to today\'s training session.',
+      training_greeting_en: 'Hello everyone! Welcome to today\'s training session.',
+      training_greeting_fr: 'Bonjour à tous ! Bienvenue à la session de formation.',
+      training_greeting_ha: 'Barka da zuwa! Barkanmu da wannan horon na yau.',
+      training_greeting_hi: 'Namaste! Aaj ke prashikshan mein aapka swagat hai.',
+      practice_sub_en: 'Welcome! I\'ve been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?',
+      practice_sub_zh: 'Welcome! I\'ve been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?',
+      practice_sub_fr: 'Bienvenue ! J\'attendais cette réunion avec impatience. Dites-moi, qu\'est-ce qui différencie votre solution de ce que nous utilisons actuellement ?',
+      practice_sub_ha: 'Barka da zuwa! Na dade ina jiran wannan taron. Ka gaya mini, me ya bambanta maganinku da abin da muke amfani da shi yanzu?',
+      practice_sub_hi: 'Swagat hai! Main is meeting ka besabri se intezaar kar raha tha. Batao, aapka solution hamare vartamaan upayog se kaise alag hai?',
+      practice_sub2_en: 'That\'s an interesting point. Can you share some specific ROI data to support that claim?',
+      practice_sub2_zh: 'That\'s an interesting point. Can you share some specific ROI data to support that claim?',
+      practice_sub2_fr: 'C\'est un point intéressant. Pouvez-vous partager des données de ROI spécifiques ?',
+      practice_sub2_ha: 'Wannan batu ne mai ban sha\'awa. Za ka iya raba wasu takamaiman bayanai na ROI?',
+      practice_sub2_hi: 'Yeh ek dilchasp baat hai. Kya aap kuch vishesh ROI data sajha kar sakte hain?',
+    },
+    fr: {
+      new_chat: 'Nouveau chat',
+      ai_assistant: 'Assistant IA',
+      digital_training: 'Formation numérique',
+      digital_practice: 'Session pratique',
+      pages: 'Pages',
+      profile: 'Profil',
+      team: 'Équipe',
+      recent: 'Récent',
+      free_plan: 'Gratuit',
+      workbench_title: 'Sales Copilot',
+      greeting_title: 'Bonjour, prêt à commencer ?',
+      greeting_desc: 'Je suis votre assistant commercial IA. Choisissez un mode ci-dessous pour commencer.',
+      input_placeholder: 'Posez-moi une question...',
+      voice_input: 'Entrée vocale',
+      quick_training: 'Formation numérique',
+      quick_qa: 'Assistant IA',
+      quick_practice: 'Session pratique',
+      switch_training: 'Passé en mode <b>Formation numérique</b>. Sélectionnez le produit, l\'avatar et la langue ci-dessus, puis générez une vidéo.',
+      switch_qa: '',
+      switch_practice: 'Passé en mode <b>Session pratique</b>. Entrez votre scénario client ci-dessous pour commencer.',
+      select_product: 'Choisir le produit',
+      select_avatar: 'Choisir l\'avatar',
+      select_lang: 'Choisir la langue',
+      btn_generate: 'Générer la vidéo',
+      generated_video_title: 'Vidéo générée',
+      btn_start_practice: 'Commencer',
+      practice_setup_title: 'Configurer le scénario',
+      practice_client_type: 'Type de client',
+      client_telecom_nigeria: 'Opérateur télécom nigérian',
+      client_telecom_francophone: 'Opérateur télécom francophone',
+      client_enterprise_europe: 'Client entreprise européen',
+      client_enterprise_china: 'Grande entreprise chinoise',
+      client_custom: 'Scénario personnalisé',
+      practice_digital_human: 'Humain numérique',
+      practice_topic: 'Thème',
+      topic_first_meeting: 'Première visite et présentation',
+      topic_price: 'Négociation de prix',
+      topic_objection: 'Gestion des objections',
+      topic_contract: 'Signature de contrat',
+      topic_renewal: 'Renouvellement',
+      practice_scenario_desc: 'Description du scénario',
+      practice_scenario_placeholder: 'Décrivez votre situation client...',
+      practice_scenario_label: 'Scénario',
+      practice_speaking: ' parle...',
+      practice_thinking: 'Réflexion...',
+      practice_scoring: 'Évaluation en cours...',
+      practice_score_title: 'Score',
+      practice_tips: 'Conseils',
+      practice_live: 'Session en direct',
+      practice_end: 'Terminer',
+      practice_ended: 'Session terminée',
+      practice_score: 'Session terminée. Score : <b>{score}</b>.',
+      practice_return: 'Retour à la saisie ?',
+      practice_matched: '🎯 Humain numérique jumelé <b>{name}</b>. Début de l\'exercice.',
+      dim_rapport: 'Établir la relation',
+      dim_discovery: 'Découverte',
+      dim_presentation: 'Présentation',
+      dim_objection: 'Gestion des objections',
+      dim_closing: 'Clôture',
+      enter_scenario: 'Configurez votre scénario ci-dessus, puis cliquez sur "Commencer".',
+      scenario_required: 'Veuillez décrire le scénario !',
+      practice_placeholder: 'Décrivez votre scénario client, ex. : J\'ai un client opérateur nigérian intéressé par un partenariat avec Transsion...',
+      practice_live: 'Session en direct',
+      practice_end: 'Terminer',
+      practice_ended: 'Session terminée',
+      llm_loading: 'Recherche dans la base de connaissances et appel LLM...',
+      llm_fallback: 'Note : API LLM indisponible, utilisation de la base locale.',
+      kb_loading: 'Chargement de la base de connaissances, veuillez patienter.',
+      kb_error: 'Échec du chargement de la base de connaissances.',
+      select_all_first: 'Veuillez d\'abord sélectionner le produit, l\'avatar et la langue !',
+      ready_training: 'Prêt ! Produit : <b>{product}</b>, Avatar : <b>{avatar}</b>, Langue : <b>{lang}</b>.<br>Cliquez sur l\'aperçu vidéo pour générer.',
+      click_generate: 'Veuillez sélectionner <b>Produit</b>, <b>Avatar</b> et <b>Langue</b>, puis cliquez sur "Générer la vidéo".',
+      enter_scenario: 'Veuillez entrer votre scénario client dans la <b>zone de saisie</b> ci-dessous.',
+      scenario_required: 'Veuillez décrire votre scénario client !',
+      practice_score: 'Session terminée. Score : <b>{score}</b>.',
+      practice_return: 'Session terminée. Retour à la saisie ?',
+      practice_matched: '🎯 Avatar correspondant <b>{name}</b> ({role}). La session a commencé.',
+      practice_speaking: ' parle...',
+      video_select_hint: 'Sélectionnez une vidéo de formation ci-dessous',
+      video_generating: 'Génération de la vidéo...',
+      video_playing: 'La vidéo est en cours de génération...',
+      kb_status: 'Base de connaissances chargée ({count} entrées)',
+      kb_status_fail: 'Échec du chargement',
+      fallback_hint: '⚠️ La base de connaissances ne couvre pas ce sujet.',
+      fallback_suggest: 'Essayez de demander : Game Joint Operations, IAA/IAP, EW Ads, Distribution, Règlement, Contrats, etc.',
+      general_greeting_zh: 'Bonjour ! Comment puis-je vous aider ?',
+      general_thanks: 'De rien ! N\'hésitez pas à demander.',
+      general_hi: 'Bonjour ! Comment puis-je vous aider ?',
+      general_fr: 'Bonjour ! Comment puis-je vous aider ?',
+      general_fr_thanks: 'De rien !',
+      general_ha: 'Sannu! Yaya zan iya taimaka muku?',
+      general_hi_gr: 'Namaste!',
+      no_chats: 'Aucun historique',
+      delete_chat: 'Supprimer',
+      confirm_delete: 'Supprimer ce chat ?',
+      ew_product: 'EW Publicité programmatique',
+      preinstall_product: 'Pré-installation',
+      distribution_product: 'Distribution',
+      game_product: 'Jeux en coentreprise',
+      bigdata_product: 'Big Data',
+      desktop_product: 'Bureau',
+      avatar_ella: 'Ella (Duix: Emma) — Jeune femme blanche',
+      avatar_joy: 'Joy (Duix: Caleb) — Garçon noir',
+      avatar_yangkun: 'Zhao Qiansun (Duix: Kai) — Homme d\'Asie de l\'Est',
+      avatar_elaine: 'Elaine (Duix: Sofia) — Femme française',
+      lang_zh: 'Chinois',
+      lang_en: 'Anglais',
+      lang_fr: 'Français',
+      lang_ha: 'Haoussa',
+      lang_hi: 'Hindi',
+      training_greeting_zh: 'Bonjour à tous ! Bienvenue.',
+      training_greeting_en: 'Hello everyone! Welcome.',
+      training_greeting_fr: 'Bonjour à tous ! Bienvenue à la session de formation.',
+      training_greeting_ha: 'Barka da zuwa!',
+      training_greeting_hi: 'Namaste!',
+      practice_sub_en: 'Welcome! I\'ve been looking forward to this meeting.',
+      practice_sub_zh: 'Bienvenue ! J\'attendais cette réunion avec impatience.',
+      practice_sub_fr: 'Bienvenue ! J\'attendais cette réunion avec impatience. Dites-moi, qu\'est-ce qui différencie votre solution ?',
+      practice_sub_ha: 'Barka da zuwa!',
+      practice_sub_hi: 'Swagat hai!',
+      practice_sub2_en: 'That\'s an interesting point. Can you share specific ROI data?',
+      practice_sub2_zh: 'C\'est intéressant. Pouvez-vous partager des données de ROI ?',
+      practice_sub2_fr: 'C\'est un point intéressant. Pouvez-vous partager des données de ROI spécifiques ?',
+      practice_sub2_ha: 'Wannan batu ne mai ban sha\'awa.',
+      practice_sub2_hi: 'Yeh ek dilchasp baat hai.',
+    },
+    es: {
+      new_chat: 'Nuevo chat',
+      ai_assistant: 'Asistente IA',
+      digital_training: 'Formación digital',
+      digital_practice: 'Práctica',
+      pages: 'Páginas',
+      profile: 'Perfil',
+      team: 'Equipo',
+      recent: 'Reciente',
+      free_plan: 'Gratuito',
+      workbench_title: 'Sales Copilot',
+      greeting_title: '¡Hola, listo para empezar?',
+      greeting_desc: 'Soy tu asistente de ventas IA. Elige un modo para comenzar tu viaje de capacitación.',
+      input_placeholder: 'Pregúntame lo que quieras...',
+      voice_input: 'Entrada de voz',
+      quick_training: 'Formación digital',
+      quick_qa: 'Asistente IA',
+      quick_practice: 'Práctica',
+      switch_training: 'Modo <b>Formación digital</b> activado. Selecciona producto, avatar e idioma arriba y genera un video.',
+      switch_qa: '',
+      switch_practice: 'Modo <b>Práctica</b> activado. Ingresa tu escenario de cliente abajo para comenzar.',
+      select_product: 'Seleccionar producto',
+      select_avatar: 'Seleccionar avatar',
+      select_lang: 'Seleccionar idioma',
+      btn_generate: 'Generar video',
+      generated_video_title: 'Video generado',
+      btn_start_practice: 'Comenzar',
+      practice_placeholder: 'Describe tu escenario de cliente, ej.: Tengo un cliente de telecomunicaciones nigeriano interesado en asociarse con Transsion...',
+      practice_live: 'Sesión en vivo',
+      practice_end: 'Finalizar',
+      practice_ended: 'Sesión finalizada',
+      llm_loading: 'Buscando en la base de conocimiento y llamando a LLM...',
+      llm_fallback: 'Nota: API LLM no disponible, usando base de conocimiento local.',
+      kb_loading: 'Cargando base de conocimiento, espere.',
+      kb_error: 'Error al cargar la base de conocimiento.',
+      select_all_first: '¡Seleccione producto, avatar e idioma primero!',
+      ready_training: '¡Listo! Producto: <b>{product}</b>, Avatar: <b>{avatar}</b>, Idioma: <b>{lang}</b>.',
+      click_generate: 'Seleccione <b>Producto</b>, <b>Avatar</b> e <b>Idioma</b>, luego haga clic en "Generar video".',
+      enter_scenario: 'Ingrese su escenario de cliente en el <b>cuadro de entrada</b> a continuación.',
+      scenario_required: '¡Describa su escenario de cliente!',
+      practice_score: 'Sesión finalizada. Puntuación: <b>{score}</b>.',
+      practice_return: '¿Sesión finalizada. Volver a la entrada?',
+      practice_matched: '🎯 Avatar emparejado <b>{name}</b> ({role}). La sesión ha comenzado.',
+      practice_speaking: ' está hablando...',
+      video_select_hint: 'Seleccione un video de formación a continuación',
+      video_generating: 'Generando video...',
+      video_playing: 'El video se está generando...',
+      kb_status: 'Base de conocimiento cargada ({count} entradas)',
+      kb_status_fail: 'Error al cargar',
+      fallback_hint: '⚠️ La base de conocimiento no cubre este tema.',
+      fallback_suggest: 'Intente preguntar sobre: Game Joint Operations, IAA/IAP, EW Ads, Distribution, Settlement, Contracts, etc.',
+      general_greeting_zh: '¡Hola! ¿En qué puedo ayudarte?',
+      general_thanks: '¡De nada! Pregunta cuando quieras.',
+      general_hi: '¡Hola! ¿En qué puedo ayudarte?',
+      general_fr: 'Bonjour !',
+      general_fr_thanks: 'De rien !',
+      general_ha: 'Sannu!',
+      general_hi_gr: 'Namaste!',
+      no_chats: 'Sin historial',
+      delete_chat: 'Eliminar',
+      confirm_delete: '¿Eliminar este chat?',
+      ew_product: 'EW Publicidad programática',
+      preinstall_product: 'Preinstalación',
+      distribution_product: 'Distribución',
+      game_product: 'Juegos conjuntos',
+      bigdata_product: 'Big Data',
+      desktop_product: 'Escritorio',
+      avatar_ella: 'Ella (Duix: Emma) — Joven blanca',
+      avatar_joy: 'Joy (Duix: Caleb) — Chico negro',
+      avatar_yangkun: 'Zhao Qiansun (Duix: Kai) — Hombre de Asia Oriental',
+      avatar_elaine: 'Elaine (Duix: Sofia) — Mujer francesa',
+      lang_zh: 'Chino',
+      lang_en: 'Inglés',
+      lang_fr: 'Francés',
+      lang_ha: 'Hausa',
+      lang_hi: 'Hindi',
+      training_greeting_zh: '¡Hola a todos! Bienvenidos.',
+      training_greeting_en: 'Hello everyone! Welcome.',
+      training_greeting_fr: 'Bonjour à tous !',
+      training_greeting_ha: 'Barka da zuwa!',
+      training_greeting_hi: 'Namaste!',
+      practice_sub_en: 'Welcome! I\'ve been looking forward to this meeting.',
+      practice_sub_zh: '¡Bienvenido! He estado esperando esta reunión.',
+      practice_sub_fr: 'Bienvenue !',
+      practice_sub_ha: 'Barka da zuwa!',
+      practice_sub_hi: 'Swagat hai!',
+      practice_sub2_en: 'That\'s an interesting point.',
+      practice_sub2_zh: 'Es un punto interesante.',
+      practice_sub2_fr: 'C\'est intéressant.',
+      practice_sub2_ha: 'Wannan batu ne mai ban sha\'awa.',
+      practice_sub2_hi: 'Yeh ek dilchasp baat hai.',
+      practice_setup_title: 'Configurar escenario',
+      practice_client_type: 'Tipo de cliente',
+      client_telecom_nigeria: 'Operador de telecomunicaciones nigeriano',
+      client_telecom_francophone: 'Operador de telecomunicaciones francófono',
+      client_enterprise_europe: 'Cliente empresarial europeo',
+      client_enterprise_china: 'Gran empresa china',
+      client_custom: 'Escenario personalizado',
+      practice_digital_human: 'Humano digital',
+      practice_topic: 'Tema de práctica',
+      topic_first_meeting: 'Primera visita y presentación',
+      topic_price: 'Negociación de precios',
+      topic_objection: 'Manejo de objeciones',
+      topic_contract: 'Firma de contrato',
+      topic_renewal: 'Negociación de renovación',
+      practice_scenario_desc: 'Descripción del escenario',
+      practice_scenario_placeholder: 'Describe la situación y objetivos de tu cliente...',
+      practice_scenario_label: 'Escenario',
+      practice_thinking: 'Pensando...',
+      practice_scoring: 'Generando puntuación...',
+      practice_score_title: 'Puntuación',
+      practice_tips: 'Consejos de mejora',
+      dim_rapport: 'Establecer relación',
+      dim_discovery: 'Descubrimiento',
+      dim_presentation: 'Presentación',
+      dim_objection: 'Manejo de objeciones',
+      dim_closing: 'Cierre',
+    },
+    ha: {
+      new_chat: 'Sabon hira',
+      ai_assistant: 'Mataimakin AI',
+      digital_training: 'Horon dijital',
+      digital_practice: 'Aikin motsa jiki',
+      pages: 'Shafuka',
+      profile: 'Bayani',
+      team: 'Ƙungiya',
+      recent: 'Kwanan nan',
+      free_plan: 'Kyauta',
+      workbench_title: 'Sales Copilot',
+      greeting_title: 'Sannu, a shirye kake don farawa?',
+      greeting_desc: 'Ni mataimakin tallace-tallace ne na AI. Zaɓi yanayin aiki a ƙasa don fara tafiyar ku.',
+      input_placeholder: 'Yi mini tambaya...',
+      voice_input: 'Shigar da murya',
+      quick_training: 'Horon dijital',
+      quick_qa: 'Mataimakin AI',
+      quick_practice: 'Aikin motsa jiki',
+      switch_training: 'An sauya zuwa yanayin <b>Horon dijital</b>. Zaɓi samfur, avatar da harshe a sama, sannan ka samar da bidiyon horo.',
+      switch_qa: '',
+      switch_practice: 'An sauya zuwa yanayin <b>Aikin motsa jiki</b>. Shigar da yanayin abokin cinikinka a ƙasa don farawa.',
+      select_product: 'Zaɓi samfur',
+      select_avatar: 'Zaɓi avatar',
+      select_lang: 'Zaɓi harshe',
+      btn_generate: 'Samar da bidiyo',
+      generated_video_title: 'Bidiyon da aka samar',
+      btn_start_practice: 'Fara aikin',
+      practice_placeholder: 'Bayyana yanayin abokin cinikinka, misali: Ina da abokin ciniki na kamfanin sadarwa na Najeriya...',
+      practice_live: 'Zama kai tsaye',
+      practice_end: 'Ƙare zama',
+      practice_ended: 'An ƙare zama',
+      llm_loading: 'Ana bincika tushen ilimi da kiran LLM...',
+      llm_fallback: 'Lura: API na LLM ba ya samuwa, ana amfani da tushen ilimi na gida.',
+      kb_loading: 'Ana loda tushen ilimi, da fatan za a jira.',
+      kb_error: 'An kasa loda tushen ilimi.',
+      select_all_first: 'Da fatan za a zaɓi samfur, avatar da harshe tukuna!',
+      ready_training: 'A shirye! Samfur: <b>{product}</b>, Avatar: <b>{avatar}</b>, Harshe: <b>{lang}</b>.',
+      click_generate: 'Zaɓi <b>Samfur</b>, <b>Avatar</b> da <b>Harshe</b>, sannan ka danna "Samar da bidiyo".',
+      enter_scenario: 'Shigar da yanayin abokin cinikinka a cikin <b>akwatin shigarwa</b> a ƙasa.',
+      scenario_required: 'Da fatan za a bayyana yanayin abokin cinikinka!',
+      practice_score: 'An ƙare zama. Maki: <b>{score}</b>.',
+      practice_return: 'An ƙare zama. Koma shigarwa?',
+      practice_matched: '🎯 An daidaita avatar <b>{name}</b> ({role}). An fara zama.',
+      practice_speaking: ' yana magana...',
+      video_select_hint: 'Zaɓi bidiyon horo a ƙasa don kunnawa',
+      video_generating: 'Ana samar da bidiyo...',
+      video_playing: 'Ana samar da bidiyo...',
+      kb_status: 'An loda tushen ilimi ({count} shigarwa)',
+      kb_status_fail: 'An kasa loda tushen ilimi',
+      fallback_hint: '⚠️ Tushen ilimi bai rufe wannan batu ba.',
+      fallback_suggest: 'Ka gwada tambaya game da: Game Joint Operations, IAA/IAP, EW Ads, Distribution, Settlement, Contracts, da sauransu.',
+      general_greeting_zh: 'Sannu! Yaya zan iya taimaka muku?',
+      general_thanks: 'Babu komai! Kuna iya tambaya kowane lokaci.',
+      general_hi: 'Sannu! Yaya zan iya taimaka muku?',
+      general_fr: 'Bonjour !',
+      general_fr_thanks: 'De rien !',
+      general_ha: 'Sannu! Yaya zan iya taimaka muku?',
+      general_hi_gr: 'Namaste!',
+      no_chats: 'Babu tarihin hira',
+      delete_chat: 'Share',
+      confirm_delete: 'Ka tabbata kana son share wannan hirar?',
+      ew_product: 'EW Tallan shirye-shirye',
+      preinstall_product: 'Kasuwancin riga-kafi',
+      distribution_product: 'Rarraba',
+      game_product: 'Haɗin gwiwar wasanni',
+      bigdata_product: 'Babban bayanai',
+      desktop_product: 'Tebur',
+      avatar_ella: 'Ella (Duix: Emma) — Budurwa farar fata',
+      avatar_joy: 'Joy (Duix: Caleb) — Yaro baƙi',
+      avatar_yangkun: 'Zhao Qiansun (Duix: Kai) — Namijin Gabashin Asiya',
+      avatar_elaine: 'Elaine (Duix: Sofia) — Matar Faransa',
+      lang_zh: 'Sinanci',
+      lang_en: 'Turanci',
+      lang_fr: 'Faransanci',
+      lang_ha: 'Hausa',
+      lang_hi: 'Hindi',
+      training_greeting_zh: 'Barka da zuwa! Barkanmu da wannan horo.',
+      training_greeting_en: 'Hello everyone! Welcome.',
+      training_greeting_fr: 'Bonjour à tous !',
+      training_greeting_ha: 'Barka da zuwa! Barkanmu da wannan horon na yau.',
+      training_greeting_hi: 'Namaste!',
+      practice_sub_en: 'Welcome! I\'ve been looking forward to this meeting.',
+      practice_sub_zh: 'Barka da zuwa! Na dade ina jiran wannan taro.',
+      practice_sub_fr: 'Bienvenue !',
+      practice_sub_ha: 'Barka da zuwa! Na dade ina jiran wannan taron. Ka gaya mini, me ya bambanta maganinku?',
+      practice_sub_hi: 'Swagat hai!',
+      practice_sub2_en: 'That\'s an interesting point.',
+      practice_sub2_zh: 'Wannan batu ne mai ban sha\'awa.',
+      practice_sub2_fr: 'C\'est intéressant.',
+      practice_sub2_ha: 'Wannan batu ne mai ban sha\'awa. Za ka iya raba wasu bayanai na ROI?',
+      practice_sub2_hi: 'Yeh ek dilchasp baat hai.',
+      practice_setup_title: 'Saita yanayin aiki',
+      practice_client_type: 'Nau\'in abokin ciniki',
+      client_telecom_nigeria: 'Kamfanin sadarwa na Najeriya',
+      client_telecom_francophone: 'Kamfanin sadarwa na Faransanci',
+      client_enterprise_europe: 'Abokin ciniki na Turai',
+      client_enterprise_china: 'Babban kamfani na Sin',
+      client_custom: 'Yanayin na musamman',
+      practice_digital_human: 'Mutumin dijital',
+      practice_topic: 'Taken aikin',
+      topic_first_meeting: 'Ziyarar farko da gabatarwa',
+      topic_price: 'Tattaunawar farashi',
+      topic_objection: 'Magance ƙin yarda',
+      topic_contract: 'Rattaba hannu kan kwangila',
+      topic_renewal: 'Sabunta kwangila',
+      practice_scenario_desc: 'Bayanin yanayin',
+      practice_scenario_placeholder: 'Bayyana yanayin abokin cinikinka da manufofinka...',
+      practice_scenario_label: 'Yanayi',
+      practice_thinking: 'Ana tunani...',
+      practice_scoring: 'Ana ƙididdige maki...',
+      practice_score_title: 'Makin aikin',
+      practice_tips: 'Shawarwarin ingantawa',
+      dim_rapport: 'Ƙulla dangantaka',
+      dim_discovery: 'Gano buƙatu',
+      dim_presentation: 'Gabatarwa',
+      dim_objection: 'Magance ƙin yarda',
+      dim_closing: 'Kammalawa',
+    }
+  };
+
+  var currentLang = localStorage.getItem('salesAI_language') || 'zh';
+
+  function t(key, replacements) {
+    var lang = translations[currentLang] || translations['zh'];
+    var text = lang[key];
+    if (text === undefined) text = (translations['zh'][key] || key);
+    if (replacements) {
+      Object.keys(replacements).forEach(function(k) {
+        text = text.replace('{' + k + '}', replacements[k]);
+      });
+    }
+    return text;
+  }
+
+  function setLanguage(lang) {
+    if (!LANGUAGES.includes(lang)) return;
+    currentLang = lang;
+    localStorage.setItem('salesAI_language', lang);
+    applyAllTranslations();
+    updateLangSelectorUI();
+    // Update dynamic content
+    updateKnowledgeBaseStatus();
+    refreshRecentList();
+    if (workMode === 'qa') {
+      updateGreetingForLang();
+    }
+    // Close dropdown
+    var dropdown = document.getElementById('langDropdown');
+    if (dropdown) dropdown.style.display = 'none';
+  }
+
+  function updateLangSelectorUI() {
+    var selectors = document.querySelectorAll('.lang-selector');
+    selectors.forEach(function(sel) { sel.value = currentLang; });
+    var labels = document.querySelectorAll('.lang-current-label');
+    labels.forEach(function(lbl) { lbl.textContent = LANG_FLAGS[currentLang] + ' ' + LANG_NAMES[currentLang]; });
+    // Update dropdown item highlights
+    var dropdownItems = document.querySelectorAll('#langDropdown .lang-dropdown-item');
+    dropdownItems.forEach(function(item) {
+      var itemLang = item.getAttribute('data-lang');
+      if (itemLang === currentLang) {
+        item.style.color = '#2563eb';
+        item.style.fontWeight = '600';
+      } else {
+        item.style.color = '#4b5563';
+        item.style.fontWeight = '400';
+      }
+    });
+  }
+
+  function applyAllTranslations() {
+    // Update elements with data-i18n attributes
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      var text = t(key);
+      if (text) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = text;
+        } else if (el.tagName === 'SELECT') {
+          // For selects with placeholder option, update the first option
+          var firstOpt = el.querySelector('option[value=""]');
+          if (firstOpt) firstOpt.textContent = text;
+        } else {
+          el.textContent = text;
+        }
+      }
+    });
+    // Update elements with data-i18n-placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+    });
+    // Update title
+    document.title = t('workbench_title');
+    // Update header
+    document.getElementById('wbMainHeader').textContent = t('workbench_title');
+    // Update greeting if visible
+    if (workMode === 'qa') updateGreetingForLang();
+  }
+
+  function updateGreetingForLang() {
+    var greeting = document.getElementById('wbGreeting');
+    if (greeting && greeting.style.display !== 'none') {
+      greeting.querySelector('h1').textContent = t('greeting_title');
+      greeting.querySelector('p').textContent = t('greeting_desc');
+    }
+  }
+
+  function toggleLanguageMenu() {
+    var menu = document.getElementById('langDropdown');
+    if (menu) menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // ===== 聊天会话管理 =====
+  var STORAGE_KEY = 'salesAI_chats';
+  var CURRENT_CHAT_KEY = 'salesAI_currentChatId';
+  var currentChatId = localStorage.getItem(CURRENT_CHAT_KEY) || null;
+
+  function generateChatId() {
+    return 'chat_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+  }
+
+  function loadChats() {
+    try {
+      var data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveChats(chats) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(chats));
+  }
+
+  function getCurrentChat() {
+    var chats = loadChats();
+    for (var i = 0; i < chats.length; i++) {
+      if (chats[i].id === currentChatId) return chats[i];
+    }
+    return null;
+  }
+
+  function createNewChat(mode) {
+    var chat = {
+      id: generateChatId(),
+      title: t('new_chat'),
+      mode: mode || 'qa',
+      messages: [],
+      createdAt: Date.now(),
+      updatedAt: Date.now()
+    };
+    var chats = loadChats();
+    chats.unshift(chat);
+    saveChats(chats);
+    currentChatId = chat.id;
+    localStorage.setItem(CURRENT_CHAT_KEY, currentChatId);
+    refreshRecentList();
+    return chat;
+  }
+
+  function updateChatTitle(chatId, title) {
+    var chats = loadChats();
+    for (var i = 0; i < chats.length; i++) {
+      if (chats[i].id === chatId) {
+        chats[i].title = title;
+        chats[i].updatedAt = Date.now();
+        break;
+      }
+    }
+    saveChats(chats);
+  }
+
+  function saveMessageToChat(chatId, role, content) {
+    var chats = loadChats();
+    for (var i = 0; i < chats.length; i++) {
+      if (chats[i].id === chatId) {
+        chats[i].messages.push({ role: role, content: content, timestamp: Date.now() });
+        chats[i].updatedAt = Date.now();
+        // Auto-title: use first user message
+        if (role === 'user' && chats[i].messages.filter(function(m) { return m.role === 'user'; }).length === 1) {
+          var shortTitle = content.length > 30 ? content.substring(0, 30) + '...' : content;
+          chats[i].title = shortTitle;
+        }
+        break;
+      }
+    }
+    saveChats(chats);
+    refreshRecentList();
+  }
+
+  function deleteChat(chatId) {
+    var chats = loadChats();
+    chats = chats.filter(function(c) { return c.id !== chatId; });
+    saveChats(chats);
+    if (currentChatId === chatId) {
+      currentChatId = chats.length > 0 ? chats[0].id : null;
+      localStorage.setItem(CURRENT_CHAT_KEY, currentChatId || '');
+    }
+    refreshRecentList();
+    if (currentChatId) {
+      loadChatMessages(currentChatId);
+    } else {
+      createNewChat('qa');
+      resetWorkbenchChatUI();
+    }
+  }
+
+  function loadChatMessages(chatId) {
+    var chats = loadChats();
+    var chat = null;
+    for (var i = 0; i < chats.length; i++) {
+      if (chats[i].id === chatId) { chat = chats[i]; break; }
+    }
+    if (!chat) return;
+
+    currentChatId = chatId;
+    localStorage.setItem(CURRENT_CHAT_KEY, currentChatId);
+
+    // Switch to the chat's mode
+    switchWorkMode(chat.mode, true);
+
+    // Clear and render messages
+    var inner = document.getElementById('wbMessagesInner');
+    inner.innerHTML = '';
+
+    if (chat.messages.length === 0) {
+      addWbGreetingInner();
+    } else {
+      for (var j = 0; j < chat.messages.length; j++) {
+        var msg = chat.messages[j];
+        if (msg.role === 'user') {
+          addWbUserMsgInner(msg.content);
+        } else if (msg.role === 'system') {
+          addWbSystemMsgInner(msg.content);
+        } else {
+          addWbAiMsgInner(renderMarkdown(msg.content));
+        }
+      }
+    }
+
+    // Restore practice state if this is a practice chat
+    if (chat.mode === 'practice' && chat.practice) {
+      var pr = chat.practice;
+      practiceState.avatar = pr.avatar || 'joy';
+      practiceState.scenario = pr.scenario || '';
+      practiceState.ttsLang = pr.lang || 'en-US';
+      practiceState.gender = pr.gender || 'male';
+      practiceState.history = pr.history || [];
+      practiceState.lastSpeech = '';
+      practiceState.inProgress = false; // Start as not in progress
+
+      // Update header with practice info
+      var info = PRACTICE_AVATARS[practiceState.avatar] || PRACTICE_AVATARS['joy'];
+      document.getElementById('wbPracticeAvatar').textContent = info.emoji;
+      document.getElementById('wbPracticeName').textContent = info.name;
+      document.getElementById('wbPracticeRole').textContent = info.role;
+      document.getElementById('wbPracticeStatus').textContent = t('practice_ended');
+      document.querySelector('.wb-practice-dot').style.background = '#ef4444';
+      // Initialize Duix avatar for history view
+      initDuixAvatar();
+
+      // Show practice session (read-only mode - showing past conversation)
+      document.getElementById('wbPracticeInput').style.display = 'none';
+      document.getElementById('wbPracticeSession').style.display = 'block';
+      document.getElementById('wbPracticeSpeaking').style.display = 'none';
+      document.getElementById('wbPracticeSubtitle').textContent = t('practice_ended');
+      document.getElementById('wbPracticeReplayBtn').style.display = 'none';
+
+      // Allow resuming by clicking a "continue" button
+      if (pr.inProgress !== false) {
+        // Show a "continue practice" status
+        document.getElementById('wbPracticeStatus').textContent = t('practice_live');
+        document.querySelector('.wb-practice-dot').style.background = '';
+        document.getElementById('wbPracticeSubtitle').textContent = t('practice_return') || '点击输入框继续演练';
+        practiceState.inProgress = true;
+      }
+    }
+
+    refreshRecentList();
+  }
+
+  function addWbGreetingInner() {
+    var inner = document.getElementById('wbMessagesInner');
+    inner.innerHTML = '';
+    var div = document.createElement('div');
+    div.className = 'wb-greeting';
+    div.id = 'wbGreeting';
+    div.innerHTML = '<div class="wb-greeting-icon">🤖</div><h1>' + t('greeting_title') + '</h1><p>' + t('greeting_desc') + '</p>';
+    inner.appendChild(div);
+  }
+
+  function addWbUserMsgInner(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg user';
+    div.innerHTML = '<div class="wb-msg-bubble">' + escapeHtml(text) + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function addWbAiMsgInner(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg ai';
+    div.innerHTML = '<div class="wb-msg-bubble">' + text + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function addWbSystemMsgInner(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg system';
+    div.innerHTML = '<div class="wb-msg-bubble">' + text + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function refreshRecentList() {
+    var list = document.getElementById('wbRecentList');
+    if (!list) return;
+    var chats = loadChats();
+
+    if (chats.length === 0) {
+      list.innerHTML = '<div class="wb-recent-item" style="color:#9ca3af;cursor:default;">' + t('no_chats') + '</div>';
+      return;
+    }
+
+    var html = '';
+    for (var i = 0; i < chats.length; i++) {
+      var c = chats[i];
+      var isActive = c.id === currentChatId;
+      var title = escapeHtml(c.title || t('new_chat'));
+      html += '<div class="wb-recent-item' + (isActive ? ' active' : '') + '" style="display:flex;align-items:center;justify-content:space-between;" onclick="loadChatMessages(\'' + c.id + '\')">';
+      html += '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + title + '</span>';
+      html += '<span style="cursor:pointer;opacity:0.5;font-size:11px;margin-left:6px;flex-shrink:0;" onclick="event.stopPropagation();if(confirm(\'' + t('confirm_delete') + '\'))deleteChat(\'' + c.id + '\')" title="' + t('delete_chat') + '">✕</span>';
+      html += '</div>';
+    }
+    list.innerHTML = html;
+  }
+
+  function resetWorkbenchChatUI() {
+    var inner = document.getElementById('wbMessagesInner');
+    inner.innerHTML = '';
+    addWbGreetingInner();
+    document.getElementById('wbInput').value = '';
+  }
+
+  // Override existing functions to support chat persistence
+  var _origAddWbGreeting = addWbGreeting;
+  addWbGreeting = function() {
+    addWbGreetingInner();
+  };
+
+  var _origAddWbUserMsg = addWbUserMsg;
+  addWbUserMsg = function(text) {
+    addWbUserMsgInner(text);
+  };
+
+  var _origAddWbAiMsg = addWbAiMsg;
+  addWbAiMsg = function(text) {
+    addWbAiMsgInner(text);
+  };
+
+  var _origAddWbSystemMsg = addWbSystemMsg;
+  addWbSystemMsg = function(text) {
+    addWbSystemMsgInner(text);
+  };
+
+  // ===== 本地文档知识库 =====
+  var knowledgeBase = [];
+  var knowledgeBaseLoaded = false;
+  var knowledgeBaseLoadError = null;
+
+  function normalizeKnowledgeBase(data) {
+    var items = Array.isArray(data) ? data : (data && Array.isArray(data.items) ? data.items : []);
+    return items.filter(function(item) {
+      return item && Array.isArray(item.q) && typeof item.a === 'string';
+    });
+  }
+
+  function updateKnowledgeBaseStatus() {
+    var statusNodes = document.querySelectorAll('.qa-w-status');
+    statusNodes.forEach(function(node) {
+      if (knowledgeBaseLoaded) {
+        node.innerHTML = '<span class="s-dot"></span>' + t('kb_status', { count: knowledgeBase.length });
+      } else if (knowledgeBaseLoadError) {
+        node.innerHTML = '<span class="s-dot"></span>' + t('kb_status_fail');
+      }
+    });
+  }
+
+  function loadKnowledgeBase() {
+    return fetch('knowledge-base.json?ts=' + Date.now(), { cache: 'no-store' })
+      .then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function(data) {
+        knowledgeBase = normalizeKnowledgeBase(data);
+        knowledgeBaseLoaded = true;
+        knowledgeBaseLoadError = null;
+        updateKnowledgeBaseStatus();
+        return knowledgeBase;
+      })
+      .catch(function(err) {
+        knowledgeBase = [];
+        knowledgeBaseLoaded = false;
+        knowledgeBaseLoadError = err;
+        updateKnowledgeBaseStatus();
+        console.error('知识库加载失败:', err);
+        return [];
+      });
+  }
+
+  loadKnowledgeBase();
+
+  function getKBByKeyword(keyword, fallbackIndex) {
+    var k = keyword.toLowerCase();
+    for (var i = 0; i < knowledgeBase.length; i++) {
+      var entry = knowledgeBase[i];
+      var text = ((entry.q || []).join(' ') + ' ' + (entry.a || '') + ' ' + (entry.section || '')).toLowerCase();
+      if (text.indexOf(k) !== -1) return entry;
+    }
+    return knowledgeBase[fallbackIndex] || null;
+  }
+
+  // 知识库搜索
+  function searchKB(query) {
+    var q = query.toLowerCase().trim();
+    var contactIntent = /对接|联系人|联系|谁|contact|owner|负责人/.test(q);
+    if (contactIntent && /\biap\b|iap|应用内购买|混变/.test(q)) {
+      var iapContact = getKBByKeyword('IAP 对接人', -1) || getKBByKeyword('APK IAP及混变运营', -1) || getKBByKeyword('IAP及混变运营', -1);
+      if (iapContact) return iapContact.a;
+    }
+    if (contactIntent && /\biaa\b|iaa|应用内广告/.test(q)) {
+      var iaaContact = getKBByKeyword('APK IAA运营', -1) || getKBByKeyword('联运对接人', -1);
+      if (iaaContact) return iaaContact.a;
+    }
+    if (contactIntent && /ee1/.test(q)) {
+      var ee1Contact = getKBByKeyword('EE1-IAP', -1) || getKBByKeyword('EE1地区IAP合作', -1);
+      if (ee1Contact) return ee1Contact.a;
+    }
+    // Score-based matching
+    var best = null, bestScore = 0;
+    for (var i = 0; i < knowledgeBase.length; i++) {
+      var entry = knowledgeBase[i];
+      for (var j = 0; j < entry.q.length; j++) {
+        var kw = entry.q[j].toLowerCase();
+        if (q === kw) { return entry.a; } // exact match
+        if (q.indexOf(kw) !== -1 || kw.indexOf(q) !== -1) {
+          var score = kw.length;
+          if (score > bestScore) { bestScore = score; best = entry; }
+        }
+        // partial word match
+        var words = kw.split(' ');
+        var hits = 0;
+        for (var w = 0; w < words.length; w++) {
+          if (q.indexOf(words[w]) !== -1) hits++;
+        }
+        if (hits >= 2 && hits / words.length > 0.5) {
+          var s = hits * 10;
+          if (s > bestScore) { bestScore = s; best = entry; }
+        }
+      }
+    }
+    // If no match but query matches English route
+    if (!best) {
+      if (/game.*operation|joint.*operation|联运|game.*cooperat/i.test(q)) best = knowledgeBase[0];
+      else if (/iaa|iap|in-app|应用内/i.test(q) && !/混变|mixed/i.test(q)) {
+        if (/iaa/i.test(q)) best = knowledgeBase[1];
+        else if (/iap/i.test(q)) best = knowledgeBase[2];
+        else best = knowledgeBase[1];
+      }
+      else if (/mixed|混变/.test(q)) best = knowledgeBase[3];
+      else if (/vas|增值/.test(q)) best = knowledgeBase[4];
+      else if (/eval|测试|提测/.test(q)) best = knowledgeBase[5];
+      else if (/报备|regist/.test(q)) best = knowledgeBase[6];
+      else if (/合同|contract|签约/.test(q)) best = knowledgeBase[7];
+      else if (/结算|settlement|报支|对账|invoice|开票|billing/.test(q)) {
+        if (/广告|ew|eagllwin|分发/.test(q)) {
+          if (/分发/.test(q)) best = knowledgeBase[21]; else best = knowledgeBase[19];
+        } else { best = knowledgeBase[8]; }
+      }
+      else if (/ee1/i.test(q)) best = knowledgeBase[9];
+      else if (/developer|开发|权限/.test(q)) best = knowledgeBase[10];
+      else if (/h5/.test(q)) best = knowledgeBase[11];
+      else if (/apk/.test(q)) best = knowledgeBase[12];
+      else if (/联系人|对接|contact/.test(q)) {
+        if (/广告|ew|eagllwin/.test(q)) best = getKBByKeyword('广告对接人', 25);
+        else if (/分发|distribution/.test(q)) best = getKBByKeyword('分发运营：@叶剑强', 15);
+        else best = getKBByKeyword('联运对接人', 13);
+      }
+      else if (/ew|eagllwin|程序化/.test(q) && !/分发/.test(q)) best = knowledgeBase[14];
+      else if (/分发|distribution/.test(q)) {
+        if (/下单|order/.test(q)) best = knowledgeBase[20];
+        else if (/测试|test/.test(q)) best = knowledgeBase[27];
+        else best = knowledgeBase[15];
+      }
+      else if (/直客|代理|direct|agency/.test(q)) best = knowledgeBase[17];
+      else if (/预付|后付|prepaid|postpaid/.test(q)) best = knowledgeBase[18];
+      else if (/开户|register|注册/.test(q)) best = knowledgeBase[19];
+      else if (/充值|recharge/i.test(q)) best = knowledgeBase[19];
+      else if (/终止|terminat|停投/.test(q)) best = knowledgeBase[22];
+      else if (/非程序化|aha|hola|悬浮球|负一屏|锁屏/.test(q)) best = knowledgeBase[23];
+      else if (/pai|优选/.test(q)) best = knowledgeBase[24];
+      else if (/上架|listing|app.*publish/.test(q)) best = knowledgeBase[28];
+      else if (/分成|revenue.*share|比例/.test(q)) best = knowledgeBase[1];
+      else if (/返货|返点|rebate/.test(q)) best = knowledgeBase[26];
+    }
+    return best ? best.a : null;
+  }
+
+  // 智能回复引擎（知识库优先）
+  function smartReply(text) {
+    if (!knowledgeBaseLoaded && !knowledgeBaseLoadError) {
+      return t('kb_loading');
+    }
+    if (knowledgeBaseLoadError) {
+      return '<span style="color:#ef4444;">' + t('kb_error') + '</span>';
+    }
+    // First, search knowledge base
+    var kbResult = searchKB(text);
+    if (kbResult) return kbResult;
+
+    // Then, multilingual greetings
+    var t2 = text.toLowerCase().trim();
+    if (t2 === 'hi' || t2 === 'hello' || t2 === 'hey') return t('general_hi');
+    if (t2 === 'bonjour') return t('general_fr');
+    if (t2 === 'salut') return t('general_fr');
+    if (/bonjour|salut|coucou|bonsoir/.test(t2)) return t('general_fr');
+    if (/merci/.test(t2)) return t('general_fr_thanks');
+    if (/你好|您好|嗨|哈喽/.test(t2)) return t('general_greeting_zh');
+    if (/谢谢|感谢/.test(t2)) return t('general_thanks');
+    if (/sannu|barka|nagode/.test(t2)) return t('general_ha');
+    if (/namaste|namaskar|dhanyavaad/.test(t2)) return t('general_hi_gr');
+    if (/^hi|^hello|^hey|^yo/i.test(t2) && t2.length < 20) return t('general_hi');
+
+    // Fallback — not covered
+    return '<span style="color:#f59e0b;">' + t('fallback_hint') + '</span><br><small>' + t('fallback_suggest') + '</small>';
+  }
+
+  // ===== 培训视频生成 =====
+  var productInfo = {
+    ew: { kp1:'精准投放：基于用户画像和行为数据，实现千人千面的广告触达', kp2:'与Google Ads对比：本地化流量覆盖更全面，CPM成本低30%', kp3:'首推eCPM竞价模式，建议强调ROI数据和A/B测试案例', videoTitle:'EW程序化广告业务 — 精准投放策略详解' },
+    preinstall: { kp1:'预装覆盖：全球年出货量超2亿台设备，预装激活率85%+', kp2:'与三星预装对比：机型覆盖面更广，中小品牌也可参与', kp3:'以品牌曝光量和用户触达率为核心卖点，准备行业案例', videoTitle:'预装业务 — 全球预装策略与案例' },
+    distribution: { kp1:'应用分发：覆盖应用商店、浏览器、负一屏等多入口', kp2:'与华为应用市场对比：更灵活的联运分成模式', kp3:'强调下载转化率和用户留存数据，准备演示Demo', videoTitle:'分发业务 — 多入口分发解决方案' },
+    game: { kp1:'游戏联运：提供SDK接入、支付、运营一站式服务', kp2:'与TapTap对比：渠道流量更大，用户付费转化更优', kp3:'以头部游戏联运案例为切入点，展示分成收益模型', videoTitle:'游戏联运业务 — 一站式联运方案' },
+    bigdata: { kp1:'数据服务：用户标签体系覆盖200+维度，支持精准营销', kp2:'与TalkingData对比：数据源更全面，与广告业务深度联动', kp3:'以客户成功案例为引，展示数据驱动增长的实际效果', videoTitle:'大数据业务 — 数据驱动精准营销' },
+    desktop: { kp1:'桌面产品：全球MAU超3亿，信息流广告变现效率高', kp2:'与Nova Launcher对比：用户粘性更强，商业化程度更高', kp3:'以DAU和用户时长为核心指标，提供广告位Demo展示', videoTitle:'桌面业务 — 亿级流量变现策略' },
+  };
+  var avatarEmojis = { ella:'\ud83d\udc69\ud83c\udffb\u200d\ud83e\uddb0', joy:'\ud83d\udc66\ud83c\udffe', yangkun:'\ud83d\udc68\u200d\ud83d\udcbc', elaine:'\ud83d\udc69\ud83c\udffc' };
+  var avatarNames = { ella:'Ella', joy:'Joy', yangkun:'赵钱孙', elaine:'Elaine' };
+  var langNames = { zh:'中文', en:'English', fr:'French', ha:'Hausa', hi:'Hindi' };
+  var langGreetings = {
+    zh:'\u5927\u5bb6\u597d\uff01\u6b22\u8fce\u53c2\u52a0\u4eca\u5929\u7684\u57f9\u8bad\u8bfe\u7a0b\u3002',
+    en:'Hello everyone! Welcome to today\'s training session.',
+    fr:'Bonjour \u00e0 tous ! Bienvenue \u00e0 la session de formation.',
+    ha:'Barka da zuwa! Barkanmu da wannan horon na yau.',
+    hi:'Namaste! Aaj ke prashikshan mein aapka swagat hai.',
+  };
+
+  function updateTrainingPreview() {
+    var p = document.getElementById('trainingProduct').value;
+    var a = document.getElementById('trainingAvatar').value;
+    var l = document.getElementById('trainingLang').value;
+    var s = document.getElementById('trainingStatus');
+    if (p && a && l) {
+      s.textContent = '\u5df2\u9009\u62e9\uff1a' + document.getElementById('trainingProduct').selectedOptions[0].text.split(' —')[0] + ' | ' + avatarNames[a] + ' | ' + langNames[l];
+      s.style.color = '#10b981';
+    } else {
+      s.textContent = '\u8bf7\u5148\u9009\u62e9\u4ea7\u54c1\u3001\u6570\u5b57\u4eba\u548c\u8bed\u8a00';
+      s.style.color = 'var(--text-secondary)';
+    }
+  }
+
+  function generateTrainingVideo() {
+    var prod = document.getElementById('trainingProduct').value;
+    var avatar = document.getElementById('trainingAvatar').value;
+    var lang = document.getElementById('trainingLang').value;
+    if (!prod || !avatar || !lang) { alert('请先选择产品、数字人和语言！'); return; }
+
+    var info = productInfo[prod];
+    document.getElementById('kp1').innerHTML = '<strong>产品核心卖点</strong><br>' + info.kp1;
+    document.getElementById('kp2').innerHTML = '<strong>竞品对比要点</strong><br>' + info.kp2;
+    document.getElementById('kp3').innerHTML = '<strong>销售话术建议</strong><br>' + info.kp3;
+
+    var container = document.getElementById('trainingVideoContainer');
+    var v = document.createElement('video');
+    v.autoplay = true;
+    v.loop = true;
+    v.muted = true;
+    v.playsInline = true;
+    v.controls = true;
+    v.style.cssText = 'width:100%;display:block;max-height:380px;object-fit:contain;background:#0a0a0a;';
+    var src = document.createElement('source');
+    src.src = 'avatar-video.mp4';
+    src.type = 'video/mp4';
+    v.appendChild(src);
+
+    container.className = 'real-video-area';
+    container.style.position = 'relative';
+    container.innerHTML = '';
+    container.appendChild(v);
+
+    // Greeting subtitle
+    var label = document.createElement('div');
+    label.style.cssText = 'position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#fff;padding:6px 18px;border-radius:16px;font-size:13px;z-index:5;white-space:nowrap;';
+    label.textContent = info.videoTitle;
+    container.appendChild(label);
+    setTimeout(function(){ if(label.parentNode)label.remove(); }, 8000);
+
+    document.getElementById('trainingStatus').textContent = '视频正在生成并播放中...';
+    document.getElementById('trainingStatus').style.color = 'var(--primary)';
+  }
+
+  // ===== Practice Session =====
+  function startPractice() {
+    var scenario = document.getElementById('practiceScenario').value.trim();
+    if (!scenario) { alert('请输入客户情况描述！Please describe your client scenario.'); return; }
+    var lang = document.getElementById('practiceLang').value;
+    document.getElementById('practiceInput').style.display = 'none';
+    document.getElementById('practiceSession').classList.add('active');
+
+    var sl = document.getElementById('practiceScenarioLabel');
+    sl.textContent = scenario.length > 35 ? scenario.substring(0,35) + '...' : scenario;
+
+    var sc = scenario.toLowerCase();
+    var aa = 'joy';
+    if (sc.includes('france') || sc.includes('fran')) aa = 'elaine';
+    else if (/[\u4e00-\u9fff]/.test(scenario) && !sc.includes('nigeria') && !sc.includes('africa')) aa = 'yangkun';
+
+    var em = { joy:'\ud83d\udc66\ud83c\udffe', ella:'\ud83d\udc69\ud83c\udffb\u200d\ud83e\uddb0', yangkun:'\ud83d\udc68\u200d\ud83d\udcbc', elaine:'\ud83d\udc69\ud83c\udffc' };
+    var nm = { joy:'Joy', ella:'Ella', yangkun:'赵钱孙', elaine:'Elaine' };
+    var rl = { joy:'Nigerian Telecom Operator — Head of Partnerships', ella:'European Enterprise Client — VP Marketing', yangkun:'东亚大型企业客户 — 市场部总监', elaine:'Opérateur Télécom Francophone — Directeur Commercial' };
+
+    document.getElementById('practiceAvatarEmoji').textContent = em[aa];
+    document.getElementById('practiceAvatarName').textContent = nm[aa];
+    document.getElementById('practiceAvatarRole').textContent = rl[aa];
+
+    var subs = {
+      en:'Welcome! I\'ve been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?',
+      zh:'欢迎！我一直期待这次会面。请告诉我，你们的解决方案与我们目前使用的有什么不同？',
+      fr:'Bienvenue ! J\'attendais cette réunion avec impatience. Dites-moi, qu\'est-ce qui différencie votre solution de ce que nous utilisons actuellement ?',
+      ha:'Barka da zuwa! Na dade ina jiran wannan taron. Ka gaya mini, me ya bambanta maganinku da abin da muke amfani da shi yanzu?',
+      hi:'Swagat hai! Main is meeting ka besabri se intezaar kar raha tha. Batao, aapka solution hamare vartamaan upayog se kaise alag hai?',
+    };
+    document.getElementById('practiceSubtitle').textContent = subs[lang] || subs['en'];
+    document.getElementById('practiceStatus').textContent = nm[aa] + ' \u6b63\u5728\u8bf4\u8bdd...';
+  }
+
+  function switchPracticeMode(mode, el) {
+    el.parentElement.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    el.classList.add('active');
+  }
+  function toggleMute(el) { el.innerHTML = el.innerHTML.includes('\ud83d\udd08') ? '\ud83d\udd0a' : '\ud83d\udd08'; }
+  function cyclePracticeLang() {
+    var langs = ['en','zh','fr','ha','hi'];
+    var sel = document.getElementById('practiceLang');
+    var idx = langs.indexOf(sel.value);
+    sel.value = langs[(idx+1) % langs.length];
+    var subs = {
+      en:'That\'s an interesting point. Can you share some specific ROI data to support that claim?',
+      zh:'这个观点很有意思。你能分享一些具体的ROI数据来支持这个说法吗？',
+      fr:'C\'est un point intéressant. Pouvez-vous partager des données de ROI spécifiques ?',
+      ha:'Wannan batu ne mai ban sha\'awa. Za ka iya raba wasu takamaiman bayanai na ROI?',
+      hi:'Yeh ek dilchasp baat hai. Kya aap kuch vishesh ROI data sajha kar sakte hain?',
+    };
+    var sub = document.getElementById('practiceSubtitle');
+    sub.style.opacity = '0';
+    setTimeout(function(){ sub.textContent = subs[sel.value] || subs['en']; sub.style.opacity = '1'; }, 250);
+  }
+  function endPractice() {
+    var st = document.getElementById('practiceStatus');
+    st.textContent = '演练已结束';
+    st.parentElement.querySelector('.sp-dot').style.background = '#ef4444';
+    document.getElementById('practiceScore').textContent = Math.floor(Math.random()*15+80);
+    setTimeout(function(){
+      if (confirm('演练已结束。是否返回输入界面？\nPractice ended. Return to input?')) {
+        document.getElementById('practiceInput').style.display = 'flex';
+        document.getElementById('practiceSession').classList.remove('active');
+        st.textContent = '数字人实时连线中';
+        st.parentElement.querySelector('.sp-dot').style.background = '';
+      }
+    }, 1500);
+  }
+
+  // AI 答疑话题切换
+  document.querySelectorAll('.qa-topic').forEach(topic => {
+    topic.addEventListener('click', function() {
+      document.querySelectorAll('.qa-topic').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // AI 答疑发送
+  // 多语言智能回复引擎
+
+  // AI 答疑浮窗折叠/展开
+  function toggleQaWidget() {
+    const w = document.getElementById('qaWidget');
+    const t = document.getElementById('qaToggle');
+    w.classList.toggle('collapsed');
+    t.textContent = w.classList.contains('collapsed') ? '+' : '\u2212';
+  }
+
+  async function askAI(question) {
+    try {
+      const response = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: question })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.detail || data.error || 'AI接口调用失败');
+      return data.answer || smartReply(question);
+    } catch (err) {
+      console.error('AI接口调用失败，使用本地知识库兜底：', err);
+      return smartReply(question) + '<br><small style="color:#ef4444;">' + t('llm_fallback') + '</small>';
+    }
+  }
+
+  // AI 答疑浮窗发送
+  function trainingQaSend() {
+    const input = document.getElementById('qaInput');
+    const body = document.getElementById('qaBody');
+    const text = input.value.trim();
+    if (!text) return;
+    const el = document.createElement('div');
+    el.className = 'qw-msg user';
+    el.innerHTML = '<div class="qw-avatar">我</div><div class="qw-bubble">' + escapeHtml(text) + '</div>';
+    body.appendChild(el);
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
+
+    const r = document.createElement('div');
+    r.className = 'qw-msg bot';
+    r.innerHTML = '<div class="qw-avatar">AI</div><div class="qw-bubble">正在查询本地知识库并调用 LLM...</div>';
+    body.appendChild(r);
+    body.scrollTop = body.scrollHeight;
+
+    askAI(text).then(reply => {
+      r.innerHTML = '<div class="qw-avatar">AI</div><div class="qw-bubble">' + renderMarkdown(reply) + '</div>';
+      body.scrollTop = body.scrollHeight;
+    });
+  }
+
+
+
+  // ===== 侧边栏操作 =====
+  function toggleWbSidebar() {
+    document.getElementById('wbSidebar').classList.toggle('open');
+  }
+
+  function resetWorkbenchChat() {
+    // Create a new chat and reset UI
+    createNewChat(workMode);
+    resetWorkbenchChatUI();
+  }
+
+  // ===== 侧边栏页面切换（个人中心 / 团队管理） =====
+  function switchWbPage(page) {
+    // Update sidebar active states
+    document.querySelectorAll('.wb-menu-item').forEach(function(b){ b.classList.remove('active'); });
+    var activeItem = document.querySelector('.wb-menu-item[data-page="' + page + '"]');
+    if (activeItem) activeItem.classList.add('active');
+
+    // Hide all main content areas
+    document.getElementById('wbMessages').style.display = 'none';
+    document.getElementById('wbBottomArea').style.display = 'none';
+    document.getElementById('wbMainHeader').style.display = 'none';
+    document.getElementById('wbProfilePanel').style.display = 'none';
+    document.getElementById('wbTeamPanel').style.display = 'none';
+
+    if (page === 'profile') {
+      document.getElementById('wbProfilePanel').style.display = 'block';
+    } else if (page === 'team') {
+      document.getElementById('wbTeamPanel').style.display = 'block';
+    }
+  }
+
+  // When switching to a work mode (qa/training/practice), restore chat UI
+  var _origSwitchWorkMode = switchWorkMode;
+  switchWorkMode = function(mode, silent) {
+    // Show chat UI
+    document.getElementById('wbMessages').style.display = '';
+    document.getElementById('wbBottomArea').style.display = '';
+    document.getElementById('wbMainHeader').style.display = '';
+    document.getElementById('wbProfilePanel').style.display = 'none';
+    document.getElementById('wbTeamPanel').style.display = 'none';
+    // Clear page menu active states
+    document.querySelectorAll('.wb-menu-page').forEach(function(b){ b.classList.remove('active'); });
+    _origSwitchWorkMode(mode, silent);
+  };
+
+  // ===== AI 工作台 — ChatGPT 聊天 =====
+  var workMode = 'training'; // training | qa | practice
+  var speechVoices = []; // Cached speech synthesis voices
+  var wbAvatarNames = { ella:'Ella', joy:'Joy', yangkun:'赵钱孙', elaine:'Elaine' };
+  var wbLangNames = { zh:'中文', en:'English', fr:'French', ha:'Hausa', hi:'Hindi' };
+
+  function switchWorkMode(mode, silent) {
+    workMode = mode;
+    // Update sidebar menu active states
+    document.querySelectorAll('.wb-menu-item[data-mode]').forEach(function(b){ b.classList.remove('active'); });
+    var activeItem = document.querySelector('.wb-menu-item[data-mode="' + mode + '"]');
+    if (activeItem) activeItem.classList.add('active');
+    // Update quick cards
+    document.querySelectorAll('.wb-quick-card[data-mode]').forEach(function(b){ b.classList.remove('active'); });
+    var activeCard = document.querySelector('.wb-quick-card[data-mode="' + mode + '"]');
+    if (activeCard) activeCard.classList.add('active');
+
+    // Hide all sub-panels
+    document.getElementById('wbTrainingSelectors').style.display = 'none';
+    document.getElementById('wbPracticeInput').style.display = 'none';
+    document.getElementById('wbPracticeSession').style.display = 'none';
+    document.getElementById('wbVideoPreview').style.display = 'none';
+    // Stop any playing video
+    if (currentVideoEl) { currentVideoEl.pause(); currentVideoEl.remove(); currentVideoEl = null; }
+
+    // In training mode, always show video gallery + selectors
+    if (mode === 'training') {
+      document.getElementById('wbTrainingSelectors').style.display = 'flex';
+      document.getElementById('wbVideoPreview').style.display = 'block';
+      if (initTrainingVideos) initTrainingVideos();
+    }
+
+    var msgs = document.getElementById('wbMessagesInner');
+
+    if (silent) return; // Don't clear or add messages when loading chat
+
+    msgs.innerHTML = '';
+
+    if (mode === 'training') {
+      document.getElementById('wbTrainingSelectors').style.display = 'flex';
+      document.getElementById('wbVideoPreview').style.display = 'block';
+      if (initTrainingVideos) initTrainingVideos();
+      addWbSystemMsg(t('switch_training'));
+    } else if (mode === 'qa') {
+      addWbGreetingInner();
+    } else if (mode === 'practice') {
+      document.getElementById('wbPracticeInput').style.display = 'flex';
+      document.getElementById('wbPracticeScenarioDesc').value = '';
+      document.getElementById('wbPracticeSession').style.display = 'none';
+      addWbSystemMsg(t('switch_practice'));
+    }
+  }
+
+  function addWbGreeting() {
+    var inner = document.getElementById('wbMessagesInner');
+    inner.innerHTML = '';
+    var div = document.createElement('div');
+    div.className = 'wb-greeting';
+    div.innerHTML = '<div class="wb-greeting-icon">🤖</div><h1>你好，准备好开始了吗？</h1><p>我是您的 AI 销售助手。在下方选择工作模式，开始销售赋能之旅。</p>';
+    inner.appendChild(div);
+  }
+
+  function addWbSystemMsg(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg system';
+    div.innerHTML = '<div class="wb-msg-bubble">' + text + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function addWbUserMsg(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg user';
+    div.innerHTML = '<div class="wb-msg-bubble">' + escapeHtml(text) + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function addWbAiMsg(text) {
+    var inner = document.getElementById('wbMessagesInner');
+    var div = document.createElement('div');
+    div.className = 'wb-msg ai';
+    div.innerHTML = '<div class="wb-msg-bubble">' + text + '</div>';
+    inner.appendChild(div);
+    scrollWbMessages();
+  }
+
+  function scrollWbMessages() {
+    var outer = document.getElementById('wbMessages');
+    if (outer) outer.scrollTop = outer.scrollHeight;
+  }
+
+  function escapeHtml(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  // Markdown → HTML 渲染（用于气泡内格式化）
+  function inlineMarkdown(text) {
+    if (!text) return '';
+    return text
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  }
+
+  function renderMarkdown(text) {
+    if (!text) return '';
+    var lines = text.split('\n');
+    var result = [];
+    var inList = false;
+    var listType = '';
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var trimmed = line.trim();
+
+      // 空行
+      if (!trimmed) {
+        if (inList) { result.push('</' + listType + '>'); inList = false; }
+        result.push('<br>');
+        continue;
+      }
+
+      // 标题
+      var hMatch = trimmed.match(/^(#{1,4}) (.+)$/);
+      if (hMatch) {
+        if (inList) { result.push('</' + listType + '>'); inList = false; }
+        var lvl = Math.min(hMatch[1].length + 1, 6);
+        result.push('<h' + lvl + '>' + inlineMarkdown(hMatch[2]) + '</h' + lvl + '>');
+        continue;
+      }
+
+      // 分割线
+      if (/^---+$/.test(trimmed)) {
+        if (inList) { result.push('</' + listType + '>'); inList = false; }
+        result.push('<hr>');
+        continue;
+      }
+
+      // 引用
+      var bqMatch = trimmed.match(/^> (.+)$/);
+      if (bqMatch) {
+        if (inList) { result.push('</' + listType + '>'); inList = false; }
+        result.push('<blockquote>' + inlineMarkdown(bqMatch[1]) + '</blockquote>');
+        continue;
+      }
+
+      // 无序列表
+      var ulMatch = trimmed.match(/^[\-\*] (.+)$/);
+      if (ulMatch) {
+        if (!inList) { inList = true; listType = 'ul'; result.push('<ul>'); }
+        else if (listType !== 'ul') { result.push('</ol>'); result.push('<ul>'); listType = 'ul'; }
+        result.push('<li>' + inlineMarkdown(ulMatch[1]) + '</li>');
+        continue;
+      }
+
+      // 有序列表
+      var olMatch = trimmed.match(/^\d+\. (.+)$/);
+      if (olMatch) {
+        if (!inList) { inList = true; listType = 'ol'; result.push('<ol>'); }
+        else if (listType !== 'ol') { result.push('</ul>'); result.push('<ol>'); listType = 'ol'; }
+        result.push('<li>' + inlineMarkdown(olMatch[1]) + '</li>');
+        continue;
+      }
+
+      // 普通段落
+      if (inList) { result.push('</' + listType + '>'); inList = false; }
+      result.push('<p>' + inlineMarkdown(trimmed) + '</p>');
+    }
+
+    if (inList) { result.push('</' + listType + '>'); }
+    return result.join('');
+  }
+
+  // ===== 语音输入 =====
+  var voiceRecognition = null;
+  var isListening = false;
+
+  function startVoiceInput() {
+    // In practice mode with Duix, use Duix built-in ASR
+    if (workMode === 'practice' && duixInstance) {
+      if (duixAsrActive) {
+        stopVoiceInput();
+        return;
+      }
+      duixAsrActive = true;
+      var voiceBtn = document.getElementById('wbVoiceBtn');
+      if (voiceBtn) {
+        voiceBtn.style.color = '#ef4444';
+        voiceBtn.style.animation = 'pulse 1s infinite';
+      }
+      var input = document.getElementById('wbInput');
+      input.placeholder = '正在聆听...';
+      duixInstance.openAsr().catch(function(e) {
+        console.warn('Duix ASR open error:', e);
+        stopVoiceInput();
+        // Fallback to browser ASR
+        startBrowserVoiceInput();
+      });
+      return;
+    }
+
+    startBrowserVoiceInput();
+  }
+
+  function startBrowserVoiceInput() {
+    // Check browser support
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert('您的浏览器不支持语音输入。请使用 Chrome 或 Edge 浏览器。');
+      return;
+    }
+
+    if (isListening) {
+      stopVoiceInput();
+      return;
+    }
+
+    voiceRecognition = new SpeechRecognition();
+    voiceRecognition.lang = currentLang === 'zh' ? 'zh-CN' : currentLang === 'fr' ? 'fr-FR' : currentLang === 'es' ? 'es-ES' : currentLang === 'ha' ? 'ha-NG' : 'en-US';
+    voiceRecognition.interimResults = false;
+    voiceRecognition.maxAlternatives = 1;
+    voiceRecognition.continuous = false;
+
+    isListening = true;
+    var voiceBtn = document.getElementById('wbVoiceBtn');
+    if (voiceBtn) {
+      voiceBtn.style.color = '#ef4444';
+      voiceBtn.style.animation = 'pulse 1s infinite';
+    }
+    var input = document.getElementById('wbInput');
+    input.placeholder = '正在聆听...';
+
+    voiceRecognition.onresult = function(event) {
+      var transcript = event.results[0][0].transcript;
+      if (transcript) {
+        document.getElementById('wbInput').value = transcript;
+        // In practice mode, auto-send
+        if (workMode === 'practice' && practiceState.inProgress) {
+          sendWbMessage();
+        }
+      }
+    };
+
+    voiceRecognition.onerror = function(event) {
+      console.error('Voice recognition error:', event.error);
+      stopVoiceInput();
+    };
+
+    voiceRecognition.onend = function() {
+      stopVoiceInput();
+    };
+
+    try {
+      voiceRecognition.start();
+    } catch (e) {
+      stopVoiceInput();
+    }
+  }
+
+  function stopVoiceInput() {
+    // Stop Duix ASR if active
+    if (duixAsrActive && duixInstance) {
+      duixAsrActive = false;
+      try { duixInstance.closeAsr(); } catch(e) {}
+    }
+
+    isListening = false;
+    if (voiceRecognition) {
+      try { voiceRecognition.stop(); } catch(e) {}
+      voiceRecognition = null;
+    }
+    var voiceBtn = document.getElementById('wbVoiceBtn');
+    if (voiceBtn) {
+      voiceBtn.style.color = '';
+      voiceBtn.style.animation = '';
+    }
+    var input = document.getElementById('wbInput');
+    input.placeholder = t('input_placeholder') || '有问题，随便问';
+  }
+
+  function sendWbMessage() {
+    var input = document.getElementById('wbInput');
+    var text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+
+    // Ensure we have a current chat with the right mode
+    if (!currentChatId) {
+      createNewChat(workMode);
+    } else {
+      var chats = loadChats();
+      var cur = null;
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === currentChatId) { cur = chats[i]; break; }
+      }
+      if (!cur || cur.mode !== workMode) { createNewChat(workMode); }
+    }
+    addWbUserMsg(text);
+    saveMessageToChat(currentChatId, 'user', text);
+
+    if (workMode === 'qa') {
+      addWbAiMsg(t('llm_loading'));
+      askAI(text).then(function(reply) {
+        var bubbles = document.querySelectorAll('#wbMessagesInner .wb-msg.ai .wb-msg-bubble');
+        var last = bubbles[bubbles.length - 1];
+        var rendered = renderMarkdown(reply);
+        if (last && last.textContent === t('llm_loading')) {
+          last.innerHTML = rendered;
+        } else {
+          addWbAiMsg(rendered);
+        }
+        saveMessageToChat(currentChatId, 'ai', reply);
+        scrollWbMessages();
+      });
+    } else if (workMode === 'training') {
+      var p = document.getElementById('wbProduct').value;
+      var a = document.getElementById('wbAvatar').value;
+      var l = document.getElementById('wbLang').value;
+      if (!p || !a || !l) {
+        var reply = t('click_generate');
+        setTimeout(function(){ addWbAiMsg(reply); saveMessageToChat(currentChatId, 'ai', reply); }, 500);
+      } else {
+        setTimeout(function(){
+          var prodName = document.getElementById('wbProduct').selectedOptions[0].text.split(' —')[0];
+          var reply = t('ready_training', { product: prodName, avatar: wbAvatarNames[a], lang: wbLangNames[l] });
+          addWbAiMsg(reply);
+          saveMessageToChat(currentChatId, 'ai', reply);
+        }, 500);
+      }
+    } else if (workMode === 'practice') {
+      if (practiceState.inProgress) {
+        // Route to practice conversation handler
+        handlePracticeMessage(text);
+      } else {
+        setTimeout(function(){
+          var reply = t('enter_scenario');
+          addWbAiMsg(reply);
+          saveMessageToChat(currentChatId, 'ai', reply);
+        }, 500);
+      }
+    }
+  }
+
+  // ===== 培训视频数据 =====
+  var trainingVideos = [
+    { file: 'videos/game_iap_policy_zh.mp4', title: '游戏联运 IAP 业务合作政策', tag: 'zh', product: 'game' },
+    { file: 'videos/game_iap_policy_en.mp4', title: 'Game IAP Promotion Policy', tag: 'en', product: 'game' },
+    { file: 'videos/ad_cooperation_guide_zh.mp4', title: '广告业务合作全链路指南', tag: 'zh', product: 'ew' },
+    { file: 'videos/ad_cooperation_guide_en.mp4', title: 'Ad Cooperation Process Guide', tag: 'en', product: 'ew' }
+  ];
+  var currentVideoIndex = 0;
+  var currentVideoEl = null;
+
+  function initTrainingVideos() {
+    var nav = document.getElementById('wbVideoNav');
+    nav.innerHTML = '';
+    trainingVideos.forEach(function(v, i) {
+      var thumb = document.createElement('div');
+      thumb.className = 'wb-video-thumb' + (i === currentVideoIndex ? ' active' : '');
+      thumb.innerHTML = '<span class="v-dot"></span>' + v.title;
+      thumb.onclick = function() { playTrainingVideo(i); };
+      nav.appendChild(thumb);
+    });
+    // Auto-play first video
+    playTrainingVideo(currentVideoIndex);
+    document.getElementById('wbVideoPreview').style.display = 'block';
+  }
+
+  function playTrainingVideo(index) {
+    if (index < 0 || index >= trainingVideos.length) return;
+    currentVideoIndex = index;
+    var area = document.getElementById('wbVideoPlayerArea');
+    var v = trainingVideos[index];
+
+    // Stop current video
+    if (currentVideoEl) { currentVideoEl.pause(); currentVideoEl.remove(); currentVideoEl = null; }
+
+    var video = document.createElement('video');
+    video.src = v.file;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.controls = true;
+    video.style.cssText = 'width:100%;display:block;max-height:400px;object-fit:contain;background:#0a0a0a;';
+    currentVideoEl = video;
+
+    // Label
+    var label = document.createElement('div');
+    label.className = 'wb-video-label';
+    label.textContent = v.title;
+
+    area.innerHTML = '';
+    area.appendChild(video);
+    area.appendChild(label);
+
+    // Hide label after 6 seconds
+    setTimeout(function() { if (label.parentNode) label.style.opacity = '0'; }, 6000);
+
+    // Update nav active state
+    var thumbs = document.querySelectorAll('#wbVideoNav .wb-video-thumb');
+    thumbs.forEach(function(t, i) { t.classList.toggle('active', i === index); });
+
+    // Try to play
+    video.play().catch(function() { /* autoplay blocked, user can click play */ });
+  }
+
+  function updateWbTrainingPreview() {
+    var p = document.getElementById('wbProduct').value;
+    var a = document.getElementById('wbAvatar').value;
+    var l = document.getElementById('wbLang').value;
+    var btn = document.querySelector('.wb-generate-btn');
+    if (btn) {
+      btn.disabled = !(p && a && l);
+      btn.style.opacity = (p && a && l) ? '1' : '0.5';
+      btn.style.cursor = (p && a && l) ? 'pointer' : 'not-allowed';
+    }
+    // Video player area shows current gallery info
+    var info = document.getElementById('wbVideoInfo');
+    if (info && p && a && l) {
+      var prodName = document.getElementById('wbProduct').selectedOptions[0].text.split(' —')[0];
+      info.textContent = prodName + ' | ' + wbAvatarNames[a] + ' | ' + wbLangNames[l];
+    } else if (info) {
+      info.textContent = '—';
+    }
+  }
+
+  function generateTrainingVideo() {
+    var prod = document.getElementById('wbProduct').value;
+    var avatar = document.getElementById('wbAvatar').value;
+    var lang = document.getElementById('wbLang').value;
+    if (!prod || !avatar || !lang) { alert(t('select_all_first')); return; }
+
+    var info = productInfo[prod];
+    var prodName = document.getElementById('wbProduct').selectedOptions[0].text.split(' —')[0];
+
+    // Add generated video message to chat
+    addWbAiMsg('<b>' + info.videoTitle + '</b><br><br>📌 <b>产品核心卖点</b><br>' + info.kp1 + '<br><br>📊 <b>竞品对比要点</b><br>' + info.kp2 + '<br><br>💡 <b>销售话术建议</b><br>' + info.kp3);
+    saveMessageToChat(currentChatId, 'ai', '<b>' + info.videoTitle + '</b><br><br>📌 <b>产品核心卖点</b><br>' + info.kp1 + '<br><br>📊 <b>竞品对比要点</b><br>' + info.kp2 + '<br><br>💡 <b>销售话术建议</b><br>' + info.kp3);
+
+    // Show generated video as a new entry in the video nav
+    var genTitle = prodName + ' | ' + wbAvatarNames[avatar] + ' | ' + wbLangNames[lang];
+    var genFile = 'videos/avatar-video.mp4'; // Placeholder — real gen would use a different file
+    var newIdx = trainingVideos.length;
+    trainingVideos.push({ file: genFile, title: genTitle, tag: 'gen', product: prod, generated: true });
+
+    // Add thumb to nav
+    var nav = document.getElementById('wbVideoNav');
+    var thumb = document.createElement('div');
+    thumb.className = 'wb-video-thumb wb-video-thumb-generated';
+    thumb.innerHTML = '<span class="v-dot g-dot"></span>' + genTitle;
+    thumb.title = t('generated_video_title') || '生成视频';
+    thumb.onclick = function() { playTrainingVideo(newIdx); };
+    nav.appendChild(thumb);
+
+    // Play the new video
+    playTrainingVideo(newIdx);
+
+    // Scroll nav to end
+    nav.scrollLeft = nav.scrollWidth;
+  }
+
+  // ===== 实战演练 =====
+  var practiceState = {
+    avatar: 'joy',
+    scenario: '',
+    history: [],
+    inProgress: false,
+    lastSpeech: '',
+    ttsLang: 'en-US',
+    gender: 'male',
+  };
+
+  // ---- Duix 会话 ID 配置 ----
+  // 请在下方填入每个数字人在硅基智能 Duix 平台上的 conversationId
+  // 填写后无需用户每次手动输入，系统会自动使用对应人物的会话
+  var DUIX_CONVERSATION_IDS = {
+    joy:     '1967895206437814274',   // Duix: Caleb
+    ella:    '1967894991139995650',   // Duix: Emma
+    yangkun: '1967894951130529793',   // Duix: Kai
+    elaine:  '1967895167468535809',   // Duix: Sofia
+  };
+
+  var PRACTICE_AVATARS = {
+    joy:   { emoji:'👦🏾', name:'Joy',  role:'Nigerian Telecom Operator — Head of Partnerships', lang:'en-US', gender:'male' },
+    ella:  { emoji:'👩🏻‍🦰', name:'Ella', role:'European Enterprise Client — VP Marketing', lang:'en-US', gender:'female' },
+    yangkun: { emoji:'👨‍💼', name:'赵钱孙', role:'东亚大型企业客户 — 市场部总监', lang:'zh-CN', gender:'male' },
+    elaine: { emoji:'👩🏼', name:'Elaine', role:'Opérateur Télécom Francophone — Directeur Commercial', lang:'fr-FR', gender:'female' },
+  };
+  window._getAvatarInfo = function(key) { return PRACTICE_AVATARS[key] || PRACTICE_AVATARS['joy']; };
+
+  function getDuixConversationId(avatarKey) {
+    // 优先使用代码中预配置的 ID，其次使用 localStorage 中的全局 ID
+    var configured = DUIX_CONVERSATION_IDS[avatarKey];
+    if (configured && configured.trim()) return configured.trim();
+    return localStorage.getItem('duix_conversationId') || '';
+  }
+
+  var duixInstance = null; // Duix SDK 实例
+  var duixInitSeq = 0; // 初始化序号，用于忽略旧实例的异步事件
+  var duixAsrActive = false;
+  var duixSessionReady = false; // WebRTC session 就绪后才能 speak
+  var duixSpeechQueue = []; // 就绪前缓冲的 speak 请求
+
+  function setDuixConversationId(id) {
+    localStorage.setItem('duix_conversationId', id);
+  }
+
+  var CLIENT_TYPE_SCENARIOS = {
+    telecom_nigeria: {
+      name: '尼日利亚电信运营商',
+      scenario: '我想约一个尼日利亚头部运营商的市场总监，初次见面介绍传音的广告合作方案。他对本地化广告投放和用户增长特别感兴趣，但也担心预算和效果。我的目标是让他同意安排一次正式方案演示。',
+      avatar: 'joy',
+    },
+    telecom_francophone: {
+      name: '法语区电信运营商',
+      scenario: '我正在接触一家西非法语区的运营商，他们对传音在非洲的市场覆盖很感兴趣，但担心本地化支持和广告内容的文化适配。我想建立长期合作关系。',
+      avatar: 'elaine',
+    },
+    enterprise_europe: {
+      name: '欧洲企业客户',
+      scenario: '一家欧洲科技公司想通过传音进入非洲市场。他们非常关注数据隐私合规（GDPR）和品牌安全。我需要展示我们的合规能力和市场经验。',
+      avatar: 'ella',
+    },
+    enterprise_china: {
+      name: '中国大型企业',
+      scenario: '一家中国出海企业想做非洲广告投放，预算充足但要求明确的ROI预期和数据追踪。他们对非洲市场不太了解，需要我提供市场洞察和投放建议。',
+      avatar: 'yangkun',
+    },
+    custom: {
+      name: '自定义场景',
+      scenario: '',
+      avatar: null,
+    },
+  };
+
+  function updatePracticeScenario() {
+    var type = document.getElementById('wbPracticeClientType').value;
+    var cfg = CLIENT_TYPE_SCENARIOS[type];
+    if (cfg && cfg.scenario) {
+      document.getElementById('wbPracticeScenarioDesc').value = cfg.scenario;
+    }
+    if (cfg && cfg.avatar) {
+      document.getElementById('wbPracticeAvatarSel').value = cfg.avatar;
+      updatePracticeAvatarPreview();
+    }
+  }
+
+  function updatePracticeAvatarPreview() {
+    var avatar = document.getElementById('wbPracticeAvatarSel').value;
+    var info = PRACTICE_AVATARS[avatar] || PRACTICE_AVATARS['joy'];
+    document.getElementById('wbPapName').textContent = info.name;
+    document.getElementById('wbPapRole').textContent = info.role;
+    var emojiEl = document.getElementById('wbPapEmoji');
+    if (emojiEl) emojiEl.textContent = info.emoji;
+  }
+
+  function savePracticeStateToChat() {
+    if (!currentChatId) return;
+    var chats = loadChats();
+    for (var i = 0; i < chats.length; i++) {
+      if (chats[i].id === currentChatId) {
+        chats[i].practice = {
+          avatar: practiceState.avatar,
+          scenario: practiceState.scenario,
+          lang: practiceState.ttsLang,
+          gender: practiceState.gender,
+          inProgress: practiceState.inProgress,
+          history: practiceState.history.slice(), // Store LLM conversation history
+        };
+        chats[i].updatedAt = Date.now();
+        break;
+      }
+    }
+    saveChats(chats);
+  }
+
+  async function startWbPractice() {
+    var scenarioDesc = document.getElementById('wbPracticeScenarioDesc').value.trim();
+    if (!scenarioDesc) { alert(t('scenario_required')); return; }
+
+    var avatar = document.getElementById('wbPracticeAvatarSel').value;
+    var clientType = document.getElementById('wbPracticeClientType').value;
+    var info = PRACTICE_AVATARS[avatar] || PRACTICE_AVATARS['joy'];
+
+    // Create a new practice chat if none exists or current is not practice
+    if (!currentChatId) { createNewChat('practice'); }
+    else {
+      var chats = loadChats();
+      var cur = null;
+      for (var ci = 0; ci < chats.length; ci++) { if (chats[ci].id === currentChatId) { cur = chats[ci]; break; } }
+      if (!cur || cur.mode !== 'practice') { createNewChat('practice'); }
+    }
+
+    practiceState.avatar = avatar;
+    practiceState.scenario = scenarioDesc;
+    practiceState.history = [];
+    practiceState.inProgress = true;
+    practiceState.ttsLang = info.lang || 'en-US';
+    practiceState.gender = info.gender || 'female';
+
+    // Initialize Duix digital human
+    initDuixAvatar();
+
+    // Update header
+    document.getElementById('wbPracticeAvatar').textContent = info.emoji;
+    document.getElementById('wbPracticeName').textContent = info.name;
+    document.getElementById('wbPracticeRole').textContent = info.role;
+    document.getElementById('wbPracticeStatus').textContent = t('practice_live');
+    // Duix avatar initialized via initDuixAvatar above
+
+    // Show session, hide input
+    document.getElementById('wbPracticeInput').style.display = 'none';
+    document.getElementById('wbPracticeSession').style.display = 'block';
+    document.querySelector('.wb-practice-dot').style.background = '';
+
+    // Clear messages and add scenario
+    var msgs = document.getElementById('wbMessagesInner');
+    msgs.innerHTML = '';
+    addWbUserMsg(t('practice_scenario_label') + '：' + scenarioDesc);
+    saveMessageToChat(currentChatId, 'user', t('practice_scenario_label') + '：' + scenarioDesc);
+
+    // Show thinking
+    showPracticeThinking();
+
+    // Get digital human's opening line
+    try {
+      var response = await fetch('/api/practice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: '',
+          avatar: avatar,
+          scenario: scenarioDesc,
+          history: [],
+          lang: info.lang,
+        }),
+      });
+      var data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Practice API error');
+      if (data.reply) {
+        practiceState.history.push({ role: 'assistant', content: data.reply });
+        practiceState.lastSpeech = data.reply;
+        hidePracticeThinking();
+        showPracticeSubtitle(data.reply);
+        speakText(data.reply, practiceState.ttsLang, practiceState.gender);
+        saveMessageToChat(currentChatId, 'ai', '🤖 ' + info.name + '：' + data.reply);
+        savePracticeStateToChat();
+      } else {
+        hidePracticeThinking();
+        throw new Error('No reply from practice API');
+      }
+    } catch (err) {
+      hidePracticeThinking();
+      var fallback = getPracticeFallback(avatar, 'start');
+      practiceState.history.push({ role: 'assistant', content: fallback });
+      showPracticeSubtitle(fallback);
+      speakText(fallback, practiceState.ttsLang, practiceState.gender);
+      saveMessageToChat(currentChatId, 'ai', '🤖 ' + info.name + '：' + fallback);
+      savePracticeStateToChat();
+    }
+  }
+
+  function showPracticeThinking() {
+    var sub = document.getElementById('wbPracticeSubtitle');
+    sub.textContent = t('practice_thinking') || 'Thinking...';
+    document.getElementById('wbPracticeSpeaking').style.display = 'flex';
+  }
+
+  function hidePracticeThinking() {
+    document.getElementById('wbPracticeSpeaking').style.display = 'none';
+  }
+
+  function showPracticeSubtitle(text) {
+    var sub = document.getElementById('wbPracticeSubtitle');
+    sub.textContent = text;
+    document.getElementById('wbPracticeReplayBtn').style.display = 'flex';
+    document.getElementById('wbPracticeStatus').textContent =
+      (practiceState.avatar ? PRACTICE_AVATARS[practiceState.avatar].name : '') + ' ' + (t('practice_speaking') || '正在说话...');
+  }
+
+  function speakText(text, lang, gender) {
+    // Use Duix built-in TTS with lip-sync when session is ready
+    if (duixInstance) {
+      if (duixSessionReady) {
+        duixInstance.speak({ content: text }).catch(function(e) {
+          console.warn('Duix speak error:', e);
+          fallbackBrowserTTS(text, lang, gender);
+        });
+      } else {
+        // Session not ready yet — queue for later, still show subtitle
+        duixSpeechQueue.push({ text: text, lang: lang, gender: gender });
+      }
+      return;
+    }
+    fallbackBrowserTTS(text, lang, gender);
+  }
+
+  function fallbackBrowserTTS(text, lang, gender) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang || 'en-US';
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+    var voices = speechVoices.length > 0 ? speechVoices : window.speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      var isZh = lang === 'zh-CN' || lang === 'zh';
+      var preferred = null;
+      // Gender-aware voice selection
+      if (gender === 'male') {
+        if (isZh) {
+          // Male Chinese voices: Grandpa, Eddy, Reed, Rocko
+          preferred = voices.find(function(v) {
+            return (v.lang === 'zh-CN' || v.lang === 'zh') && /Grandpa|Eddy|Reed|Rocko/.test(v.name);
+          }) || voices.find(function(v) {
+            return (v.lang === 'zh-CN' || v.lang === 'zh') && !/Tingting|Meijia|Sinji|Flo|Sandy|Shelley/i.test(v.name);
+          });
+        }
+        if (!preferred) {
+          // Male English voices: Albert, Fred, Daniel, Eddy, Grandpa, Reed, Rocko
+          preferred = voices.find(function(v) {
+            return (v.lang === lang || v.lang.startsWith('en')) && /Albert|Fred|Daniel|Eddy|Grandpa|Reed|Rocko|Jester|Bad\s*News/i.test(v.name);
+          }) || voices.find(function(v) {
+            return (v.lang === lang || v.lang.startsWith('en')) && !/Samantha|Karen|Tessa|Moira|Fiona|Veena/i.test(v.name);
+          });
+        }
+      } else {
+        // Female: prefer known female names
+        if (isZh) {
+          preferred = voices.find(function(v) {
+            return (v.lang === 'zh-CN' || v.lang === 'zh') && /Tingting|Meijia|Flo|Sandy|Shelley/i.test(v.name);
+          });
+        } else {
+          preferred = voices.find(function(v) {
+            return (v.lang === lang || v.lang.startsWith('en')) && /Samantha|Karen|Tessa|Moira|Fiona/i.test(v.name);
+          });
+        }
+      }
+      if (!preferred) {
+        preferred = voices.find(function(v) { return v.lang === lang; }) || voices[0];
+      }
+      utterance.voice = preferred;
+    }
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function replayLastPracticeSpeech() {
+    if (practiceState.lastSpeech) {
+      speakText(practiceState.lastSpeech, practiceState.ttsLang, practiceState.gender);
+    }
+  }
+
+  function getPracticeFallback(avatar, type) {
+    var fallbacks = {
+      joy: {
+        start: "Welcome! I've been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?",
+      },
+      ella: {
+        start: "Thank you for meeting with me today. I'm quite interested in learning about your advertising platform, but I do have some concerns about data privacy and brand alignment. Could you walk me through your approach?",
+      },
+      yangkun: {
+        start: '你好，感谢你安排这次会议。我对你们的广告方案很感兴趣，不过在投入预算之前，我需要了解清楚具体的投放策略、预期效果和费用明细。你能详细介绍一下吗？',
+      },
+      elaine: {
+        start: "Bonjour, merci d'avoir pris le temps de me rencontrer. J'ai entendu parler de votre présence en Afrique. Pouvez-vous me dire en quoi votre solution est différente des autres acteurs du marché ?",
+      },
+    };
+    var fb = fallbacks[avatar] || fallbacks['joy'];
+    return fb[type] || fb['start'] || 'Hello, nice to meet you.';
+  }
+
+  async function handlePracticeMessage(text) {
+    if (!practiceState.inProgress) return;
+    if (text.toLowerCase().trim() === '结束' || text.toLowerCase().trim() === 'end') {
+      await endWbPractice();
+      return;
+    }
+
+    // Add user message to history
+    practiceState.history.push({ role: 'user', content: text });
+
+    // Show thinking
+    showPracticeThinking();
+
+    try {
+      var response = await fetch('/api/practice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: text,
+          avatar: practiceState.avatar,
+          scenario: practiceState.scenario,
+          history: practiceState.history.slice(0, -1), // exclude last user msg (it's added as message param)
+          lang: practiceState.ttsLang,
+        }),
+      });
+      var data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Practice API error');
+      if (data.reply) {
+        practiceState.history.push({ role: 'assistant', content: data.reply });
+        practiceState.lastSpeech = data.reply;
+        hidePracticeThinking();
+        showPracticeSubtitle(data.reply);
+        speakText(data.reply, practiceState.ttsLang, practiceState.gender);
+        var name = PRACTICE_AVATARS[practiceState.avatar].name;
+        saveMessageToChat(currentChatId, 'ai', '🤖 ' + name + '：' + data.reply);
+        savePracticeStateToChat();
+      } else {
+        hidePracticeThinking();
+        throw new Error('No reply from practice API');
+      }
+    } catch (err) {
+      hidePracticeThinking();
+      var fallback = "That's interesting. Could you elaborate on that?";
+      practiceState.history.push({ role: 'assistant', content: fallback });
+      practiceState.lastSpeech = fallback;
+      showPracticeSubtitle(fallback);
+      speakText(fallback, practiceState.ttsLang, practiceState.gender);
+      var name = PRACTICE_AVATARS[practiceState.avatar].name;
+      saveMessageToChat(currentChatId, 'ai', '🤖 ' + name + '：' + fallback);
+      savePracticeStateToChat();
+    }
+  }
+
+  async function endWbPractice() {
+    practiceState.inProgress = false;
+    savePracticeStateToChat();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+
+    // Stop Duix digital human
+    if (duixInstance) {
+      try { duixInstance.closeAsr(); } catch(e) {}
+      try { duixInstance.stop(); } catch(e) {}
+      duixInstance = null;
+      duixAsrActive = false;
+      duixSessionReady = false;
+      duixSpeechQueue = [];
+    }
+
+    var st = document.getElementById('wbPracticeStatus');
+    st.textContent = t('practice_ended');
+    document.querySelector('.wb-practice-dot').style.background = '#ef4444';
+    var canvasWrap = document.getElementById('wbPracticeCanvasWrap');
+    if (canvasWrap) canvasWrap.classList.remove('speaking');
+    document.getElementById('wbPracticeSpeaking').style.display = 'none';
+    document.getElementById('wbPracticeSubtitle').textContent = t('practice_ended');
+    document.getElementById('wbPracticeReplayBtn').style.display = 'none';
+
+    // Get score from LLM
+    addWbAiMsg(t('practice_scoring') || '正在生成演练评分...');
+    saveMessageToChat(currentChatId, 'ai', t('practice_scoring') || '正在生成演练评分...');
+    try {
+      var response = await fetch('/api/practice/score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          history: practiceState.history,
+          scenario: practiceState.scenario,
+          avatar: practiceState.avatar,
+        }),
+      });
+      var scoreData = await response.json();
+      var scoreHtml = buildScoreDisplay(scoreData);
+      addWbAiMsg(renderMarkdown(scoreHtml));
+      saveMessageToChat(currentChatId, 'ai', scoreHtml);
+    } catch (err) {
+      var total = Math.floor(Math.random() * 15 + 80);
+      addWbAiMsg(t('practice_score', { score: total }));
+      saveMessageToChat(currentChatId, 'ai', t('practice_score', { score: total }));
+    }
+
+    // Reset after a delay
+    setTimeout(function() {
+      if (confirm(t('practice_return'))) {
+        document.getElementById('wbPracticeInput').style.display = 'flex';
+        document.getElementById('wbPracticeSession').style.display = 'none';
+        st.textContent = t('practice_live');
+        document.querySelector('.wb-practice-dot').style.background = '';
+        practiceState.history = [];
+      }
+    }, 2000);
+  }
+
+  function buildScoreDisplay(data) {
+    var total = data.total || 80;
+    var dims = data.dimensions || {};
+    var summary = data.summary || '';
+    var tips = data.tips || [];
+    var dimNames = {
+      rapport: t('dim_rapport') || '开场与建立关系',
+      discovery: t('dim_discovery') || '需求挖掘',
+      presentation: t('dim_presentation') || '方案呈现',
+      objection_handling: t('dim_objection') || '异议处理',
+      closing: t('dim_closing') || '促成闭环',
+    };
+    var html = '### 🏆 ' + (t('practice_score_title') || '演练评分') + '：**' + total + ' / 100**\n\n';
+    for (var key in dimNames) {
+      var d = dims[key] || {};
+      var s = d.score || 16;
+      html += '- **' + dimNames[key] + '**：' + s + '/20 — ' + (d.comment || '') + '\n';
+    }
+    html += '\n> ' + summary + '\n\n';
+    if (tips.length > 0) {
+      html += '### 💡 ' + (t('practice_tips') || '改进建议') + '\n';
+      for (var i = 0; i < tips.length; i++) {
+        html += '- ' + tips[i] + '\n';
+      }
+    }
+    return html;
+  }
+
+  // ===== 页面初始化 =====
+  (function init() {
+    try {
+      // Apply saved language
+      currentLang = localStorage.getItem('salesAI_language') || 'zh';
+      applyAllTranslations();
+      updateLangSelectorUI();
+
+      // Preload speech synthesis voices (Chrome loads them asynchronously)
+      if (window.speechSynthesis) {
+        speechVoices = window.speechSynthesis.getVoices();
+        if (speechVoices.length === 0) {
+          window.speechSynthesis.onvoiceschanged = function() {
+            speechVoices = window.speechSynthesis.getVoices();
+          };
+        }
+      }
+
+      // Restore or create chat
+      var chats = loadChats();
+      if (currentChatId && chats.length > 0) {
+        var exists = false;
+        for (var i = 0; i < chats.length; i++) {
+          if (chats[i].id === currentChatId) { exists = true; break; }
+        }
+        if (!exists) {
+          currentChatId = chats[0].id;
+          localStorage.setItem(CURRENT_CHAT_KEY, currentChatId);
+        }
+        loadChatMessages(currentChatId);
+      } else {
+        var chat = createNewChat('training');
+        currentChatId = chat.id;
+        resetWorkbenchChatUI();
+        // Show training selectors since we default to training mode
+        document.getElementById('wbTrainingSelectors').style.display = 'flex';
+        document.getElementById('wbMessages').style.display = '';
+        document.getElementById('wbBottomArea').style.display = '';
+        document.getElementById('wbMainHeader').style.display = '';
+      }
+
+      // Always refresh the recent list - this ensures history chats are visible immediately
+      refreshRecentList();
+
+      // Clean up Duix on page unload
+      window.addEventListener('beforeunload', function() {
+        if (duixInstance) {
+          try { duixInstance.closeAsr(); } catch(e) {}
+          try { duixInstance.stop(); } catch(e) {}
+        }
+      });
+
+      // Close language dropdown on outside click
+      document.addEventListener('click', function(e) {
+        var dropdown = document.getElementById('langDropdown');
+        var wrapper = document.querySelector('.lang-selector-wrapper');
+        if (dropdown && wrapper && !wrapper.contains(e.target)) {
+          dropdown.style.display = 'none';
+        }
+      });
+    } catch (e) {
+      console.error('Initialization error:', e);
+      // Fallback: at minimum, make sure recent list is populated
+      try { refreshRecentList(); } catch(e2) {}
+    }
+
+    // Backup: ensure recent list is rendered even if there was a timing issue
+    setTimeout(function() {
+      try { refreshRecentList(); } catch(e) {}
+    }, 200);
+  })();
+
+// ---- Duix Digital Human Manager ----
+
+async function initDuixAvatar() {
+  var initSeq = ++duixInitSeq;
+  // Clean up existing instance
+  if (duixInstance) {
+    try { duixInstance.closeAsr(); } catch(e) {}
+    try { duixInstance.stop(); } catch(e) {}
+    duixInstance = null;
+    duixAsrActive = false;
+    duixSessionReady = false;
+    duixSpeechQueue = [];
+  }
+
+  // 根据当前数字人角色获取对应的 conversationId
+  var avatarKey = practiceState.avatar || 'joy';
+  var conversationId = getDuixConversationId(avatarKey);
+
+  if (!conversationId) {
+    var avatarName = (PRACTICE_AVATARS[avatarKey] || PRACTICE_AVATARS['joy']).name;
+    console.warn('Duix: 未配置 ' + avatarName + ' 的 conversationId，请在代码中 DUIX_CONVERSATION_IDS 填写或在设置面板中设置全局 ID');
+    showPracticeSubtitle('请先配置 ' + avatarName + ' 的 Duix 会话 ID (conversationId)');
+    return;
+  }
+
+  try {
+    if (!window.isSecureContext && !['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+      throw new Error('Duix WebRTC 需要 HTTPS 或 localhost。请用 http://localhost:8080/ 打开，不要用局域网 IP 地址访问。');
+    }
+
+    // Get sign from server
+    var signResp = await fetch('/api/duix/sign');
+    var signData = await signResp.json();
+    if (!signData.sign) throw new Error('Failed to get Duix sign');
+    console.log('Duix: config', {
+      sdk: 'duix-guiji-light@0.4.0',
+      appId: signData.appId,
+      platform: signData.platform || 'duix.com',
+      conversationId: conversationId,
+      avatar: avatarKey,
+    });
+
+    // Create Duix instance according to the official duix.com H5 sample.
+    var DuixCtor = window.Duix || window.DUIX;
+    if (!DuixCtor) throw new Error('Duix SDK 未加载成功');
+    duixInstance = new DuixCtor();
+    var duixStartCalled = false;
+    
+    function handleDuixInitialSuccess() {
+      if (initSeq !== duixInitSeq || duixStartCalled) return;
+      duixStartCalled = true;
+      console.log('Duix: initialized successfully');
+      // For duix.com SDK, conversationId is passed in init(); start() only starts rendering.
+      duixInstance.start({
+        // 实战演练需要数字人直接播报；这里不能设为 true，否则 SDK/WebRTC 会静音。
+        // 培训视频是普通 <video controls>，用户可手动取消静音；Duix 实时会话没有单独控制条。
+        muted: false,
+        openAsr: false,
+      }).then(function(res) {
+        console.log('Duix: session started', res);
+        document.getElementById('wbPracticeStatus').textContent = '数字人会话创建中...';
+      }).catch(function(err) {
+        console.error('Duix: start error', err);
+        showPracticeSubtitle('数字人会话启动失败: ' + (err.message || '未知错误'));
+      });
+    }
+
+    // Official duix.com docs use `initialSuccess`; older guiji SDK used misspelled `intialSucccess`.
+    duixInstance.on('initialSuccess', handleDuixInitialSuccess);
+    duixInstance.on('intialSucccess', handleDuixInitialSuccess);
+
+    duixInstance.on('createSessionStart', function() {
+      console.log('Duix: create session start');
+      document.getElementById('wbPracticeStatus').textContent = '正在创建数字人会话...';
+    });
+
+    duixInstance.on('createSessionSuccess', function() {
+      console.log('Duix: create session success');
+    });
+
+    duixInstance.on('speakStart', function() {
+      document.getElementById('wbPracticeSpeaking').style.display = 'flex';
+    });
+
+    duixInstance.on('speakSection', function(data) {
+      if (data && data.text) showPracticeSubtitle(data.text);
+    });
+
+    duixInstance.on('speakEnd', function() {
+      document.getElementById('wbPracticeStatus').textContent = t('practice_live');
+      document.getElementById('wbPracticeSpeaking').style.display = 'none';
+    });
+
+    function handleDuixAsrText(text) {
+      if (text && practiceState.inProgress) {
+        document.getElementById('wbInput').value = text;
+        if (workMode === 'practice' && practiceState.inProgress) {
+          sendWbMessage();
+        }
+        // Stop listening after getting result
+        stopVoiceInput();
+      }
+    }
+
+    duixInstance.on('asrResult', function(text) {
+      handleDuixAsrText(typeof text === 'string' ? text : (text && (text.text || text.result || text.content)));
+    });
+    duixInstance.on('asrData', function(data) {
+      handleDuixAsrText(typeof data === 'string' ? data : (data && (data.text || data.result || data.content)));
+    });
+
+    duixInstance.on('error', function(err) {
+      if (initSeq !== duixInitSeq) return;
+      console.error('Duix: error', err);
+      duixSessionReady = false;
+      var duixMessage = (err && err.data && err.data.message) || err.message || '未知错误';
+      showPracticeSubtitle('数字人启动失败: ' + duixMessage);
+      document.getElementById('wbPracticeStatus').textContent = '数字人启动失败';
+      document.getElementById('wbPracticeSpeaking').style.display = 'none';
+      if (err.code === 4005) {
+        alert('Duix 鉴权失败，请检查 conversationId 和 appId/appKey 配置');
+      }
+    });
+
+    duixInstance.on('show', function() {
+      if (initSeq !== duixInitSeq) return;
+      console.log('Duix: digital human displayed');
+      // Ensure the WebRTC video/audio element created by the SDK is not muted.
+      var duixVideos = document.querySelectorAll('#wbPracticeDuixContainer video, #wbPracticeVideoArea video');
+      duixVideos.forEach(function(video) {
+        video.muted = false;
+        video.volume = 1;
+        video.removeAttribute('muted');
+      });
+      duixSessionReady = true;
+      document.getElementById('wbPracticeStatus').textContent = t('practice_live');
+      document.getElementById('wbPracticeSpeaking').style.display = 'none';
+      // Flush queued speech only after the WebRTC video session is actually connected.
+      while (duixSpeechQueue.length > 0) {
+        var q = duixSpeechQueue.shift();
+        duixInstance.speak({ content: q.text }).catch(function(e) {
+          console.warn('Duix queued speak error:', e);
+          fallbackBrowserTTS(q.text, q.lang, q.gender);
+        });
+      }
+    });
+
+    duixInstance.on('progress', function(p) {
+      if (p < 100) {
+        document.getElementById('wbPracticeStatus').textContent = '加载数字人 ' + p + '%...';
+      }
+    });
+
+    // Initialize with duix.com platform config, matching the official H5 SDK docs.
+    duixInstance.init({
+      sign: signData.sign,
+      containerLable: '#wbPracticeDuixContainer',
+      conversationId: conversationId,
+      platform: 'duix.com',
+    }).then(function(res) {
+      if (initSeq !== duixInitSeq) return;
+      if (res && res.err) {
+        throw new Error(res.message || res.err);
+      }
+      console.log('Duix: init complete', res);
+    }).catch(function(err) {
+      if (initSeq !== duixInitSeq) return;
+      console.error('Duix: init promise error', err);
+      duixSessionReady = false;
+      showPracticeSubtitle('数字人初始化失败: ' + (err.message || '未知错误'));
+      document.getElementById('wbPracticeStatus').textContent = '数字人初始化失败';
+      document.getElementById('wbPracticeSpeaking').style.display = 'none';
+    });
+
+    // Show loading status
+    document.getElementById('wbPracticeStatus').textContent = '正在连接数字人...';
+    document.getElementById('wbPracticeSpeaking').style.display = 'flex';
+
+  } catch (err) {
+    console.error('Duix: init error', err);
+    showPracticeSubtitle('数字人初始化失败: ' + err.message);
+  }
+}
+
+// Initialize preview emoji on page load
+setTimeout(function() {
+  var sel = document.getElementById('wbPracticeAvatarSel');
+  if (sel && sel.value) {
+    var info = window._getAvatarInfo ? window._getAvatarInfo(sel.value) : null;
+    if (info) {
+      var emojiEl = document.getElementById('wbPapEmoji');
+      if (emojiEl) emojiEl.textContent = info.emoji;
+    }
+  }
+}, 700);
+</script>
+
+</body>
+</html>
