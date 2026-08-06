@@ -2088,7 +2088,7 @@
                 <span class="wb-practice-dot"></span>
                 <span class="wb-practice-status" id="wbPracticeStatus" data-i18n="practice_live">数字人实时连线中</span>
                 <div class="wb-practice-actions">
-                  <button onclick="startVoiceInput()" class="wb-practice-voice" title="语音输入" style="background:none;border:none;cursor:pointer;color:#6b7280;padding:4px 8px;border-radius:6px;margin-right:4px;">
+                  <button onclick="startVoiceInput()" class="wb-practice-voice" title="语音输入" data-i18n-title="voice_input" style="background:none;border:none;cursor:pointer;color:#6b7280;padding:4px 8px;border-radius:6px;margin-right:4px;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                   </button>
                   <button onclick="endWbPractice()" class="wb-practice-end" data-i18n="practice_end">结束演练</button>
@@ -2127,7 +2127,7 @@
                 </div>
               </div>
               <textarea id="wbInput" placeholder="有问题，随便问" data-i18n-placeholder="input_placeholder" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendWbMessage();}"></textarea>
-              <button class="wb-input-btn" title="语音输入" data-i18n="voice_input" onclick="startVoiceInput()" id="wbVoiceBtn">
+              <button class="wb-input-btn" title="语音输入" data-i18n-title="voice_input" onclick="startVoiceInput()" id="wbVoiceBtn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
               </button>
               <button class="wb-input-btn send" id="wbSendBtn" onclick="sendWbMessage()">
@@ -2841,6 +2841,10 @@
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
       el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
     });
+    // Update elements with data-i18n-title (tooltip)
+    document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+      el.title = t(el.getAttribute('data-i18n-title'));
+    });
     // Update title
     document.title = t('workbench_title');
     // Update header
@@ -3461,7 +3465,7 @@
       const response = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: question })
+        body: JSON.stringify({ question: question, lang: currentLang })
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.detail || data.error || 'AI接口调用失败');
@@ -4186,6 +4190,7 @@
           scenario: scenarioDesc,
           history: [],
           lang: info.lang,
+          uiLang: currentLang,
         }),
       });
       var data = await response.json();
@@ -4304,22 +4309,15 @@
   }
 
   function getPracticeFallback(avatar, type) {
-    var fallbacks = {
-      caleb: {
-        start: "Welcome! I've been looking forward to this meeting. Tell me, what makes your solution different from what we currently use?",
-      },
-      emma: {
-        start: "Thank you for meeting with me today. I'm quite interested in learning about your advertising platform, but I do have some concerns about data privacy and brand alignment. Could you walk me through your approach?",
-      },
-      kai: {
-        start: '你好，感谢你安排这次会议。我对你们的广告方案很感兴趣，不过在投入预算之前，我需要了解清楚具体的投放策略、预期效果和费用明细。你能详细介绍一下吗？',
-      },
-      sofia: {
-        start: "Bonjour, merci d'avoir pris le temps de me rencontrer. J'ai entendu parler de votre présence en Afrique. Pouvez-vous me dire en quoi votre solution est différente des autres acteurs du marché ?",
-      },
+    // UI-language-aware fallback messages
+    var uiFallbacks = {
+      zh: '你好，很高兴见到你。能跟我详细介绍一下你们的方案吗？',
+      en: "Hello, nice to meet you. Could you walk me through your proposal in detail?",
+      fr: "Bonjour, enchanté de vous rencontrer. Pourriez-vous me présenter votre proposition en détail ?",
+      es: 'Hola, encantado de conocerte. ¿Podrías explicarme tu propuesta en detalle?',
+      ha: "Sannu, na fara ganin ku. Shin za ka iya fada min tsarin ku a cikakkun bayanai?",
     };
-    var fb = fallbacks[avatar] || fallbacks['caleb'];
-    return fb[type] || fb['start'] || 'Hello, nice to meet you.';
+    return uiFallbacks[currentLang] || uiFallbacks.en;
   }
 
   async function handlePracticeMessage(text) {
@@ -4345,6 +4343,7 @@
           scenario: practiceState.scenario,
           history: practiceState.history.slice(0, -1), // exclude last user msg (it's added as message param)
           lang: practiceState.ttsLang,
+          uiLang: currentLang,
         }),
       });
       var data = await response.json();
@@ -4364,7 +4363,14 @@
       }
     } catch (err) {
       hidePracticeThinking();
-      var fallback = "That's interesting. Could you elaborate on that?";
+      var fallbacks = {
+        zh: '这很有意思，你能详细说说吗？',
+        en: "That's interesting. Could you elaborate on that?",
+        fr: "C'est intéressant. Pourriez-vous en dire plus ?",
+        es: 'Eso es interesante. ¿Podría elaborar más sobre eso?',
+        ha: "Wannan yana da sha'awa. Shin za ka iya fadin cikakkun bayanai?",
+      };
+      var fallback = fallbacks[currentLang] || fallbacks.en;
       practiceState.history.push({ role: 'assistant', content: fallback });
       practiceState.lastSpeech = fallback;
       showPracticeSubtitle(fallback);
@@ -4410,6 +4416,7 @@
           history: practiceState.history,
           scenario: practiceState.scenario,
           avatar: practiceState.avatar,
+          lang: currentLang,
         }),
       });
       var scoreData = await response.json();

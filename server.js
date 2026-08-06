@@ -13,6 +13,15 @@ const HIMODELS_BASE_URL = process.env.HIMODELS_BASE_URL || 'https://api.himodels
 const HIMODELS_API_KEY = process.env.HIMODELS_API_KEY || '';
 const HIMODELS_MODEL = process.env.HIMODELS_MODEL || 'gpt-5.5';
 
+// UI language → LLM instruction language name
+const LANG_NAMES = {
+  zh: '简体中文',
+  en: 'English',
+  fr: 'Français',
+  es: 'Español',
+  ha: 'Hausa',
+};
+
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css',
@@ -192,11 +201,13 @@ function retrieveKnowledge(query, limit = 10) {
   }));
 }
 
-async function callLLM(question, contexts) {
+async function callLLM(question, contexts, lang) {
   const knowledgeText = contexts.map((ctx, idx) => {
     const title = Array.isArray(ctx.q) && ctx.q.length ? ctx.q[0] : (ctx.section || `知识片段${idx + 1}`);
     return `【资料${idx + 1}】${title}\n来源：${ctx.source || '本地知识库'}${ctx.section ? ` / ${ctx.section}` : ''}\n内容：${stripHtml(ctx.a).slice(0, 3000)}`;
   }).join('\n\n');
+
+  const replyLang = LANG_NAMES[lang] || '简体中文';
 
   const response = await fetch(`${HIMODELS_BASE_URL}/chat/completions`, {
     method: 'POST',
@@ -209,7 +220,7 @@ async function callLLM(question, contexts) {
       messages: [
         {
           role: 'system',
-          content: '你是 Sales AI 销售赋能平台的AI答疑助手。你必须优先基于用户提供的本地知识库资料回答。回答时请尽量保留原文中的人名（带@）、邮箱、链接URL、时间节点、金额、比例等详细信息。\n\n请使用以下 Markdown 格式组织回答，让内容清晰可读：\n- 使用 **粗体** 标记关键术语、人名、金额、比例\n- 使用 `- ` 或 `1. ` 开头的列表来列举步骤、对接人、材料等\n- 使用 `### ` 小标题分隔不同主题（如：### 对接人、### 流程步骤、### 所需材料）\n- 引用原文中的邮箱、链接时，使用 `[描述](URL)` 格式\n- 重要提醒用 `> ` 引用块突出\n- 不要使用表格格式\n\n若提供的资料与问题相关，请基于资料详细回答；若资料完全无关，则说明"本地知识库暂未覆盖"。不要编造联系人、流程、链接或政策。回答使用简体中文。',
+          content: '你是 Sales AI 销售赋能平台的AI答疑助手。你必须优先基于用户提供的本地知识库资料回答。回答时请尽量保留原文中的人名（带@）、邮箱、链接URL、时间节点、金额、比例等详细信息。\n\n请使用以下 Markdown 格式组织回答，让内容清晰可读：\n- 使用 **粗体** 标记关键术语、人名、金额、比例\n- 使用 `- ` 或 `1. ` 开头的列表来列举步骤、对接人、材料等\n- 使用 `### ` 小标题分隔不同主题（如：### 对接人、### 流程步骤、### 所需材料）\n- 引用原文中的邮箱、链接时，使用 `[描述](URL)` 格式\n- 重要提醒用 `> ` 引用块突出\n- 不要使用表格格式\n\n若提供的资料与问题相关，请基于资料详细回答；若资料完全无关，则说明"本地知识库暂未覆盖"。不要编造联系人、流程、链接或政策。请使用' + replyLang + '回答。',
         },
         {
           role: 'user',
@@ -236,10 +247,11 @@ async function handleAsk(req, res) {
     const rawBody = await readRequestBody(req);
     const body = rawBody ? JSON.parse(rawBody) : {};
     const question = String(body.question || '').trim();
+    const lang = body.lang || 'zh';
     if (!question) return sendJson(res, 400, { error: 'Question is required' });
 
     const contexts = retrieveKnowledge(question, 10);
-    const answer = await callLLM(question, contexts);
+    const answer = await callLLM(question, contexts, lang);
     sendJson(res, 200, {
       answer,
       model: HIMODELS_MODEL,
@@ -273,9 +285,14 @@ async function handlePractice(req, res) {
     const scenario = String(body.scenario || '').trim();
     const history = Array.isArray(body.history) ? body.history : [];
     const lang = body.lang || 'en';
+    const uiLang = body.uiLang || '';
 
     const systemPrompt = PRACTICE_SYSTEM_PROMPTS[avatar] || PRACTICE_SYSTEM_PROMPTS['caleb'];
-    const fullSystemPrompt = systemPrompt + '\n\n当前演练场景：' + scenario + '\n\n请以这个角色身份开始或继续对话。';
+    let fullSystemPrompt = systemPrompt + '\n\n当前演练场景：' + scenario + '\n\n请以这个角色身份开始或继续对话。';
+    // Override response language to match the UI language selected by user
+    if (uiLang && LANG_NAMES[uiLang]) {
+      fullSystemPrompt += '\n\n重要：无论你的角色设定中指定了什么语言，请始终使用' + LANG_NAMES[uiLang] + '回复用户。';
+    }
 
     // If no message and no history, generate an opening line
     const effectiveMsg = message || (history.length === 0 ? '你好，我们今天来聊一下合作。' : '');
@@ -325,6 +342,8 @@ async function handlePracticeScore(req, res) {
     const history = Array.isArray(body.history) ? body.history : [];
     const scenario = String(body.scenario || '').trim();
     const avatar = body.avatar || 'caleb';
+    const lang = body.lang || 'zh';
+    const scoreLang = LANG_NAMES[lang] || '简体中文';
 
     if (history.length === 0) return sendJson(res, 400, { error: 'History is required' });
 
@@ -336,7 +355,7 @@ async function handlePracticeScore(req, res) {
 4. 异议处理 (objection_handling)
 5. 促成闭环 (closing)
 
-请用 JSON 格式返回，语言为中文：
+请用 JSON 格式返回，所有评语和总结请使用${scoreLang}：
 {
   "total": 85,
   "dimensions": {
