@@ -2043,10 +2043,10 @@
                   <div class="wb-setup-field">
                     <label data-i18n="practice_digital_human">数字人</label>
                     <select id="wbPracticeAvatarSel" onchange="updatePracticeAvatarPreview()">
-                      <option value="caleb" selected>👦🏾 Caleb — 黑人男孩（英文）</option>
-                      <option value="sofia">👩🏼 Sofia — 法国女孩（法文）</option>
-                      <option value="emma">👩🏻‍🦰 Emma — 白人女孩（英文）</option>
-                      <option value="kai">👨‍💼 Kai — 东亚男人（中文）</option>
+                      <option value="caleb" selected>👦🏾 Caleb</option>
+                      <option value="sofia">👩🏼 Sofia</option>
+                      <option value="emma">👩🏻‍🦰 Emma</option>
+                      <option value="kai">👨‍💼 Kai</option>
                     </select>
                   </div>
                   <div class="wb-setup-field">
@@ -2258,10 +2258,10 @@
       game_product: '游戏联运业务',
       bigdata_product: '大数据业务',
       desktop_product: '桌面业务',
-      avatar_emma: 'Emma — 白人年轻女孩',
-      avatar_caleb: 'Caleb — 黑人男孩',
-      avatar_kai: 'Kai — 东亚男人',
-      avatar_sofia: 'Sofia — 法国女孩',
+      avatar_emma: 'Emma',
+      avatar_caleb: 'Caleb',
+      avatar_kai: 'Kai',
+      avatar_sofia: 'Sofia',
       lang_zh: '中文',
       lang_en: 'English',
       lang_fr: 'French',
@@ -2380,10 +2380,10 @@
       game_product: 'Game Joint Operations',
       bigdata_product: 'Big Data Business',
       desktop_product: 'Desktop Business',
-      avatar_emma: 'Emma — Young White Woman',
-      avatar_caleb: 'Caleb — Black Boy',
-      avatar_kai: 'Kai — East Asian Man',
-      avatar_sofia: 'Sofia — French Woman',
+      avatar_emma: 'Emma',
+      avatar_caleb: 'Caleb',
+      avatar_kai: 'Kai',
+      avatar_sofia: 'Sofia',
       lang_zh: 'Chinese',
       lang_en: 'English',
       lang_fr: 'French',
@@ -2507,10 +2507,10 @@
       game_product: 'Jeux en coentreprise',
       bigdata_product: 'Big Data',
       desktop_product: 'Bureau',
-      avatar_emma: 'Emma — Jeune femme blanche',
-      avatar_caleb: 'Caleb — Garçon noir',
-      avatar_kai: 'Kai — Homme d\'Asie de l\'Est',
-      avatar_sofia: 'Sofia — Femme française',
+      avatar_emma: 'Emma',
+      avatar_caleb: 'Caleb',
+      avatar_kai: 'Kai',
+      avatar_sofia: 'Sofia',
       lang_zh: 'Chinois',
       lang_en: 'Anglais',
       lang_fr: 'Français',
@@ -2599,10 +2599,10 @@
       game_product: 'Juegos conjuntos',
       bigdata_product: 'Big Data',
       desktop_product: 'Escritorio',
-      avatar_emma: 'Emma — Joven blanca',
-      avatar_caleb: 'Caleb — Chico negro',
-      avatar_kai: 'Kai — Hombre de Asia Oriental',
-      avatar_sofia: 'Sofia — Mujer francesa',
+      avatar_emma: 'Emma',
+      avatar_caleb: 'Caleb',
+      avatar_kai: 'Kai',
+      avatar_sofia: 'Sofia',
       lang_zh: 'Chino',
       lang_en: 'Inglés',
       lang_fr: 'Francés',
@@ -2717,10 +2717,10 @@
       game_product: 'Haɗin gwiwar wasanni',
       bigdata_product: 'Babban bayanai',
       desktop_product: 'Tebur',
-      avatar_emma: 'Emma — Budurwa farar fata',
-      avatar_caleb: 'Caleb — Yaro baƙi',
-      avatar_kai: 'Kai — Namijin Gabashin Asiya',
-      avatar_sofia: 'Sofia — Matar Faransa',
+      avatar_emma: 'Emma',
+      avatar_caleb: 'Caleb',
+      avatar_kai: 'Kai',
+      avatar_sofia: 'Sofia',
       lang_zh: 'Sinanci',
       lang_en: 'Turanci',
       lang_fr: 'Faransanci',
@@ -4058,6 +4058,18 @@
   var duixSessionReady = false; // WebRTC session 就绪后才能 speak
   var duixSpeechQueue = []; // 就绪前缓冲的 speak 请求
 
+  // 彻底清理 Duix 数字人实例（结束演练/关闭页面时调用）
+  function cleanupDuix() {
+    if (duixInstance) {
+      try { duixInstance.closeAsr(); } catch(e) {}
+      try { duixInstance.stop(); } catch(e) {}
+      duixInstance = null;
+    }
+    duixAsrActive = false;
+    duixSessionReady = false;
+    duixSpeechQueue = [];
+  }
+
   function setDuixConversationId(id) {
     localStorage.setItem('duix_conversationId', id);
   }
@@ -4387,14 +4399,7 @@
     window.speechSynthesis && window.speechSynthesis.cancel();
 
     // Stop Duix digital human
-    if (duixInstance) {
-      try { duixInstance.closeAsr(); } catch(e) {}
-      try { duixInstance.stop(); } catch(e) {}
-      duixInstance = null;
-      duixAsrActive = false;
-      duixSessionReady = false;
-      duixSpeechQueue = [];
-    }
+    cleanupDuix();
 
     var st = document.getElementById('wbPracticeStatus');
     st.textContent = t('practice_ended');
@@ -4513,13 +4518,14 @@
       // Always refresh the recent list - this ensures history chats are visible immediately
       refreshRecentList();
 
-      // Clean up Duix on page unload
-      window.addEventListener('beforeunload', function() {
-        if (duixInstance) {
-          try { duixInstance.closeAsr(); } catch(e) {}
-          try { duixInstance.stop(); } catch(e) {}
-        }
-      });
+      // Clean up Duix on page unload / tab close
+      function handlePageUnload() {
+        cleanupDuix();
+        var container = document.getElementById('wbPracticeDuixContainer');
+        if (container) container.innerHTML = '';
+      }
+      window.addEventListener('pagehide', handlePageUnload);
+      window.addEventListener('beforeunload', handlePageUnload);
 
       // Close language dropdown on outside click
       document.addEventListener('click', function(e) {
@@ -4546,14 +4552,7 @@
 async function initDuixAvatar() {
   var initSeq = ++duixInitSeq;
   // Clean up existing instance
-  if (duixInstance) {
-    try { duixInstance.closeAsr(); } catch(e) {}
-    try { duixInstance.stop(); } catch(e) {}
-    duixInstance = null;
-    duixAsrActive = false;
-    duixSessionReady = false;
-    duixSpeechQueue = [];
-  }
+  cleanupDuix();
 
   // 根据当前数字人角色获取对应的 conversationId
   var avatarKey = practiceState.avatar || 'caleb';
