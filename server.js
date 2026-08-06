@@ -6,8 +6,13 @@ const crypto = require('crypto');
 
 const PORT = process.env.PORT || 8080;
 const HTTPS_PORT = process.env.HTTPS_PORT || 8443;
-const DUIX_APP_ID = process.env.DUIX_APP_ID || '';
-const DUIX_APP_KEY = process.env.DUIX_APP_KEY || '';
+// ===== DUIX 配置（可通过环境变量覆盖）=====
+// 当前使用：【新账号】
+const DUIX_APP_ID = process.env.DUIX_APP_ID || '1534880283902480384';
+const DUIX_APP_KEY = process.env.DUIX_APP_KEY || '48ef4297-0a0e-48a4-a799-3a04c58aba14';
+// 备选：【旧账号】需要切换时取消下面注释并注释上面两行
+// const DUIX_APP_ID = process.env.DUIX_APP_ID || '1534647758940672000';
+// const DUIX_APP_KEY = process.env.DUIX_APP_KEY || 'f3ef7a0b-85ea-4636-a2a9-e1e2758c72df';
 const DIR = __dirname;
 const HIMODELS_BASE_URL = process.env.HIMODELS_BASE_URL || 'https://api.himodels.ai/v1';
 const HIMODELS_API_KEY = process.env.HIMODELS_API_KEY || '';
