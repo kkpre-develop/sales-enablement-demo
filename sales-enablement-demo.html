@@ -1468,7 +1468,7 @@
     padding: 20px 16px 32px; background: #fff;
   }
   .wb-bottom-inner {
-    max-width: 800px; margin: 0 auto;
+    max-width: 900px; margin: 0 auto;
   }
 
   /* Mode-specific panels above input */
@@ -3641,6 +3641,7 @@
       document.getElementById('wbTrainingSelectors').style.display = 'flex';
       document.getElementById('wbVideoPreview').style.display = 'block';
       if (initTrainingVideos) initTrainingVideos();
+      addWbGreetingInner();
       addWbSystemMsg(t('switch_training'));
     } else if (mode === 'qa') {
       addWbGreetingInner();
@@ -3924,12 +3925,12 @@
       var l = document.getElementById('wbLang').value;
       if (!p || !a || !l) {
         var reply = t('click_generate');
-        setTimeout(function(){ addWbAiMsg(reply); saveMessageToChat(currentChatId, 'ai', reply); }, 500);
+        setTimeout(function(){ addWbAiMsg(renderMarkdown(reply)); saveMessageToChat(currentChatId, 'ai', reply); }, 500);
       } else {
         setTimeout(function(){
           var prodName = document.getElementById('wbProduct').selectedOptions[0].text.split(' —')[0];
           var reply = t('ready_training', { product: prodName, avatar: wbAvatarNames[a], lang: wbLangNames[l] });
-          addWbAiMsg(reply);
+          addWbAiMsg(renderMarkdown(reply));
           saveMessageToChat(currentChatId, 'ai', reply);
         }, 500);
       }
