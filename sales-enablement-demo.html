@@ -2996,8 +2996,10 @@
     currentChatId = chatId;
     localStorage.setItem(CURRENT_CHAT_KEY, currentChatId);
 
-    // Switch to the chat's mode
-    switchWorkMode(chat.mode, true);
+    // Switch to the chat's mode only if it's different from current workMode
+    if (chat.mode !== workMode) {
+      switchWorkMode(chat.mode, true);
+    }
 
     // Clear and render messages
     var inner = document.getElementById('wbMessagesInner');
@@ -4506,6 +4508,12 @@
   // ===== 页面初始化 =====
   (function init() {
     try {
+      // Restore workMode from localStorage (default to QA)
+      var savedMode = localStorage.getItem('salesAI_workMode');
+      if (savedMode === 'training' || savedMode === 'qa' || savedMode === 'practice') {
+        workMode = savedMode;
+      }
+
       // Apply saved language
       currentLang = localStorage.getItem('salesAI_language') || 'zh';
       applyAllTranslations();
@@ -4521,23 +4529,27 @@
         }
       }
 
-      // Restore or create chat
+      // Restore or create chat (only load if matching current workMode)
       var chats = loadChats();
+      var chatToLoad = null;
       if (currentChatId && chats.length > 0) {
-        var exists = false;
         for (var i = 0; i < chats.length; i++) {
-          if (chats[i].id === currentChatId) { exists = true; break; }
+          if (chats[i].id === currentChatId) {
+            if (chats[i].mode === workMode) {
+              chatToLoad = chats[i];
+            }
+            break;
+          }
         }
-        if (!exists) {
-          currentChatId = chats[0].id;
-          localStorage.setItem(CURRENT_CHAT_KEY, currentChatId);
-        }
+      }
+      if (chatToLoad) {
         loadChatMessages(currentChatId);
       } else {
-        var chat = createNewChat('qa');
+        // Create a new chat for the current mode
+        var chat = createNewChat(workMode);
         currentChatId = chat.id;
         resetWorkbenchChatUI();
-        // Default to QA assistant on first visit
+        switchWorkMode(workMode, true); // sync sidebar active state
         document.getElementById('wbMessages').style.display = '';
         document.getElementById('wbBottomArea').style.display = '';
         document.getElementById('wbMainHeader').style.display = '';
